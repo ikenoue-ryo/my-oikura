@@ -9,8 +9,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class OfferSerializer(serializers.ModelSerializer):
-    author = UserSerializer()
+    # author = UserSerializer()
 
     class Meta:
         model = Offer
-        fields = ('item_name', 'item_date', 'created_at', 'author')
+        fields = ('item_name', 'item_date', 'created_at')

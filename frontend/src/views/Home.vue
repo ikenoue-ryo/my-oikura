@@ -11,6 +11,7 @@
             depressed
             color="primary"
             x-large
+            href="offer-form"
           >
             一括査定スタート
           </v-btn>
