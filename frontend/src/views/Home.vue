@@ -32,11 +32,19 @@
         <template v-slot:body="{ items: offer_Items }">
           <tbody>
             <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
-              <td><v-img :src="offer_Item.image" width="100"></v-img></td>
+              <td class="pa-3"><v-img :src="offer_Item.image" width="100"></v-img></td>
               <td>{{ offer_Item.item_name }}</td>
               <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.created_at }}</td>
-              <td>{{ offer_Item.item_name }}</td>
+              <td>
+                <v-chip
+                  class="ma-2"
+                  :color="chipColor(offer_Item.category.name)"
+                  text-color="black"
+                >
+                  {{ offer_Item.category.name }}
+                </v-chip>
+              </td>
               <td>{{ offer_Item.item_name }}</td>
             </tr>
           </tbody>
@@ -67,7 +75,7 @@
           { text: '商品名', value: 'calories' },
           { text: '製造日', value: 'fat' },
           { text: '査定依頼日', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
+          { text: 'カテゴリ', value: 'category' },
           { text: 'Iron (%)', value: 'iron' },
         ],
       offer_Items: []
@@ -75,6 +83,25 @@
     components: {
       Header,
       GlobalMenu,
+    },
+    methods: {
+      chipColor(category) {
+        if(category == '家電') {
+          return 'yellow'
+        }
+        if(category == '家具') {
+          return 'primary'
+        }
+        if(category == 'PC') {
+          return 'black'
+        }
+        if(category == 'ファッション') {
+          return 'orange'
+        }
+        if(category == '') {
+          return 'black'
+        }
+      }
     },
     mounted(){
       axios.get('http://127.0.0.1:8000/api/offers/')
