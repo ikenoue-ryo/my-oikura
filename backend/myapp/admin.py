@@ -4,14 +4,14 @@ from .models import User, Offer, Category
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'email')
 
 
 @admin.register(Offer)
 class OfferAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'item_name', 'item_date', 'created_at']
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name']
