@@ -30,10 +30,10 @@
         <template v-slot:body="{ items: offer_Items }">
           <tbody>
             <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name" class="custom-tr">
+              <td><v-img :src="offer_Item.image" width="100"></v-img></td>
               <td>{{ offer_Item.item_name }}</td>
-              <td>{{ offer_Item.item_date }}</td>
+              <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.item_name }}</td>
-              <td>{{ offer_Item.item_date }}</td>
               <td>{{ offer_Item.item_name }}</td>
               <td>{{ offer_Item.item_name }}</td>
             </tr>
@@ -57,13 +57,13 @@
       offers: '',
       headers: [
           {
-            text: '商品名',
+            text: '商品写真',
             align: 'start',
             sortable: false,
             value: 'name',
           },
-          { text: '製造日', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
+          { text: '商品名', value: 'calories' },
+          { text: '製造日', value: 'fat' },
           { text: 'Carbs (g)', value: 'carbs' },
           { text: 'Protein (g)', value: 'protein' },
           { text: 'Iron (%)', value: 'iron' },

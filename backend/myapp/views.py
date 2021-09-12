@@ -12,4 +12,4 @@ class UserViewSet(viewsets.ModelViewSet):
 class OfferViewSet(viewsets.ModelViewSet):
     queryset = Offer.objects.all()
     serializer_class = OfferSerializer
-    filter_fields = ('item_name', 'item_date')
+    # filter_fields = ('item_name', 'item_date')

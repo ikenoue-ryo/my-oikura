@@ -13,4 +13,4 @@ class OfferSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Offer
-        fields = ('item_name', 'item_date', 'created_at')
+        fields = '__all__'
