@@ -23,7 +23,7 @@
     <validation-observer
       ref="observer"
     >
-      <form @submit.prevent="submit">
+      <form @submit="submit">
         <v-col cols="12" sm="" md="3" lg="6">
           <validation-provider
             v-slot="{ errors }"
@@ -53,6 +53,9 @@
               required
             ></v-text-field>
           </validation-provider>
+        </v-col>
+        <v-col cols="12" sm="" md="3" lg="6">
+          <input @change="selectedFile" type="file" name="file">
         </v-col>
           <!-- <validation-provider
             v-slot="{ errors }"
@@ -89,7 +92,6 @@
         <v-btn
           class="mr-4"
           type="submit"
-          @click="submit"
         >
           送信
         </v-btn>
@@ -143,6 +145,7 @@
     data: () => ({
         item_name: '',
         item_date: '',
+        image: '',
         select: null,
         // items: [
         //   'Item 1',
@@ -152,6 +155,7 @@
         // ],
         checkbox: null,
         offers: '',
+        uploadFile: null,
     }),
     components: {
       Header,
@@ -160,12 +164,24 @@
       ValidationObserver,
     },
     methods: {
+      selectedFile(e) {
+        e.preventDefault();
+        let files = e.target.files;
+        this.uploadFile = files[0];
+      },
       submit() {
-        this.$refs.observer.validate()
-        axios.post('http://127.0.0.1:8000/api/offers/', {
-          item_name: this.item_name,
-          item_date: this.item_date,
-        }).then(response => {
+        this.$refs.observer.validate();
+        let formData = new FormData();
+        let url = 'http://127.0.0.1:8000/api/offers/';
+        let config = {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
+        };
+        formData.append('item_name', this.item_name);
+        formData.append('item_date', this.item_date);
+        formData.append('image', this.uploadFile);
+        axios.post(url, formData, config).then(response => {
           console.log(response);
           const next = '/'
           this.$router.replace(next)
@@ -176,10 +192,11 @@
       clear() {
         this.item_name = ''
         this.item_date = ''
+        this.image = ''
         // this.select = null
         this.checkbox = null
         this.$refs.observer.reset()
-      }
+      },
     },
     // mounted(){
     //   axios.post('offers/')

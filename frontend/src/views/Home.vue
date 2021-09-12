@@ -29,11 +29,11 @@
       >
         <template v-slot:body="{ items: offer_Items }">
           <tbody>
-            <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name" class="custom-tr">
+            <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
               <td><v-img :src="offer_Item.image" width="100"></v-img></td>
               <td>{{ offer_Item.item_name }}</td>
               <td>{{ offer_Item.item_date }}年</td>
-              <td>{{ offer_Item.item_name }}</td>
+              <td>{{ offer_Item.created_at }}</td>
               <td>{{ offer_Item.item_name }}</td>
               <td>{{ offer_Item.item_name }}</td>
             </tr>
@@ -64,7 +64,7 @@
           },
           { text: '商品名', value: 'calories' },
           { text: '製造日', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
+          { text: '査定依頼日', value: 'carbs' },
           { text: 'Protein (g)', value: 'protein' },
           { text: 'Iron (%)', value: 'iron' },
         ],
