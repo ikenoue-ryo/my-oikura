@@ -19,11 +19,13 @@
         </v-col>
       </v-row>
 
-      <h2>査定依頼一覧</h2>
-
+      <v-row class="ma-1">
+        <h2>査定依頼一覧</h2>
+        <p class="ma-2">依頼件数：{{offer_Items.count}}件</p>
+      </v-row>
       <v-data-table
         :headers="headers"
-        :items="offer_Items"
+        :items="offer_Items.results"
         :items-per-page="5"
         class="elevation-1"
       >
@@ -76,7 +78,7 @@
     },
     mounted(){
       axios.get('http://127.0.0.1:8000/api/offers/')
-        .then(response => this.offer_Items = response.data.results)
+        .then(response => this.offer_Items = response.data)
         .catch(error => console.log(error))
       }
   })
