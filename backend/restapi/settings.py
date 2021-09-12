@@ -25,20 +25,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'myapp',
     'rest_framework',
     'django_filters',
 ]
 
+LANGUAGE_CODE = 'ja'
+
+TIME_ZONE = 'Asia/Tokyo'
+
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 2,
+    'PAGE_SIZE': 1000,
+    # 時刻フォーマット
+    'DATETIME_INPUT_FORMATS': ['%Y-%m-%d %H:%M'],
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M',
 }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -115,3 +124,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# メディアファイルの設定
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# CORS
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+)
