@@ -55,8 +55,12 @@
           </validation-provider>
         </v-col>
         <v-col cols="12" sm="" md="3" lg="6">
-          <input @change="selectedFile" type="file" name="file">
+          <input @change="selectedFile" type="file" name="file" ref="preview">
         </v-col>
+        <div v-if="url" style="postion:relative">
+          <div style="position:absolute" @click="deletePreview">X</div>
+          <img :src="url">
+        </div>
           <!-- <validation-provider
             v-slot="{ errors }"
             name="select"
@@ -156,6 +160,7 @@
         checkbox: null,
         offers: '',
         uploadFile: null,
+        url: ''
     }),
     components: {
       Header,
@@ -168,6 +173,8 @@
         e.preventDefault();
         let files = e.target.files;
         this.uploadFile = files[0];
+        this.url = URL.createObjectURL(this.uploadFile);
+        this.$refs.preview.value = "";
       },
       submit() {
         this.$refs.observer.validate();
@@ -197,12 +204,11 @@
         this.checkbox = null
         this.$refs.observer.reset()
       },
+      deletePreview() {
+        this.url = '';
+        URL.revokeObjectURL(this.url);
+      }
     },
-    // mounted(){
-    //   axios.post('offers/')
-    //   .then(response => this.offers = response.data)
-    //   .catch(error => console.log(error))
-    // }
   })
 </script>
 
