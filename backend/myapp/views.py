@@ -2,7 +2,6 @@ from django_filters import rest_framework
 from rest_framework import viewsets, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from .models import User, Offer, Category
 from .utils.auth import NormalAuthentication, JWTAuthentication
 from .serializer import UserSerializer, OfferSerializer, CategorySerializer
@@ -13,14 +12,6 @@ class Login(APIView):
 
     def post(self, request, *args, **kwargs):
         return Response({'token': request.user})
-
-
-class Something(APIView):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request, *args, **kwargs):
-        return Response({'data': '中身です'})
 
 
 class UserViewSet(viewsets.ModelViewSet):
