@@ -113,7 +113,6 @@
           data: formData,
         })
         .then(response => {
-          console.log("これ", response.data)
           const next = this.$route.query.next || '/mypage/'
             this.$router.replace(next)
         }).catch(error => {

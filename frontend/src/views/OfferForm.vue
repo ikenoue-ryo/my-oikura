@@ -179,7 +179,7 @@
       submit() {
         this.$refs.observer.validate();
         let formData = new FormData();
-        let url = 'http://127.0.0.1:8000/api/offers/';
+        let url = '/api/offers/';
         let config = {
           headers: {
             'content-type': 'multipart/form-data'

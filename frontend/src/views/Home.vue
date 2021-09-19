@@ -60,6 +60,7 @@
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import axios from 'axios'
+  import api from '../services/api'
 
   export default Vue.extend({
     name: 'Home',
@@ -104,9 +105,12 @@
       }
     },
     mounted(){
-      axios.get('http://127.0.0.1:8000/api/offers/')
-        .then(response => this.offer_Items = response.data)
-        .catch(error => console.log(error))
+      api({
+        method: 'get',
+        url: '/api/offers/'
+      })
+      .then(response => this.offer_Items = response.data)
+      .catch(error => console.log(error))
       }
   })
 </script>

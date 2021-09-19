@@ -5,7 +5,7 @@ from .models import User, Offer, Category
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('name', 'email')
+        fields = ('name', 'password')
 
 
 class CategorySerializer(serializers.ModelSerializer):

@@ -4,7 +4,7 @@ from .models import User, Offer, Category
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email')
+    list_display = ('name', 'password')
 
 
 @admin.register(Offer)

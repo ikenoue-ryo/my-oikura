@@ -17,7 +17,6 @@
   import axios from 'axios'
   import api from '../services/api'
 
-
   export default Vue.extend({
     name: 'Home',
     data: () => ({
