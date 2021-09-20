@@ -111,7 +111,7 @@
         .then(() => {
           console.log('ログインしました')
           const next = this.$route.query.next || '/mypage/'
-            this.$router.replace(next)
+          this.$router.replace(next)
         }).catch(error => {
           console.log(error);
         })
