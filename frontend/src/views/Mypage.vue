@@ -15,7 +15,7 @@
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import axios from 'axios'
-  import api from '../services/api'
+  import api from '@/services/api'
 
   export default Vue.extend({
     name: 'Home',

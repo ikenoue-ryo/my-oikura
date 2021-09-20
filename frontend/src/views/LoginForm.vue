@@ -7,7 +7,7 @@
     <validation-observer
       ref="observer"
     >
-      <form @submit.prevent="submit">
+      <form @submit.prevent="submitLogin">
         <v-col cols="12" sm="" md="3" lg="6">
           <validation-provider
             v-slot="{ errors }"
@@ -102,17 +102,14 @@
       ValidationObserver,
     },
     methods: {
-      submit() {
-        let formData = new FormData();
-        formData.append('username', this.username);
-        formData.append('password', this.password);
-
-        api({
-          method: 'post',
-          url: 'auth/jwt/create/',
-          data: formData,
+      submitLogin() {
+        // ログイン
+        this.$store.dispatch('auth/login', {
+          username: this.username,
+          password: this.password,
         })
-        .then(response => {
+        .then(() => {
+          console.log('ログインしました')
           const next = this.$route.query.next || '/mypage/'
             this.$router.replace(next)
         }).catch(error => {
