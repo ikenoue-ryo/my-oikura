@@ -32,7 +32,7 @@
         <template v-slot:body="{ items: offer_Items }">
           <tbody>
             <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
-              <td class="pa-3"><v-img :src="offer_Item.image" width="100"></v-img></td>
+              <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
               <td>{{ offer_Item.item_name }}</td>
               <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.created_at }}</td>

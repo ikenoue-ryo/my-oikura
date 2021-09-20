@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import OfferForm from '../views/OfferForm.vue'
 import LoginForm from '../views/LoginForm.vue'
+import OfferForm from '../views/OfferForm.vue'
 import Mypage from '../views/Mypage.vue'
 import store from '@/store'
 
@@ -38,6 +39,7 @@ const router = new VueRouter({
     { path: '/', component: Home, meta: { requiresAuth: true } },
     { path: '/mypage', component: Mypage, meta: { requiresAuth: true } },
     { path: '/login', component: LoginForm },
+    { path: '/offer-form', component: OfferForm },
     { path: '*', redirect: '/' },
   ]
   // routes
