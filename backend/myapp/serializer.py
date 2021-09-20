@@ -15,9 +15,16 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class OfferSerializer(serializers.ModelSerializer):
-    # author = UserSerializer()
     category = CategorySerializer()
+    # category_id = serializers.ChoiceField(choices=list(Category.objects.all().values_list('name', flat=True)))
 
     class Meta:
         model = Offer
         fields = '__all__'
+        # exclude = ['category']
+
+    def create(self, validated_data):
+        category_data = validated_data.pop('category', None)
+        category = Category.objects.get_or_create(**category_data)[0]
+        validated_data['category'] = category
+        return Offer.objects.create(**validated_data)
