@@ -2,22 +2,16 @@
   <div>
     <Header />
     <GlobalMenu />
-    <!-- <v-container>
-      <v-row>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-      </v-row>
-    </v-container> -->
+
+    <h1>Step: {{ stepNumber }}</h1>
+    <FormName v-if="stepNumber === 1" @update="updateForm" />
+    <FormContact v-if="stepNumber === 2" @update="updateForm" />
+    <FormBirthday v-if="stepNumber === 3" @update="updateForm" />
+    <FormConfirm v-if="stepNumber === 4" :form="form" />
+    <button @click="backStep" v-show="stepNumber != 1">Back</button>
+    <button @click="nextStep" v-show="stepNumber != 4">Next</button>
+
+    <pre><code>{{form}}</code></pre>
 
   <v-container>
     <validation-observer
@@ -113,6 +107,10 @@
   import Vue from 'vue'
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
+  import FormName from '@/components/FormName.vue'
+  import FormContact from '@/components/FormContact.vue'
+  import FormConfirm from '@/components/FormConfirm.vue'
+  import FormBirthday from '@/components/FormBirthday.vue'
   import axios from 'axios'
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
@@ -160,13 +158,25 @@
         checkbox: null,
         offers: '',
         uploadFile: null,
-        url: ''
+        url: '',
+        stepNumber: 1,
+        form: {
+          firstName: null,
+          lastName: null,
+          Email: null,
+          tel: null,
+          birthday: null,
+        }
     }),
     components: {
       Header,
       GlobalMenu,
       ValidationProvider,
       ValidationObserver,
+      FormName,
+      FormContact,
+      FormConfirm,
+      FormBirthday,
     },
     methods: {
       selectedFile(e) {
@@ -207,7 +217,16 @@
       deletePreview() {
         this.url = '';
         URL.revokeObjectURL(this.url);
-      }
+      },
+      updateForm(formData) {
+        Object.assign(this.form, formData)
+      },
+      backStep() {
+        this.stepNumber--;
+      },
+      nextStep() {
+        this.stepNumber++;
+      },
     },
   })
 </script>

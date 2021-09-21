@@ -20,7 +20,7 @@
     methods: {
       submit(){
         this.$emit('update', {
-          Birthday: this.birthday,
+          birthday: this.birthday,
         });
       }
     }
