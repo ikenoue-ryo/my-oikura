@@ -23,6 +23,8 @@
         <h2>査定依頼一覧</h2>
         <p class="ma-2">依頼件数：{{offer_Items.count}}件</p>
       </v-row>
+      <div>
+      <!-- <a href="/offer-form/1"> -->
       <v-data-table
         :headers="headers"
         :items="offer_Items.results"
@@ -33,7 +35,7 @@
           <tbody>
             <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
               <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
-              <td>{{ offer_Item.item_name }}</td>
+              <td><a :href="`/offer-form/${offer_Item.id}/`">{{ offer_Item.item_name }}</a></td>
               <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.created_at }}</td>
               <td>
@@ -50,7 +52,8 @@
           </tbody>
         </template>
       </v-data-table>
-
+      <!-- </a> -->
+      </div>
     </v-container>
   </div>
 </template>

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import OfferForm from '../views/OfferForm.vue'
+import OfferFormDetail from '../views/OfferFormDetail.vue'
 import LoginForm from '../views/LoginForm.vue'
-import OfferForm from '../views/OfferForm.vue'
 import Mypage from '../views/Mypage.vue'
 import store from '@/store'
 
@@ -19,6 +19,11 @@ const routes: Array<RouteConfig> = [
     path: '/offer-form',
     name: 'OfferForm',
     component: OfferForm
+  },
+  {
+    path: '/offer-form/:id',
+    name: 'OfferFormDetail',
+    component: OfferFormDetail
   },
   {
     path: '/login',
@@ -40,6 +45,7 @@ const router = new VueRouter({
     { path: '/mypage', component: Mypage, meta: { requiresAuth: true } },
     { path: '/login', component: LoginForm },
     { path: '/offer-form', component: OfferForm },
+    { path: '/offer-form/:id', component: OfferFormDetail },
     { path: '*', redirect: '/' },
   ]
   // routes
