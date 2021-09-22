@@ -14,14 +14,15 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
-  export default Vue.extend({
+<script>
+  export default {
     name: 'FormName',
-    data: () => ({
-      firstName: null,
-      lastName: null,
-    }),
+    data() {
+      return {
+        firstName: null,
+        lastName: null,
+      }
+    },
     methods: {
       submit(){
         this.$emit('update', {
@@ -30,5 +31,5 @@
         });
       }
     }
-  })
+  }
 </script>

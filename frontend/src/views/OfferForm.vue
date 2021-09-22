@@ -103,8 +103,7 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import FormName from '@/components/FormName.vue'
@@ -142,9 +141,10 @@
     message: 'Email must be valid',
   })
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
+    data() {
+      return {
         item_name: '',
         item_date: '',
         image: '',
@@ -167,7 +167,8 @@
           tel: null,
           birthday: null,
         }
-    }),
+      }
+    },
     components: {
       Header,
       GlobalMenu,
@@ -228,7 +229,7 @@
         this.stepNumber++;
       },
     },
-  })
+  }
 </script>
 
 <style>

@@ -58,32 +58,33 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import axios from 'axios'
   import api from '../services/api'
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
-      offers: '',
-      headers: [
-          {
-            text: '商品写真',
-            align: 'start',
-            sortable: false,
-            value: 'name',
-          },
-          { text: '商品名', value: 'calories' },
-          { text: '製造日', value: 'fat' },
-          { text: '査定依頼日', value: 'carbs' },
-          { text: 'カテゴリ', value: 'category' },
-          { text: 'Iron (%)', value: 'iron' },
-        ],
-      offer_Items: []
-    }),
+    data(){
+      return {
+        offers: '',
+        headers: [
+            {
+              text: '商品写真',
+              align: 'start',
+              sortable: false,
+              value: 'name',
+            },
+            { text: '商品名', value: 'calories' },
+            { text: '製造日', value: 'fat' },
+            { text: '査定依頼日', value: 'carbs' },
+            { text: 'カテゴリ', value: 'category' },
+            { text: 'Iron (%)', value: 'iron' },
+          ],
+        offer_Items: []
+      }
+    },
     components: {
       Header,
       GlobalMenu,
@@ -114,8 +115,8 @@
       })
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))
-      }
-  })
+    }
+  }
 </script>
 
 <style>

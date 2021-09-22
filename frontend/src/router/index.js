@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import OfferForm from '../views/OfferForm.vue'
 import OfferFormDetail from '../views/OfferFormDetail.vue'
@@ -9,7 +9,7 @@ import store from '@/store'
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -48,7 +48,6 @@ const router = new VueRouter({
     { path: '/offer-form/:id', component: OfferFormDetail },
     { path: '*', redirect: '/' },
   ]
-  // routes
 })
 
 router.beforeEach((to, from, next) => {

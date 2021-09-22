@@ -9,25 +9,28 @@
     <p><a href="login">ログイン</a></p>
     <p><a href="#" @click="clickLogout">ログアウト</a></p>
     <p><a href="mypage">マイページ</a></p>
+    <p><a href="client">加盟店の方はこちら</a></p>
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import axios from 'axios'
   import api from '@/services/api'
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
-    }),
+    data() {
+      return {
+
+      }
+    },
     methods: {
       clickLogout() {
         this.$store.dispatch('auth/logout')
         this.$router.replace('/login')
       }
     },
-  })
+  }
 </script>

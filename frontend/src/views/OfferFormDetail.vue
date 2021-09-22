@@ -13,18 +13,18 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
-  import axios from 'axios'
   import api from '../services/api'
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
-      offer_Items: []
-    }),
+    data() {
+      return {
+        offer_Items: []
+      }
+    },
     components: {
       Header,
       GlobalMenu,
@@ -39,7 +39,7 @@
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))
     }
-  })
+  }
 </script>
 
 <style>

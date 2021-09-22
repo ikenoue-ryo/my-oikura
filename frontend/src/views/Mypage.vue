@@ -12,17 +12,18 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import api from '@/services/api'
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
-      mypage: ''
-    }),
+    data() {
+      return {
+        mypage: ''
+      }
+    },
     components: {
       Header,
       GlobalMenu,
@@ -45,7 +46,7 @@
         return this.$store.getters['auth/isLoggedIn']
       },
     }
-  })
+  }
 </script>
 
 <style>

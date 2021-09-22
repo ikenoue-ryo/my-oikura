@@ -52,8 +52,7 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import axios from 'axios'
@@ -88,13 +87,15 @@
     message: 'Email must be valid',
   })
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
+    data() {
+      return {
         username: '',
         password: '',
         url: ''
-    }),
+      }
+    },
     components: {
       Header,
       GlobalMenu,
@@ -117,7 +118,7 @@
         })
       },
     },
-  })
+  }
 </script>
 
 <style>
