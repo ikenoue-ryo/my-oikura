@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Offer, Category
+from .models import User, Offer, Category, UserInfo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -28,3 +28,9 @@ class OfferSerializer(serializers.ModelSerializer):
         category = Category.objects.get_or_create(**category_data)[0]
         validated_data['category'] = category
         return Offer.objects.create(**validated_data)
+
+
+class UserInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInfo
+        fields = '__all__'

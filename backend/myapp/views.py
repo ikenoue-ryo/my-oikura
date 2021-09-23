@@ -3,9 +3,9 @@ from rest_framework import viewsets, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import User, Offer, Category
+from .models import User, Offer, Category, UserInfo
 from .utils.auth import NormalAuthentication, JWTAuthentication
-from .serializer import UserSerializer, OfferSerializer, CategorySerializer
+from .serializer import UserSerializer, OfferSerializer, CategorySerializer, UserInfoSerializer
 
 
 class Login(APIView):
@@ -29,3 +29,8 @@ class OfferViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+
+class UserInfoViewSet(viewsets.ModelViewSet):
+    queryset = UserInfo.objects.all()
+    serializer_class = UserInfoSerializer

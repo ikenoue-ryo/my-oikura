@@ -7,11 +7,108 @@
     <FormName v-if="stepNumber === 1" @update="updateForm" />
     <FormContact v-if="stepNumber === 2" @update="updateForm" />
     <FormBirthday v-if="stepNumber === 3" @update="updateForm" />
+
     <FormConfirm v-if="stepNumber === 4" :form="form" />
+
     <button @click="backStep" v-show="stepNumber != 1">Back</button>
     <button @click="nextStep" v-show="stepNumber != 4">Next</button>
 
     <pre><code>{{form}}</code></pre>
+
+     <v-container>
+    <validation-observer
+      ref="observer"
+    >
+      <form @submit="submitMulchForm">
+        <v-col cols="12" sm="" md="3" lg="6">
+          <validation-provider
+            v-slot="{ errors }"
+            name="form.first_name"
+            rules="required|max:10"
+          >
+            <v-text-field
+              v-model="form.first_name"
+              :counter="10"
+              :error-messages="errors"
+              label="first_name"
+              required
+              :value=form.first_name
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="12" sm="" md="3" lg="6">
+          <validation-provider
+            v-slot="{ errors }"
+            name="form.last_name"
+            rules="required|max:10"
+          >
+            <v-text-field
+              v-model="form.last_name"
+              :counter="10"
+              :error-messages="errors"
+              label="last_name"
+              required
+              :value=form.last_name
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="12" sm="" md="3" lg="6">
+          <validation-provider
+            v-slot="{ errors }"
+            name="form.email"
+            rules="required|max:20"
+          >
+            <v-text-field
+              v-model="form.email"
+              :counter="20"
+              :error-messages="errors"
+              label="email"
+              required
+              :value=form.email
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="12" sm="" md="3" lg="6">
+          <validation-provider
+            v-slot="{ errors }"
+            name="form.tel"
+            rules="required|max:10"
+          >
+            <v-text-field
+              v-model="form.tel"
+              :counter="10"
+              :error-messages="errors"
+              label="tel"
+              required
+              :value=form.tel
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="12" sm="" md="3" lg="6">
+          <validation-provider
+            v-slot="{ errors }"
+            name="birthday"
+            rules="required|max:10"
+          >
+            <v-text-field
+              v-model="form.birthday"
+              :counter="10"
+              :error-messages="errors"
+              label="form.birthday"
+              required
+              :value=form.birthday
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-btn
+          class="mr-4"
+          type="submit"
+        >
+          送信
+        </v-btn>
+      </form>
+    </validation-observer>
+  </v-container>
 
   <v-container>
     <validation-observer
@@ -113,7 +210,7 @@
   import axios from 'axios'
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
-
+  import api from '@/services/api'
   setInteractionMode('eager')
 
   extend('digits', {
@@ -161,9 +258,9 @@
         url: '',
         stepNumber: 1,
         form: {
-          firstName: null,
-          lastName: null,
-          Email: null,
+          first_name: null,
+          last_name: null,
+          email: null,
           tel: null,
           birthday: null,
         }
@@ -228,7 +325,26 @@
       nextStep() {
         this.stepNumber++;
       },
-    },
+      submitMulchForm() {
+        this.$refs.observer.validate()
+        let formData = new FormData();
+        let url = '/api/user_info/';
+
+        formData.append('first_name', this.form.first_name);
+        formData.append('last_name', this.form.last_name);
+        formData.append('email', this.form.email);
+        formData.append('tel', this.form.tel);
+        formData.append('birthday', this.form.birthday);
+
+        api({
+          method: 'post',
+          url: url,
+          data: formData,
+        })
+        .then(response => console.log(response.data))
+        .catch(error => console.log(error))
+      },
+    }
   }
 </script>
 

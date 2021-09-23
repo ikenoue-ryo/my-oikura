@@ -1,10 +1,9 @@
 <template>
   <div>
-      <div>
-        <h2>Confirmation</h2>
-        これ{{form}}
-      <p>Name: {{ form.firstName }} {{ form.lastName }}</p>
-      <p>Email: {{ form.Email }}</p>
+    <div>
+      <h2>Confirmation</h2>
+      <p>Name: {{ form.first_name }} {{ form.last_name }}</p>
+      <p>Email: {{ form.email }}</p>
       <p>Tel: {{ form.tel }}</p>
       <p>Birthday: {{ form.birthday }}</p>
 		</div>
