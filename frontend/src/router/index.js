@@ -9,34 +9,6 @@ import store from '@/store'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/offer-form',
-    name: 'OfferForm',
-    component: OfferForm
-  },
-  {
-    path: '/offer-form/:id',
-    name: 'OfferFormDetail',
-    component: OfferFormDetail
-  },
-  {
-    path: '/login',
-    name: 'LoginForm',
-    component: LoginForm
-  },
-  {
-    path: '/mypage',
-    name: 'Mypage',
-    component: Mypage
-  },
-]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -53,7 +25,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 
   const isLoggedIn = store.getters['auth/isLoggedIn']
-  const token = localStorage.getItem('access')
+  // const token = localStorage.getItem('access')
   console.log("ログイン状態", isLoggedIn)
 
   // ログインしている場合

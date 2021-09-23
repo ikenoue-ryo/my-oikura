@@ -3,8 +3,8 @@
     <form @input="submit">
 				<h2>Contact Info</h2>
 				<div class="form-group">
-				<label for="Email">Email</label>
-				<input type="email" class="form-control" v-model="Email" placeholder="Enter email">
+				<label for="Email">email</label>
+				<input type="email" class="form-control" v-model="email" placeholder="Enter email">
 				</div>					
 				<div class="form-group">
 				<label for="tel">Tel</label>
@@ -19,14 +19,14 @@
     name: 'FormContact',
     data() {
       return {
-        Email: null,
+        email: null,
         tel: null,
       }
     },
     methods: {
       submit(){
         this.$emit('update', {
-          Email: this.Email,
+          email: this.email,
           tel: this.tel,
         });
       }

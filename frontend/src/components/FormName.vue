@@ -3,12 +3,12 @@
     <form @input="submit">
 				<h2>Name Info</h2>
 				<div class="form-group">
-				<label for="firstName">First Name</label>
-				<input type="text" class="form-control" v-model="firstName" placeholder="Enter First Name">
+				<label for="first_name">First Name</label>
+				<input type="text" class="form-control" v-model="first_name" placeholder="Enter First Name">
 				</div>					
 				<div class="form-group">
-				<label for="lastName">Last Name</label>
-				<input type="text" class="form-control" v-model="lastName" placeholder="Enter Last Name">
+				<label for="last_name">Last Name</label>
+				<input type="text" class="form-control" v-model="last_name" placeholder="Enter Last Name">
         </div>
 			</form>
   </div>
@@ -19,15 +19,15 @@
     name: 'FormName',
     data() {
       return {
-        firstName: null,
-        lastName: null,
+        first_name: null,
+        last_name: null,
       }
     },
     methods: {
       submit(){
         this.$emit('update', {
-          firstName: this.firstName,
-          lastName: this.lastName,
+          first_name: this.first_name,
+          last_name: this.last_name,
         });
       }
     }
