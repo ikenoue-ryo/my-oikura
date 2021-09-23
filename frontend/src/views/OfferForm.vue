@@ -2,22 +2,16 @@
   <div>
     <Header />
     <GlobalMenu />
-    <!-- <v-container>
-      <v-row>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3">
-        a
-        </v-col>
-      </v-row>
-    </v-container> -->
+
+    <h1>Step: {{ stepNumber }}</h1>
+    <FormName v-if="stepNumber === 1" @update="updateForm" />
+    <FormContact v-if="stepNumber === 2" @update="updateForm" />
+    <FormBirthday v-if="stepNumber === 3" @update="updateForm" />
+    <FormConfirm v-if="stepNumber === 4" :form="form" />
+    <button @click="backStep" v-show="stepNumber != 1">Back</button>
+    <button @click="nextStep" v-show="stepNumber != 4">Next</button>
+
+    <pre><code>{{form}}</code></pre>
 
   <v-container>
     <validation-observer
@@ -55,8 +49,12 @@
           </validation-provider>
         </v-col>
         <v-col cols="12" sm="" md="3" lg="6">
-          <input @change="selectedFile" type="file" name="file">
+          <input @change="selectedFile" type="file" name="file" ref="preview">
         </v-col>
+        <div v-if="url" style="postion:relative">
+          <div style="position:absolute" @click="deletePreview">X</div>
+          <img :src="url">
+        </div>
           <!-- <validation-provider
             v-slot="{ errors }"
             name="select"
@@ -105,10 +103,13 @@
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
+  import FormName from '@/components/FormName.vue'
+  import FormContact from '@/components/FormContact.vue'
+  import FormConfirm from '@/components/FormConfirm.vue'
+  import FormBirthday from '@/components/FormBirthday.vue'
   import axios from 'axios'
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
@@ -140,9 +141,10 @@
     message: 'Email must be valid',
   })
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
+    data() {
+      return {
         item_name: '',
         item_date: '',
         image: '',
@@ -156,23 +158,39 @@
         checkbox: null,
         offers: '',
         uploadFile: null,
-    }),
+        url: '',
+        stepNumber: 1,
+        form: {
+          firstName: null,
+          lastName: null,
+          Email: null,
+          tel: null,
+          birthday: null,
+        }
+      }
+    },
     components: {
       Header,
       GlobalMenu,
       ValidationProvider,
       ValidationObserver,
+      FormName,
+      FormContact,
+      FormConfirm,
+      FormBirthday,
     },
     methods: {
       selectedFile(e) {
         e.preventDefault();
         let files = e.target.files;
         this.uploadFile = files[0];
+        this.url = URL.createObjectURL(this.uploadFile);
+        this.$refs.preview.value = "";
       },
       submit() {
         this.$refs.observer.validate();
         let formData = new FormData();
-        let url = 'http://127.0.0.1:8000/api/offers/';
+        let url = '/api/offers/';
         let config = {
           headers: {
             'content-type': 'multipart/form-data'
@@ -197,13 +215,21 @@
         this.checkbox = null
         this.$refs.observer.reset()
       },
+      deletePreview() {
+        this.url = '';
+        URL.revokeObjectURL(this.url);
+      },
+      updateForm(formData) {
+        Object.assign(this.form, formData)
+      },
+      backStep() {
+        this.stepNumber--;
+      },
+      nextStep() {
+        this.stepNumber++;
+      },
     },
-    // mounted(){
-    //   axios.post('offers/')
-    //   .then(response => this.offers = response.data)
-    //   .catch(error => console.log(error))
-    // }
-  })
+  }
 </script>
 
 <style>
