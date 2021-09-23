@@ -23,6 +23,8 @@
         <h2>査定依頼一覧</h2>
         <p class="ma-2">依頼件数：{{offer_Items.count}}件</p>
       </v-row>
+      <div>
+      <!-- <a href="/offer-form/1"> -->
       <v-data-table
         :headers="headers"
         :items="offer_Items.results"
@@ -32,8 +34,8 @@
         <template v-slot:body="{ items: offer_Items }">
           <tbody>
             <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
-              <td class="pa-3"><v-img :src="offer_Item.image" width="100"></v-img></td>
-              <td>{{ offer_Item.item_name }}</td>
+              <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
+              <td><a :href="`/offer-form/${offer_Item.id}/`">{{ offer_Item.item_name }}</a></td>
               <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.created_at }}</td>
               <td>
@@ -50,36 +52,39 @@
           </tbody>
         </template>
       </v-data-table>
-
+      <!-- </a> -->
+      </div>
     </v-container>
   </div>
 </template>
 
-<script lang="ts">
-  import Vue from 'vue'
+<script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import axios from 'axios'
+  import api from '../services/api'
 
-  export default Vue.extend({
+  export default {
     name: 'Home',
-    data: () => ({
-      offers: '',
-      headers: [
-          {
-            text: '商品写真',
-            align: 'start',
-            sortable: false,
-            value: 'name',
-          },
-          { text: '商品名', value: 'calories' },
-          { text: '製造日', value: 'fat' },
-          { text: '査定依頼日', value: 'carbs' },
-          { text: 'カテゴリ', value: 'category' },
-          { text: 'Iron (%)', value: 'iron' },
-        ],
-      offer_Items: []
-    }),
+    data(){
+      return {
+        offers: '',
+        headers: [
+            {
+              text: '商品写真',
+              align: 'start',
+              sortable: false,
+              value: 'name',
+            },
+            { text: '商品名', value: 'calories' },
+            { text: '製造日', value: 'fat' },
+            { text: '査定依頼日', value: 'carbs' },
+            { text: 'カテゴリ', value: 'category' },
+            { text: 'Iron (%)', value: 'iron' },
+          ],
+        offer_Items: []
+      }
+    },
     components: {
       Header,
       GlobalMenu,
@@ -104,11 +109,14 @@
       }
     },
     mounted(){
-      axios.get('http://127.0.0.1:8000/api/offers/')
-        .then(response => this.offer_Items = response.data)
-        .catch(error => console.log(error))
-      }
-  })
+      api({
+        method: 'get',
+        url: '/api/offers/'
+      })
+      .then(response => this.offer_Items = response.data)
+      .catch(error => console.log(error))
+    }
+  }
 </script>
 
 <style>

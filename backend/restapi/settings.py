@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'myapp',
     'rest_framework',
+    'djoser',
     'django_filters',
 ]
 
@@ -42,6 +44,15 @@ REST_FRAMEWORK = {
     # 時刻フォーマット
     'DATETIME_INPUT_FORMATS': ['%Y-%m-%d %H:%M'],
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M',
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
 }
 
 MIDDLEWARE = [

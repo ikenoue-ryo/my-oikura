@@ -9,6 +9,9 @@ django = "*"
 django-filter = "*"
 django-cors-headers = "*"
 pillow = "*"
+pyjwt = "==1.7.1"
+djangorestframework-simplejwt = "==4.3.0"
+djoser = "==2.0.3"
 
 [dev-packages]
 
