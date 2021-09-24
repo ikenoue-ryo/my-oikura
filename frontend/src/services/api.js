@@ -1,5 +1,4 @@
 import axios from 'axios'
-import store from '@/store'
 
 const api = axios.create({
   baseURL: process.env.VUE_APP_ROOT_API,

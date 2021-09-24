@@ -5,7 +5,7 @@ from rest_framework.authentication import BaseAuthentication
 from rest_framework.authentication import get_authorization_header
 from rest_framework import exceptions
 
-from myapp.models import User
+from app.models import User
 
 
 class NormalAuthentication(BaseAuthentication):
