@@ -18,7 +18,7 @@
         </v-container>
         </v-col>
       </v-row>
-
+      
       <v-row class="ma-1">
         <h2>査定依頼一覧</h2>
         <p class="ma-2">依頼件数：{{offer_Items.count}}件</p>
@@ -32,22 +32,26 @@
         class="elevation-1"
       >
         <template v-slot:body="{ items: offer_Items }">
-          <tbody>
-            <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
+          <tbody v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
+            <tr>
               <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
               <td><a :href="`/offer-form/${offer_Item.id}/`">{{ offer_Item.item_name }}</a></td>
               <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.created_at }}</td>
               <td>
-                <v-chip
-                  class="ma-2"
-                  :color="chipColor(offer_Item.category.name)"
-                  text-color="black"
-                >
+                <!-- <a :href="`/offer-form/${offer_Item.category.name}/`"> -->
+                <!-- <router-link :to="{name: 'Home', query: {category: offer_Item.category.name}}"> -->
+                  <v-chip
+                    class="ma-2"
+                    :color="chipColor(offer_Item.category.name)"
+                    text-color="black"
+                  >
                   {{ offer_Item.category.name }}
-                </v-chip>
+                  </v-chip>
+                <!-- </router-link> -->
+                {{offer_Item}}
               </td>
-              <td>{{ offer_Item.item_name }}</td>
+              <td><a :href="`/user-offer/${offer_Item.user.name}/`">{{ offer_Item.user.name }}</a></td>
             </tr>
           </tbody>
         </template>
@@ -61,7 +65,6 @@
 <script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
-  import axios from 'axios'
   import api from '../services/api'
 
   export default {
@@ -80,9 +83,9 @@
             { text: '製造日', value: 'fat' },
             { text: '査定依頼日', value: 'carbs' },
             { text: 'カテゴリ', value: 'category' },
-            { text: 'Iron (%)', value: 'iron' },
+            { text: '依頼者', value: 'offer' },
           ],
-        offer_Items: []
+        offer_Items: [],
       }
     },
     components: {
@@ -106,7 +109,7 @@
         if(category == '') {
           return 'black'
         }
-      }
+      },
     },
     mounted(){
       api({
@@ -115,7 +118,9 @@
       })
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))
-    }
+      // this.category_name = this.$route.query.name
+      // console.log('これは', this.$route.query.category)
+    },
   }
 </script>
 

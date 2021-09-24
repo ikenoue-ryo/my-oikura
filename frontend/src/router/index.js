@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import OfferForm from '../views/OfferForm.vue'
 import OfferFormDetail from '../views/OfferFormDetail.vue'
+import UserInfoDetail from '../views/UserInfoDetail.vue'
 import LoginForm from '../views/LoginForm.vue'
 import Mypage from '../views/Mypage.vue'
 import store from '@/store'
@@ -18,6 +19,7 @@ const router = new VueRouter({
     { path: '/login', component: LoginForm },
     { path: '/offer-form', component: OfferForm },
     { path: '/offer-form/:id', component: OfferFormDetail },
+    { path: '/offer-form/:username', component: UserInfoDetail },
     { path: '*', redirect: '/' },
   ]
 })

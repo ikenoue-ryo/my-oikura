@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import User, Offer, Category, UserInfo
 from .utils.auth import NormalAuthentication, JWTAuthentication
-from .serializer import UserSerializer, OfferSerializer, CategorySerializer, UserInfoSerializer
+from .serializer import UserSerializer, OfferSerializer, CategorySerializer
 
 
 class Login(APIView):
@@ -31,6 +31,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
 
-class UserInfoViewSet(viewsets.ModelViewSet):
-    queryset = UserInfo.objects.all()
-    serializer_class = UserInfoSerializer
+# class UserInfoViewSet(viewsets.ModelViewSet):
+#     queryset = UserInfo.objects.all()
+#     serializer_class = UserInfoSerializer
