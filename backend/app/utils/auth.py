@@ -28,7 +28,7 @@ class NormalAuthentication(BaseAuthentication):
 def generate_jwt(user):
     timestamp = int(time.time()) + 60 * 60 * 24 * 7
     return jwt.encode(
-        {"userid": user.pk, "name": user.name, "info": user.info, "exp": timestamp},
+        {"userid": user.pk, "name": user.name, "exp": timestamp},
         SECRET_KEY).decode("utf-8")
 
 

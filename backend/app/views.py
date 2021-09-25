@@ -1,11 +1,46 @@
 from django_filters import rest_framework
+from django.shortcuts import render
+from rest_framework import generics, authentication, permissions
+from app import serializers
+from .models import User, Offer, Category, Profile
+
+from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from django.db import IntegrityError
+from rest_framework.exceptions import ValidationError
+from app import ownpermissions
 from rest_framework import viewsets, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import User, Offer, Category, UserInfo
 from .utils.auth import NormalAuthentication, JWTAuthentication
-from .serializer import UserSerializer, OfferSerializer, CategorySerializer
+from .serializers import UserSerializer, OfferSerializer, CategorySerializer
+
+
+class CreateUserView(generics.CreateAPIView):
+    serializer_class = serializers.UserSerializer
+
+
+class ManageUserView(generics.RetrieveUpdateAPIView):
+    serializer_class = serializers.UserSerializer
+    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get_object(self):
+        return self.request.user
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = serializers.ProfileSerializer
+    authentication_class = (authentication.TokenAuthentication,)
+    permission_classes = (permissions.IsAuthenticated, ownpermissions.ProfilePermission)
+
+    def perform_create(self, serializer):
+        try:
+            serializer.save(user=self.request.user)
+        except IntegrityError:
+            raise ValidationError("User can have only one own profile")
 
 
 class Login(APIView):
