@@ -11,14 +11,15 @@
         <v-col cols="12" sm="" md="3" lg="6">
           <validation-provider
             v-slot="{ errors }"
-            name="username"
-            rules="required|max:10"
+            name="email"
+            rules="required|max:30"
           >
             <v-text-field
-              v-model="username"
-              :counter="10"
+              type="email"
+              v-model="email"
+              :counter="20"
               :error-messages="errors"
-              label="username"
+              label="email"
               required
             ></v-text-field>
           </validation-provider>
@@ -89,7 +90,7 @@
     name: 'Home',
     data() {
       return {
-        username: '',
+        email: '',
         password: '',
         url: ''
       }
@@ -104,7 +105,7 @@
       submitLogin() {
         // ログイン
         this.$store.dispatch('auth/login', {
-          username: this.username,
+          email: this.email,
           password: this.password,
         })
         .then(() => {

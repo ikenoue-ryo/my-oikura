@@ -33,11 +33,11 @@ const authModule = {
     // ログイン
     login (context, payload) {
       return api.post('/auth/jwt/create/', {
-        'username': payload.username,
+        'email': payload.email,
         'password': payload.password,
       })
       .then(response => {
-        console.log('できてる？', response)
+        console.log(response)
         // 認証用のトークンをlocalStorageに保存する
         localStorage.setItem('access', response.data.access)
         // ユーザー情報の取得してstoreのユーザー情報を更新
