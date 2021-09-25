@@ -10,6 +10,7 @@ from app.urls import router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authen/', views.obtain_auth_token),
+    path('api/user/', include('app.urls')),
     path('api/v1/api/', include(router.urls)),
     path('api/v1/login/', Login.as_view()),
     path('api/v1/auth/', include('djoser.urls')),

@@ -1,11 +1,27 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from .models import User, Offer, Category, UserInfo
+from rest_framework.authtoken.models import Token
+from rest_framework import serializers
+from .models import User, Offer, Category, Profile
 
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = User
-        fields = ('name', 'password')
+        model = get_user_model()
+        fields = ('id', 'email', 'password', 'name')
+    
+    def create(self, validated_data):
+        user = get_user_model().objects.create_user(**validated_data)
+        Token.objects.create(user=user)
+        return user
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Profile
+        fields = ('id', 'nickname', 'user', 'created_on', 'img')
 
 
 class CategorySerializer(serializers.ModelSerializer):
