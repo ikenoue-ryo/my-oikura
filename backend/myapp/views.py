@@ -1,14 +1,14 @@
 from django_filters import rest_framework
 from django.shortcuts import render
 from rest_framework import generics, authentication, permissions
-from app import serializers
+from myapp import serializers
 from .models import User, Offer, Category, Profile
 
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from django.db import IntegrityError
 from rest_framework.exceptions import ValidationError
-from app import ownpermissions
+from myapp import ownpermissions
 from rest_framework import viewsets, filters
 from rest_framework.views import APIView
 from rest_framework.response import Response

@@ -32,7 +32,7 @@ const authModule = {
   actions: {
     // ログイン
     login (context, payload) {
-      return api.post('/auth/jwt/create/', {
+      return api.post('/api/v1/auth/jwt/create/', {
         'email': payload.email,
         'password': payload.password,
       })
@@ -52,7 +52,7 @@ const authModule = {
     },
     // ユーザー情報更新
     reload (context) {
-      return api.get('/auth/users/me')
+      return api.get('/api/v1/auth/users/me')
         .then(response => {
           const user = response.data
           context.commit('set', { user: user })

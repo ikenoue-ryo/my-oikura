@@ -18,7 +18,7 @@
         </v-container>
         </v-col>
       </v-row>
-      
+
       <v-row class="ma-1">
         <h2>査定依頼一覧</h2>
         <p class="ma-2">依頼件数：{{offer_Items.count}}件</p>
@@ -32,26 +32,22 @@
         class="elevation-1"
       >
         <template v-slot:body="{ items: offer_Items }">
-          <tbody v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
-            <tr>
+          <tbody>
+            <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
               <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
               <td><a :href="`/offer-form/${offer_Item.id}/`">{{ offer_Item.item_name }}</a></td>
               <td>{{ offer_Item.item_date }}年</td>
               <td>{{ offer_Item.created_at }}</td>
               <td>
-                <!-- <a :href="`/offer-form/${offer_Item.category.name}/`"> -->
-                <!-- <router-link :to="{name: 'Home', query: {category: offer_Item.category.name}}"> -->
-                  <v-chip
-                    class="ma-2"
-                    :color="chipColor(offer_Item.category.name)"
-                    text-color="black"
-                  >
+                <v-chip
+                  class="ma-2"
+                  :color="chipColor(offer_Item.category.name)"
+                  text-color="black"
+                >
                   {{ offer_Item.category.name }}
-                  </v-chip>
-                <!-- </router-link> -->
-                {{offer_Item}}
+                </v-chip>
               </td>
-              <td><a :href="`/user-offer/${offer_Item.user.name}/`">{{ offer_Item.user.name }}</a></td>
+              <td>{{ offer_Item.item_name }}</td>
             </tr>
           </tbody>
         </template>
@@ -114,7 +110,7 @@
     mounted(){
       api({
         method: 'get',
-        url: '/api/offers/'
+        url: '/api/v1/api/offers/'
       })
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))

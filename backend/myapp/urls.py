@@ -1,5 +1,5 @@
 from django.urls import path, include
-from app import views
+from myapp import views
 from rest_framework.routers import DefaultRouter
 from .views import UserViewSet, OfferViewSet, CategoryViewSet, ProfileViewSet
 

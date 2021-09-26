@@ -65,9 +65,8 @@ class Offer(models.Model):
     image = models.ImageField(upload_to='images', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, verbose_name='カテゴリ', on_delete=models.PROTECT)
-    # user = models.ForeignKey(User, verbose_name='カテゴリ', on_delete=models.PROTECT)
-
+    category = models.ForeignKey('Category', related_name='カテゴリ', on_delete=models.PROTECT)
+    
     def __str__(self):
         return self.item_name
 

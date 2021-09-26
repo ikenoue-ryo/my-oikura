@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext as _
-from app.models import User, Offer, Category
+from myapp.models import User, Offer, Category, Profile
 
 
 class UserAdmin(BaseUserAdmin):
@@ -35,9 +35,14 @@ admin.site.register(User, UserAdmin)
 
 @admin.register(Offer)
 class OfferAdmin(admin.ModelAdmin):
-    list_display = ['id', 'item_name', 'item_date', 'created_at']
+    pass
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    pass
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    pass

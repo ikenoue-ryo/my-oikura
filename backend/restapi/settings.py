@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'app.apps.AppConfig',
+    'myapp.apps.MyappConfig',
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
@@ -150,4 +150,4 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:8080',
 )
 
-AUTH_USER_MODEL = 'app.User'
+AUTH_USER_MODEL = 'myapp.User'
