@@ -14,3 +14,6 @@
 
 # アクセス
 - URL: http://127.0.0.1:8000/api/
+
+# 注意
+本番環境でmanage.pyコマンドを実行する場合は、あらかじめ環境変数DJANGO_SETTINGS_MODULEにconfig.settings.productionを設定するか、manage.pyの起動オプションに--settings config.settings.productionを指定する必要がある。

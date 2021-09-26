@@ -8,16 +8,13 @@
         <p>Email: {{ mypage.email }}</p>
         <p>ID:{{ mypage.id }}</p>
 
-
-        <p>ID: {{profiles.results[0].id}}</p>
-        <p>{{profiles.results[0].nickname}}</p>
-        <p>{{profiles.results[0].created_on}}</p>
-        <p><img :src="profiles.results[0].img" alt=""></p>
-        <p>{{profiles.results[0].id}}</p>
-
-        <!-- <div v-for="profile in profiles" :key="profile.id">
-          {{ profile.img }}
-        </div> -->
+        <div v-if="profiles">
+          <p>ID: {{profiles.results[0].id}}</p>
+          <p>{{profiles.results[0].nickname}}</p>
+          <p>{{profiles.results[0].created_on}}</p>
+          <p><img :src="profiles.results[0].img" alt=""></p>
+          <p>{{profiles.results[0].id}}</p>
+        </div>
       </template>
   </div>
 </template>
