@@ -32,7 +32,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class OfferSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
-    # profile_user = ProfileSerializer()
+    profile = ProfileSerializer()
     # profile_id = serializers.ChoiceField(choices=list(Profile.objects.all().values_list('nickname', flat=True)))
     
     class Meta:
@@ -44,6 +44,7 @@ class OfferSerializer(serializers.ModelSerializer):
         category_data = validated_data.pop('category', None)
         category = Category.objects.get_or_create(**category_data)[0]
         validated_data['category'] = category
+
 
         # user_data = validated_data.pop('user', None)
         # user = User.objects.get_or_create(**user_data)[0]

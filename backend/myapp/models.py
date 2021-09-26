@@ -66,6 +66,7 @@ class Offer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey('Category', related_name='カテゴリ', on_delete=models.PROTECT)
+    profile = models.ForeignKey('Profile', related_name='プロフィール', on_delete=models.PROTECT)
     
     def __str__(self):
         return self.item_name
