@@ -1,4 +1,7 @@
-# 起動
+# 起動1
+- docker-compose up -d
+
+# 起動2
 - pip env install
 - pip env shell
 - python manage.py migrate
