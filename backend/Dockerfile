@@ -5,11 +5,10 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+ADD requirements.txt /usr/src/app/
 RUN pip install --upgrade pip \
-&& pip install pipenv mysqlclient
+    && pip install -r requirements.txt
 
 COPY ./Pipfile /usr/src/app/Pipfile
-
-RUN pipenv install --skip-lock --system --dev
 
 COPY . /usr/src/app/
