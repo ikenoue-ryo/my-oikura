@@ -48,6 +48,7 @@
                 </v-chip>
               </td>
               <td><router-link :to="`/mypage/${offer_Item.profile.user.name}`">{{ offer_Item.profile.nickname }}</router-link></td>
+              <td>5,000円</td>
             </tr>
           </tbody>
         </template>
@@ -80,6 +81,7 @@
             { text: '査定依頼日', value: 'carbs' },
             { text: 'カテゴリ', value: 'category' },
             { text: '依頼者', value: 'offer' },
+            { text: '査定金額', value: 'money' },
           ],
         offer_Items: [],
       }
