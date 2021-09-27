@@ -117,7 +117,7 @@
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))
       // this.category_name = this.$route.query.name
-      // console.log('これは', this.$route.query.category)
+      // console.log(this.$route.query.category)
     },
   }
 </script>
