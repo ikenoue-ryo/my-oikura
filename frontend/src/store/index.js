@@ -5,24 +5,26 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex)
 
+const initialState = {
+  email: '',
+  isLoggedIn: false
+}
+
 const authModule = {
   strict: process.env.NODE_ENV !== 'production',
   namespaced: true,
-  state: {
-    username: '',
-    isLoggedIn: false,
-  },
+  state: initialState,
   getters: {
-    username: state => state.username,
+    email: state => state.email,
     isLoggedIn: state => state.isLoggedIn,
   },
   mutations: {
     set(state, payload) {
-      state.username = payload.user.username
+      state.email = payload.user.email
       state.isLoggedIn = true
     },
     clear(state){
-      state.username = ''
+      state.email = ''
       state.IsLoggedIn = false
     },
     reset(state) {
@@ -30,6 +32,21 @@ const authModule = {
     }
   },
   actions: {
+    // サインアップ
+    signup (context, payload) {
+      return api.post('/api/user/signup/', {
+        'email': payload.email,
+        'password': payload.password,
+        'name': payload.name,
+      })
+      .then(response => {
+        console.log('response', response)
+        // 認証用のトークンをlocalStorageに保存する
+        localStorage.setItem('access', response.data.access)
+        // ユーザー情報の取得してstoreのユーザー情報を更新
+        // return context.dispatch('reload')
+      })
+    },
     // ログイン
     login (context, payload) {
       return api.post('/api/v1/auth/jwt/create/', {
@@ -37,7 +54,7 @@ const authModule = {
         'password': payload.password,
       })
       .then(response => {
-        console.log(response)
+        console.log('できてる？', response)
         // 認証用のトークンをlocalStorageに保存する
         localStorage.setItem('access', response.data.access)
         // ユーザー情報の取得してstoreのユーザー情報を更新
@@ -65,21 +82,20 @@ const authModule = {
 // stateの初期値としたい任意のデータを定義する
 function getDefaultState() {
   return {
-    username: null,
+    email: null,
     isLoggedIn: null,
   }
 }
 
 const store = new Vuex.Store({
   modules: {
-    
     auth: authModule,
   },
   plugins: [createPersistedState({
     key: 'OikuraApp',
     paths: ['auth'],
     storage: window.sessionStorage
-})]
+  })]
 })
 
 export default store

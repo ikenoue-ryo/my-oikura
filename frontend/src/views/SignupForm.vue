@@ -3,12 +3,12 @@
     <Header />
     <GlobalMenu />
 
-  <h2>ログイン</h2>
+  <h2>サインアップ</h2>
   <v-container>
     <validation-observer
       ref="observer"
     >
-      <form @submit.prevent="submitLogin">
+      <form @submit.prevent="submitSignup">
         <v-col cols="12" sm="" md="3" lg="6">
           <validation-provider
             v-slot="{ errors }"
@@ -18,7 +18,7 @@
             <v-text-field
               type="email"
               v-model="email"
-              :counter="30"
+              :counter="20"
               :error-messages="errors"
               label="email"
               required
@@ -29,13 +29,28 @@
           <validation-provider
             v-slot="{ errors }"
             name="password"
-            rules="required|max:30"
+            rules="required|max:20"
           >
             <v-text-field
               v-model="password"
-              :counter="30"
+              :counter="20"
               :error-messages="errors"
               label="password"
+              required
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="12" sm="" md="3" lg="6">
+          <validation-provider
+            v-slot="{ errors }"
+            name="name"
+            rules="required|max:20"
+          >
+            <v-text-field
+              v-model="name"
+              :counter="20"
+              :error-messages="errors"
+              label="name"
               required
             ></v-text-field>
           </validation-provider>
@@ -51,7 +66,7 @@
     </validation-observer>
   </v-container>
 
-  サインアップは<router-link to="/signup">こちら</router-link>
+  ログインは<router-link to="/login">こちら</router-link>
 
 
   </div>
@@ -96,6 +111,7 @@
       return {
         email: '',
         password: '',
+        name: '',
         url: ''
       }
     },
@@ -106,15 +122,16 @@
       ValidationObserver,
     },
     methods: {
-      submitLogin() {
-        // ログイン
-        this.$store.dispatch('auth/login', {
+      submitSignup() {
+        // サインアップ
+        this.$store.dispatch('auth/signup', {
           email: this.email,
           password: this.password,
+          name: this.name,
         })
         .then(() => {
-          console.log('ログインしました')
-          const next = this.$route.query.next || '/mypage/'
+          console.log('サインアップしました')
+          const next = this.$route.query.next || '/login/'
           this.$router.replace(next)
         }).catch(error => {
           console.log(error);
@@ -125,8 +142,4 @@
 </script>
 
 <style>
-  ul li {
-    display: inline-block;
-    margin: 10px
-  }
 </style>

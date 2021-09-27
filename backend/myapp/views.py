@@ -33,8 +33,8 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = serializers.ProfileSerializer
-    authentication_class = (authentication.TokenAuthentication,)
-    permission_classes = (permissions.IsAuthenticated, ownpermissions.ProfilePermission)
+    # authentication_class = (authentication.TokenAuthentication,)
+    # permission_classes = (permissions.IsAuthenticated, ownpermissions.ProfilePermission)
 
     def perform_create(self, serializer):
         try:
@@ -43,14 +43,14 @@ class ProfileViewSet(viewsets.ModelViewSet):
             raise ValidationError("User can have only one own profile")
 
 
-class Login(APIView):
-    authentication_classes = [NormalAuthentication]
+# class Login(APIView):
+#     authentication_classes = [NormalAuthentication]
 
-    def post(self, request, *args, **kwargs):
-        return Response({'token': request.user})
+#     def post(self, request, *args, **kwargs):
+#         return Response({'token': request.user})
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class SignupViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

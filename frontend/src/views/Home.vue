@@ -47,7 +47,7 @@
                   {{ offer_Item.category.name }}
                 </v-chip>
               </td>
-              <td><router-link to="/mypage">{{ offer_Item.profile.nickname }}</router-link></td>
+              <td><router-link :to="`/mypage/${offer_Item.profile.user.name}`">{{ offer_Item.profile.nickname }}</router-link></td>
             </tr>
           </tbody>
         </template>
