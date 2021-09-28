@@ -3,11 +3,12 @@ version: '3.7'
 services: 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn restapi.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/usr/src/app/
-    ports:
-      - 8000:8000
+      - ./static:/static
+    expose:
+      - '8000'
     depends_on: 
       - db
     environment:
@@ -28,6 +29,16 @@ services:
       - ./mysql/init.d:/docker-entrypoint-initdb.d
     ports: 
       - 3306:3306
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d/
+      - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./static:/static
+    depends_on:
+      - web
 volumes:
   django.db.volume:
     name: django.db.volume

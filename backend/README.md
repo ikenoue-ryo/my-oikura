@@ -1,12 +1,18 @@
-# 起動1
+# Dockerで起動する
 - docker-compose up -d
 
-# 起動2
+# Docker使用せずに起動する
 - pip env install
 - pip env shell
 - python manage.py migrate
 - python manage.py runserver
 - python manage.py createsuperuser
+
+# コンテナで直接コマンド実行する場合
+- docker-compose run web ./manage.py makemigrations
+- docker-compose run web ./manage.py migrate
+- docker-compose run web ./manage.py createsuperuser
+- docker-compose run web ./manage.py collectstatic --no-input
 
 ## 初期データ投入
 - python manage.py dumpdata > fixtures/all.json
