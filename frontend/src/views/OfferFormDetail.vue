@@ -34,7 +34,7 @@
     mounted(){
       api({
         method: 'get',
-        url: '/api/offers/' + this.$route.params['id']
+        url: '/api/v1/api/offers/' + this.$route.params['id']
       })
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))

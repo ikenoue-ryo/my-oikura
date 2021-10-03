@@ -3,6 +3,7 @@
     <Header />
     <GlobalMenu />
 
+  <h2>ログイン</h2>
   <v-container>
     <validation-observer
       ref="observer"
@@ -17,7 +18,7 @@
             <v-text-field
               type="email"
               v-model="email"
-              :counter="20"
+              :counter="30"
               :error-messages="errors"
               label="email"
               required
@@ -28,11 +29,11 @@
           <validation-provider
             v-slot="{ errors }"
             name="password"
-            rules="required|max:4"
+            rules="required|max:30"
           >
             <v-text-field
               v-model="password"
-              :counter="4"
+              :counter="30"
               :error-messages="errors"
               label="password"
               required
@@ -49,6 +50,9 @@
       </form>
     </validation-observer>
   </v-container>
+
+  サインアップは<router-link to="/signup">こちら</router-link>
+
 
   </div>
 </template>

@@ -3,16 +3,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.authtoken import views
-from app.views import Login
+# from rest_framework_jwt.views import obtain_jwt_token
+# from myapp.views import Login
 
-from app.urls import router
+from myapp.urls import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('authen/', views.obtain_auth_token),
-    path('api/user/', include('app.urls')),
+    path('api/user/', include('myapp.urls')),
     path('api/v1/api/', include(router.urls)),
-    path('api/v1/login/', Login.as_view()),
+    # path('api/v1/login/', Login.as_view()),
     path('api/v1/auth/', include('djoser.urls')),
     path('api/v1/auth/', include('djoser.urls.jwt')),
 ]
