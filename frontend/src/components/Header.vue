@@ -14,7 +14,7 @@
     <p><a href="#" @click="clickLogout">ログアウト</a></p>
     <!-- <p><a href="mypage">マイページ</a></p> -->
     <router-link :to="`/mypage/`">マイページ</router-link>
-    <p><a href="client">加盟店の方はこちら</a></p>
+    <p><a href="client/login">加盟店の方はこちら</a></p>
   </div>
 </template>
 
