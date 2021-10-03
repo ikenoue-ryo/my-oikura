@@ -46,7 +46,7 @@ class Profile(models.Model):
         on_delete=models.CASCADE
     )
     created_on = models.DateTimeField(auto_now_add=True)
-    img = models.ImageField(blank=True, null=True, upload_to='media')
+    img = models.ImageField(blank=True, null=True, upload_to='static')
 
     def __str__(self):
         return self.nickname
