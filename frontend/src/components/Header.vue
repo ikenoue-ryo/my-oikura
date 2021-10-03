@@ -7,19 +7,25 @@
     </ul>
 
     <p><a href="login">ログイン</a></p>
+    <template>
+      <p>ログイン中：ID:{{ mypage.id }} Email: {{ mypage.email }}</p>
+    </template>
+    
     <p><a href="#" @click="clickLogout">ログアウト</a></p>
     <!-- <p><a href="mypage">マイページ</a></p> -->
-    <router-link :to="`/mypage/ryo`">マイページ</router-link>
+    <router-link :to="`/mypage/`">マイページ</router-link>
     <p><a href="client">加盟店の方はこちら</a></p>
   </div>
 </template>
 
 <script>
+  import api from '@/services/api'
+
   export default {
     name: 'Home',
     data() {
       return {
-
+        mypage: '',
       }
     },
     methods: {
@@ -27,6 +33,14 @@
         this.$store.dispatch('auth/logout')
         this.$router.replace('/login')
       }
+    },
+    mounted(){
+      api({
+        method: 'get',
+        url: '/api/v1/auth/users/me/',
+      })
+      .then(response => this.mypage = response.data)
+      .catch(error => console.log(error));
     },
   }
 </script>
