@@ -7,6 +7,11 @@ import UserInfoDetail from '../views/UserInfoDetail.vue'
 import SignupForm from '../views/SignupForm.vue'
 import LoginForm from '../views/LoginForm.vue'
 import Mypage from '../views/Mypage.vue'
+import OfferUser from '../views/OfferUser.vue'
+import ClientLoginForm from '../views/client/ClientLoginForm.vue'
+import ClientSignupForm from '../views/client/ClientSignupForm.vue'
+import ClientMypage from '../views/client/ClientMypage.vue'
+import ClientAuction from '../views/client/ClientAuction.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -16,13 +21,21 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     { path: '/', component: Home, meta: { requiresAuth: true } },
-    { path: '/mypage/:username', component: Mypage},
+    { path: '/mypage/', component: Mypage},
+    { path: '/offer-user/:username', component: OfferUser},
     { path: '/signup', component: SignupForm },
     { path: '/login', component: LoginForm },
     { path: '/offer-form', component: OfferForm },
     { path: '/offer-form/:id', component: OfferFormDetail },
     { path: '/offer-form/:username', component: UserInfoDetail },
-    // { path: '*', redirect: '/' },
+
+    { path: '/client/signup', component: ClientSignupForm },
+    { path: '/client/login', component: ClientLoginForm },
+    { path: '/client/auction', component: ClientAuction },
+    // { path: '/client/:userid', component: ClientMypage },
+    { path: '/client/shop', component: ClientMypage },
+
+    // { path: '*', redirect: '/login' },
   ]
 })
 /**

@@ -2,7 +2,7 @@ from django_filters import rest_framework
 from django.shortcuts import render
 from rest_framework import generics, authentication, permissions
 from myapp import serializers
-from .models import User, Offer, Category, Profile
+from .models import User, Offer, Category, Profile, ClientShop
 
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -69,3 +69,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
 # class UserInfoViewSet(viewsets.ModelViewSet):
 #     queryset = UserInfo.objects.all()
 #     serializer_class = UserInfoSerializer
+
+class ClientShopViewSet(viewsets.ModelViewSet):
+    queryset = ClientShop.objects.all()
+    serializer_class = serializers.ClientShopSerializer
+    # authentication_class = (authentication.TokenAuthentication,)
+    # permission_classes = (permissions.IsAuthenticated, ownpermissions.ClientShopPermission)
