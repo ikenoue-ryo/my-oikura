@@ -6,9 +6,12 @@
     <p v-else>ログインしてください</p>
       
       サインアップは<router-link to="/signup">こちら</router-link>
+      <template>
         <p>Email: {{ mypage.email }}</p>
         <p>ID:{{ mypage.id }}</p>
+
         <div v-if="profiles">
+          <!-- {{user_profile}} -->
           <p>{{ user_profile.id }}</p>
           <p><img :src="user_profile.img" alt="" width="200"></p>
           <p>ニックネーム：{{ user_profile.nickname }}</p>
@@ -20,6 +23,7 @@
         <div v-else>
           プロフィールを登録してください
         </div>
+      </template>
   </div>
 </template>
 
@@ -29,7 +33,7 @@
   import api from '@/services/api'
 
   export default {
-    name: 'Mypage',
+    name: 'Home',
     data() {
       return {
         mypage: '',
@@ -64,11 +68,8 @@
       isLoggedIn() {
         return this.$store.getters['auth/isLoggedIn']
       },
-      email() {
-        return this.$store.getters['auth/email']
-      },
       user_profile() {
-        const profiles = this.profiles.results.find(profiles => profiles.user.email === this.email)
+        const profiles = this.profiles.results.find(profiles => profiles.user.name === this.$route.params.username)
         return profiles;
       }
     }
