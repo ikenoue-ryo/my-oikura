@@ -6,10 +6,20 @@
     <p v-else>ログインしてください</p>
       
       サインアップは<router-link to="/signup">こちら</router-link>
-      <template>
         <p>Email: {{ mypage.email }}</p>
         <p>ID:{{ mypage.id }}</p>
-      </template>
+        <div v-if="profiles">
+          <p>{{ user_profile.id }}</p>
+          <p><img :src="user_profile.img" alt="" width="200"></p>
+          <p>ニックネーム：{{ user_profile.nickname }}</p>
+          <p>作成日：{{ user_profile.created_on }}</p>
+          <p>Email：{{ user_profile.user.email }}</p>
+          <p>ID：{{ user_profile.user.id }}</p>
+          <p>username：{{ user_profile.user.name }}</p>
+        </div>
+        <div v-else>
+          プロフィールを登録してください
+        </div>
   </div>
 </template>
 
@@ -19,10 +29,11 @@
   import api from '@/services/api'
 
   export default {
-    name: 'Home',
+    name: 'Mypage',
     data() {
       return {
         mypage: '',
+        profiles: []
       }
     },
     components: {
@@ -38,7 +49,29 @@
       })
       .then(response => this.mypage = response.data)
       .catch(error => console.log(error));
+
+      api({
+        method: 'get',
+        url: 'api/user/profile/',
+      })
+      .then(response => {this.profiles = response.data})
+      .catch(error => console.log(error));
     },
+    computed: {
+      username() {
+        return this.$store.getters['auth/username']
+      },
+      isLoggedIn() {
+        return this.$store.getters['auth/isLoggedIn']
+      },
+      email() {
+        return this.$store.getters['auth/email']
+      },
+      user_profile() {
+        const profiles = this.profiles.results.find(profiles => profiles.user.email === this.email)
+        return profiles;
+      }
+    }
   }
 </script>
 

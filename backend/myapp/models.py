@@ -82,3 +82,21 @@ class UserInfo(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ClientShop(models.Model):
+    name = models.CharField(max_length=20)
+    kana = models.CharField(max_length=20)
+    img = models.ImageField(blank=True, null=True, upload_to='collectstatic')
+    manager = models.CharField(max_length=20)
+    tel = models.CharField(max_length=20)
+    email = models.EmailField()
+    place = models.CharField(max_length=50)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, related_name='client_shop',
+        on_delete=models.CASCADE
+    )
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

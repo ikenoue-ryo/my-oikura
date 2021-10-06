@@ -1,8 +1,15 @@
 <template>
   <div>
     <Header />
-    <GlobalMenu />      
+    <GlobalMenu />
+    <p v-if="isLoggedIn">ログインしています</p>
+    <p v-else>ログインしてください</p>
+      
+      サインアップは<router-link to="/signup">こちら</router-link>
       <template>
+        <p>Email: {{ mypage.email }}</p>
+        <p>ID:{{ mypage.id }}</p>
+
         <div v-if="profiles">
           <!-- {{user_profile}} -->
           <p>{{ user_profile.id }}</p>
@@ -29,6 +36,7 @@
     name: 'Home',
     data() {
       return {
+        mypage: '',
         profiles: []
       }
     },
@@ -39,6 +47,13 @@
     methods: {
     },
     mounted(){
+      api({
+        method: 'get',
+        url: '/api/v1/auth/users/me/',
+      })
+      .then(response => this.mypage = response.data)
+      .catch(error => console.log(error));
+
       api({
         method: 'get',
         url: 'api/user/profile/',
