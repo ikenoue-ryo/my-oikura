@@ -3,6 +3,8 @@
     <Header />
     <GlobalMenu />
 
+    <div class="text-right"><a href="/client/shop/">編集する</a></div>
+
       <p>ID: {{offer_Items.id}}</p>
       <p>製造日: {{offer_Items.item_date}}</p>
       <p>カテゴリ: {{offer_Items.category.name}}</p>
