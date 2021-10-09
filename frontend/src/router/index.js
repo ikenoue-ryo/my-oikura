@@ -12,6 +12,7 @@ import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
 import ClientMypage from '../views/client/ClientMypage.vue'
 import ClientAuction from '../views/client/ClientAuction.vue'
+import ClientShoppage from '../views/client/ClientShoppage.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -34,6 +35,7 @@ const router = new VueRouter({
     { path: '/client/auction', component: ClientAuction },
     // { path: '/client/:userid', component: ClientMypage },
     { path: '/client/shop', component: ClientMypage },
+    { path: '/client/shop/:id', component: ClientShoppage },
 
     // { path: '*', redirect: '/login' },
   ]

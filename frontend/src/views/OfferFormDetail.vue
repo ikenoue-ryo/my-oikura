@@ -11,7 +11,7 @@
       <v-img :src="offer_Items.image" width="100" max-height="100"></v-img>
       <p>作成日: {{offer_Items.created_at}}</p>
       <p>更新日: {{offer_Items.updated_at}}</p>
-
+{{offer_Items}}
   </div>
 </template>
 

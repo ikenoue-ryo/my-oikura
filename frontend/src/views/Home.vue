@@ -13,49 +13,51 @@
             x-large
             href="offer-form"
           >
-            一括査定スタート
+            査定を依頼する
           </v-btn>
         </v-container>
         </v-col>
       </v-row>
 
       <v-row class="ma-1">
-        <h2>査定依頼一覧</h2>
-        <p class="ma-2">依頼件数：{{offer_Items.count}}件</p>
+        <h2>査定結果</h2>
+        <p class="ma-2">ただいまの査定総数：{{assesment_price.count}}件</p>
       </v-row>
       <div>
       <!-- <a href="/offer-form/1"> -->
       <v-data-table
         :headers="headers"
-        :items="offer_Items.results"
+        :items="assesment_price.results"
         :items-per-page="5"
         class="elevation-1"
       >
-        <template v-slot:body="{ items: offer_Items }">
+        <template v-slot:body="{ items: assesment_price }">
           <tbody>
-            <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
-              <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
-              <td><a :href="`/offer-form/${offer_Item.id}/`">{{ offer_Item.item_name }}</a></td>
-              <td>{{ offer_Item.item_date }}年</td>
-              <td>{{ offer_Item.created_at }}</td>
+            <tr v-for="assesment in assesment_price" :key="assesment.item_name">
+              <td class="pa-3"><v-img :src="assesment.offer.image" width="100" max-height="100"></v-img></td>
+              <td><a :href="`/offer-form/${assesment.offer.id}/`">{{ assesment.offer.item_name }}</a></td>
+              <td>{{ assesment.offer.item_date }}年</td>
+              <td>{{ assesment.offer.created_at }}</td>
               <td>
                 <v-chip
                   class="ma-2"
-                  :color="chipColor(offer_Item.category.name)"
+                  :color="chipColor(assesment.offer.category.name)"
                   text-color="black"
                 >
-                  {{ offer_Item.category.name }}
+                  {{ assesment.offer.category.name }}
                 </v-chip>
               </td>
-              <td><router-link :to="`/offer-user/${offer_Item.profile.user.name}`">{{ offer_Item.profile.nickname }}</router-link></td>
-              <td>5,000円</td>
+              <td><router-link :to="`/client/shop/${assesment.client_shop.id}`">{{ assesment.client_shop.name}}</router-link></td>
+              <td v-if="assesment" class="font-weight-bold">{{assesment.value|priceLocaleString}}円</td>
+              <td v-else>-</td>
             </tr>
           </tbody>
         </template>
       </v-data-table>
-      <!-- </a> -->
       </div>
     </v-container>
+
+    {{assesment_price}}
   </div>
 </template>
 
@@ -80,15 +82,21 @@
             { text: '製造日', value: 'fat' },
             { text: '査定依頼日', value: 'carbs' },
             { text: 'カテゴリ', value: 'category' },
-            { text: '依頼者', value: 'offer' },
-            { text: '査定金額', value: 'money' },
+            { text: '査定店舗', value: 'offer' },
+            { text: '査定額', value: 'money' },
           ],
         offer_Items: [],
+        assesment_price: [],
       }
     },
     components: {
       Header,
       GlobalMenu,
+    },
+    filters: {
+      priceLocaleString: function (value) {
+          return value.toLocaleString()
+      }
     },
     methods: {
       chipColor(category) {
@@ -118,6 +126,13 @@
       .catch(error => console.log(error))
       // this.category_name = this.$route.query.name
       // console.log(this.$route.query.category)
+
+      api({
+        method: 'get',
+        url: '/api/v1/api/assesment_price/'
+      })
+      .then(response => this.assesment_price = response.data)
+      .catch(error => console.log(error))
     },
   }
 </script>

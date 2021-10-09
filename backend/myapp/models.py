@@ -59,6 +59,16 @@ class Category(models.Model):
         return self.name
 
 
+# 査定金額
+class AssesmentPrice(models.Model):
+    value = models.IntegerField(blank=True, null=True)
+    offer = models.ForeignKey('Offer', related_name='オファー', on_delete=models.PROTECT)
+    client_shop = models.ForeignKey('ClientShop', related_name='ショップ', on_delete=models.PROTECT)
+    
+    def __str__(self):
+        return f"{self.offer} {self.value}円 {self.client_shop}"
+
+
 class Offer(models.Model):
     item_name = models.CharField(max_length=100)
     item_date = models.CharField(max_length=100)
@@ -67,7 +77,7 @@ class Offer(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey('Category', related_name='カテゴリ', on_delete=models.PROTECT)
     profile = models.ForeignKey('Profile', related_name='プロフィール', on_delete=models.PROTECT)
-    
+
     def __str__(self):
         return self.item_name
 
@@ -96,7 +106,12 @@ class ClientShop(models.Model):
         settings.AUTH_USER_MODEL, related_name='client_shop',
         on_delete=models.CASCADE
     )
+    assesment_price = models.OneToOneField(
+        AssesmentPrice, related_name='assesment_price',
+        on_delete=models.CASCADE,
+        blank=True, null=True
+    )
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"ID: {self.id}　Name:{self.name}"

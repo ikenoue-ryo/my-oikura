@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework import serializers
-from .models import User, Offer, Category, Profile, ClientShop
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -53,8 +53,26 @@ class OfferSerializer(serializers.ModelSerializer):
         return Offer.objects.create(**validated_data)
 
 
+# 循環参照回避
+class ClientShopsSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = ClientShop
+        fields = '__all__'
+
+
+class AssesmentPriceSerializer(serializers.ModelSerializer):
+    offer = OfferSerializer()
+    client_shop = ClientShopsSerializer()
+    
+    class Meta:
+        model = AssesmentPrice
+        fields = '__all__'
+
+
 class ClientShopSerializer(serializers.ModelSerializer):
     client = ClientShop()
+    assesment_price = AssesmentPriceSerializer()
     
     class Meta:
         model = ClientShop
