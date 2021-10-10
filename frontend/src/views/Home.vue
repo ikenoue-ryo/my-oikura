@@ -24,7 +24,6 @@
         <p class="ma-2">ただいまの査定総数：{{assesment_price.count}}件</p>
       </v-row>
       <div>
-      <!-- <a href="/offer-form/1"> -->
       <v-data-table
         :headers="headers"
         :items="assesment_price.results"
@@ -36,17 +35,9 @@
             <tr v-for="assesment in assesment_price" :key="assesment.item_name">
               <td class="pa-3"><v-img :src="assesment.offer.image" width="100" max-height="100"></v-img></td>
               <td><a :href="`/offer-form/${assesment.offer.id}/`">{{ assesment.offer.item_name }}</a></td>
-              <td>{{ assesment.offer.item_date }}年</td>
-              <td>{{ assesment.offer.created_at }}</td>
-              <td>
-                <v-chip
-                  class="ma-2"
-                  :color="chipColor(assesment.offer.category.name)"
-                  text-color="black"
-                >
-                  {{ assesment.offer.category.name }}
-                </v-chip>
-              </td>
+              <td>{{ assesment.offer.grade }}</td>
+              <td>{{ assesment.offer.model_year }}年</td>
+              <td>{{ assesment.offer.mileage|priceLocaleString }} km</td>
               <td><router-link :to="`/client/shop/${assesment.client_shop.id}`">{{ assesment.client_shop.name}}</router-link></td>
               <td v-if="assesment" class="font-weight-bold">{{assesment.value|priceLocaleString}}円</td>
               <td v-else>-</td>
@@ -79,9 +70,9 @@
               value: 'name',
             },
             { text: '商品名', value: 'calories' },
-            { text: '製造日', value: 'fat' },
-            { text: '査定依頼日', value: 'carbs' },
-            { text: 'カテゴリ', value: 'category' },
+            { text: 'グレード', value: 'grade' },
+            { text: '年式', value: 'year' },
+            { text: '走行距離', value: 'carbs' },
             { text: '査定店舗', value: 'offer' },
             { text: '査定額', value: 'money' },
           ],

@@ -20,7 +20,7 @@
             <tr v-for="offer_Item in offer_Items" :key="offer_Item.item_name">
               <td class="pa-3"><v-img :src="offer_Item.image" width="100" max-height="100"></v-img></td>
               <td><a :href="`/offer-form/${offer_Item.id}/`">{{ offer_Item.item_name }}</a></td>
-              <td>{{ offer_Item.item_date }}年</td>
+              <td><a href="https://www.google.com/maps/search/?api=1&query=福岡県福岡市博多区" target="_blank">福岡県福岡市博多区</a></td>
               <td>{{ offer_Item.created_at }}</td>
               <td>
                 <v-chip
@@ -39,6 +39,8 @@
       </v-data-table>
       </div>
     </v-container>
+
+    {{offer_Items.results[0].profile.postal_code}}
   </div>
 </template>
 
@@ -59,7 +61,7 @@
               value: 'name',
             },
             { text: '商品名', value: 'calories' },
-            { text: '製造日', value: 'fat' },
+            { text: '住所', value: 'address' },
             { text: '査定依頼日', value: 'carbs' },
             { text: 'カテゴリ', value: 'category' },
             { text: '依頼者', value: 'offer' },

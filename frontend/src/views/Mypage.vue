@@ -2,30 +2,22 @@
   <div>
     <Header />
     <GlobalMenu />
-    <p v-if="isLoggedIn">ログインしています</p>
+    <p v-if="isLoggedIn">ログインしています{{mypage}}</p>
     <p v-else>ログインしてください</p>
       
       サインアップは<router-link to="/signup">こちら</router-link>
         <p>Email: {{ mypage.email }}</p>
         <p>ID:{{ mypage.id }}</p>
-        <div v-if="profiles">
-          <p>{{ user_profile.id }}</p>
-          <p><img :src="user_profile.img" alt="" width="200"></p>
-          <p>ニックネーム：{{ user_profile.nickname }}</p>
-          <p>作成日：{{ user_profile.created_on }}</p>
-          <p>Email：{{ user_profile.user.email }}</p>
-          <p>ID：{{ user_profile.user.id }}</p>
-          <p>username：{{ user_profile.user.name }}</p>
-        </div>
-        <div v-else>
-          プロフィールを登録してください
-        </div>
+          <!-- <p>{{ user_profile}}</p> -->
+          <CreateProfile />
+
   </div>
 </template>
 
 <script>
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
+  import CreateProfile from '@/components/CreateProfile.vue'
   import api from '@/services/api'
 
   export default {
@@ -39,6 +31,7 @@
     components: {
       Header,
       GlobalMenu,
+      CreateProfile,
     },
     methods: {
     },

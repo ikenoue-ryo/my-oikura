@@ -22,7 +22,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Profile
-        fields = ('id', 'nickname', 'user', 'created_on', 'img')
+        fields = '__all__'
 
 
 class CategorySerializer(serializers.ModelSerializer):
