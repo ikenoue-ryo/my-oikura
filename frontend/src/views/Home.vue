@@ -33,14 +33,14 @@
         <template v-slot:body="{ items: assesment_price }">
           <tbody>
             <tr v-for="assesment in assesment_price" :key="assesment.item_name">
-              <td class="pa-3"><v-img :src="assesment.offer.image" width="100" max-height="100"></v-img></td>
-              <td><a :href="`/offer-form/${assesment.offer.id}/`">{{ assesment.offer.item_name }}</a></td>
-              <td>{{ assesment.offer.grade }}</td>
-              <td>{{ assesment.offer.model_year }}年</td>
-              <td>{{ assesment.offer.mileage|priceLocaleString }} km</td>
-              <td><router-link :to="`/client/shop/${assesment.client_shop.id}`">{{ assesment.client_shop.name}}</router-link></td>
-              <td v-if="assesment" class="font-weight-bold">{{assesment.value|priceLocaleString}}円</td>
-              <td v-else>-</td>
+              <td class="pa-3 text-center"><v-img :src="assesment.offer.image" width="100" max-height="100"></v-img></td>
+              <td class="text-center"><a :href="`/offer-form/${assesment.offer.id}/`">{{ assesment.offer.item_name }}</a></td>
+              <td class="text-center">{{ assesment.offer.grade }}</td>
+              <td class="text-center">{{ assesment.offer.model_year }}年</td>
+              <td class="text-center">{{ assesment.offer.mileage|priceLocaleString }} km</td>
+              <td class="text-center"><router-link :to="`/client/shop/${assesment.client_shop.id}`">{{ assesment.client_shop.name}}</router-link></td>
+              <td v-if="assesment" class="font-weight-bold text-center">{{assesment.value|priceLocaleString}}円</td>
+              <td v-else class="text-center">-</td>
             </tr>
           </tbody>
         </template>
@@ -48,7 +48,7 @@
       </div>
     </v-container>
 
-    {{assesment_price}}
+    <!-- {{assesment_price}} -->
   </div>
 </template>
 
@@ -69,12 +69,12 @@
               sortable: false,
               value: 'name',
             },
-            { text: '商品名', value: 'calories' },
-            { text: 'グレード', value: 'grade' },
-            { text: '年式', value: 'year' },
-            { text: '走行距離', value: 'carbs' },
-            { text: '査定店舗', value: 'offer' },
-            { text: '査定額', value: 'money' },
+            { text: '商品名', value: 'calories', align: 'center' },
+            { text: 'グレード', value: 'grade', align: 'center' },
+            { text: '年式', value: 'year', align: 'center' },
+            { text: '走行距離', value: 'carbs', align: 'center' },
+            { text: '査定店舗', value: 'offer', align: 'center' },
+            { text: '査定額', value: 'money', align: 'center' },
           ],
         offer_Items: [],
         assesment_price: [],
