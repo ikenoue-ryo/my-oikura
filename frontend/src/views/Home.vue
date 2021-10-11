@@ -21,34 +21,39 @@
 
       <v-row class="ma-1">
         <h2>査定結果</h2>
-        <p class="ma-2">ただいまの査定総数：{{assesment_price.count}}件</p>
+        <p class="ma-2">ただいまの査定件数：{{cars.length}}件</p>
       </v-row>
-      <div>
-      <v-data-table
-        :headers="headers"
-        :items="assesment_price.results"
-        :items-per-page="5"
-        class="elevation-1"
-      >
-        <template v-slot:body="{ items: assesment_price }">
-          <tbody>
-            <tr v-for="assesment in assesment_price" :key="assesment.item_name">
-              <td class="pa-3 text-center"><v-img :src="assesment.offer.image" width="100" max-height="100"></v-img></td>
-              <td class="text-center"><a :href="`/offer-form/${assesment.offer.id}/`">{{ assesment.offer.item_name }}</a></td>
-              <td class="text-center">{{ assesment.offer.grade }}</td>
-              <td class="text-center">{{ assesment.offer.model_year }}年</td>
-              <td class="text-center">{{ assesment.offer.mileage|priceLocaleString }} km</td>
-              <td class="text-center"><router-link :to="`/client/shop/${assesment.client_shop.id}`">{{ assesment.client_shop.name}}</router-link></td>
-              <td v-if="assesment" class="font-weight-bold text-center">{{assesment.value|priceLocaleString}}円</td>
-              <td v-else class="text-center">-</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-data-table>
-      </div>
+      <template>
+        <v-card>
+          <v-card-title>
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-card-title>
+          <v-data-table
+            :headers="headers"
+            :items="cars"
+            :search="search"
+          >
+            <template v-slot:item.item_image="{ item }">
+              <v-img :src="item.item_image" width="100" max-height="100" class="mx-auto ma-5"></v-img>
+            </template>
+            <template v-slot:[`item.item_name`]="{ item }">
+              <a :href="`/offer-form/${item.offer.offer.id}/`"> {{ item.item_name }}</a>
+            </template>
+            <template v-slot:[`item.assessed_store`]="{ item }">
+              <a :href="`/client/shop/${item.offer.client_shop.id}/`"> {{ item.assessed_store }}</a>
+            </template>
+          </v-data-table>
+        </v-card>
+      </template>
+
     </v-container>
 
-    <!-- {{assesment_price}} -->
   </div>
 </template>
 
@@ -63,19 +68,21 @@
       return {
         offers: '',
         headers: [
-            {
-              text: '商品写真',
-              align: 'start',
-              sortable: false,
-              value: 'name',
-            },
-            { text: '商品名', value: 'calories', align: 'center' },
-            { text: 'グレード', value: 'grade', align: 'center' },
-            { text: '年式', value: 'year', align: 'center' },
-            { text: '走行距離', value: 'carbs', align: 'center' },
-            { text: '査定店舗', value: 'offer', align: 'center' },
-            { text: '査定額', value: 'money', align: 'center' },
-          ],
+          {
+            text: 'item_image',
+            align: 'center',
+            sortable: false,
+            value: 'item_image',
+          },
+          { text: 'item_name', value: 'item_name', align: 'center' },
+          { text: 'grade', value: 'grade', align: 'center' },
+          { text: 'model_year', value: 'model_year', align: 'center' },
+          { text: 'mileage', value: 'mileage', align: 'center' },
+          { text: 'assessed_store', value: 'assessed_store', align: 'center' },
+          { text: 'assessed_amount', value: 'assessed_amount', align: 'center', filter: this.filters },
+        ],
+        search: '',
+        cars: [],
         offer_Items: [],
         assesment_price: [],
       }
@@ -90,23 +97,23 @@
       }
     },
     methods: {
-      chipColor(category) {
-        if(category == '家電') {
-          return 'yellow'
-        }
-        if(category == '家具') {
-          return 'primary'
-        }
-        if(category == 'PC') {
-          return 'black'
-        }
-        if(category == 'ファッション') {
-          return 'orange'
-        }
-        if(category == '') {
-          return 'black'
-        }
-      },
+      // chipColor(category) {
+      //   if(category == '家電') {
+      //     return 'yellow'
+      //   }
+      //   if(category == '家具') {
+      //     return 'primary'
+      //   }
+      //   if(category == 'PC') {
+      //     return 'black'
+      //   }
+      //   if(category == 'ファッション') {
+      //     return 'orange'
+      //   }
+      //   if(category == '') {
+      //     return 'black'
+      //   }
+      // },
     },
     mounted(){
       api({
@@ -115,14 +122,21 @@
       })
       .then(response => this.offer_Items = response.data)
       .catch(error => console.log(error))
-      // this.category_name = this.$route.query.name
-      // console.log(this.$route.query.category)
 
       api({
         method: 'get',
         url: '/api/v1/api/assesment_price/'
       })
-      .then(response => this.assesment_price = response.data)
+      .then(response => this.cars = response.data.results.map((item)=>({
+        offer:item,
+        item_image:item.offer.image,
+        item_name:item.offer.item_name,
+        grade:item.offer.grade,
+        model_year:item.offer.model_year + ' 年',
+        mileage:item.offer.mileage.toLocaleString() + ' km',
+        assessed_store:item.client_shop.name,
+        assessed_amount:item.value.toLocaleString() + ' 円',
+      })))
       .catch(error => console.log(error))
     },
   }
