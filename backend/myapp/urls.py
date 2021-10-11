@@ -2,7 +2,7 @@
 from django.urls import path, include
 from myapp import views
 from rest_framework.routers import DefaultRouter
-from .views import SignupViewSet, OfferViewSet, CategoryViewSet, ProfileViewSet, ClientShopViewSet
+from .views import SignupViewSet, OfferViewSet, CategoryViewSet, ProfileViewSet, ClientShopViewSet, AssesmentPriceViewSet
 
 
 app_name='user'
@@ -13,6 +13,7 @@ router.register('signup', SignupViewSet)
 router.register('offers', OfferViewSet)
 router.register('categories', CategoryViewSet)
 router.register('client', ClientShopViewSet)
+router.register('assesment_price', AssesmentPriceViewSet)
 # router.register('user-offer', UserInfoViewSet)
 
 

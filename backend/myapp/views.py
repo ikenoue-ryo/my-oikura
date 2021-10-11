@@ -2,7 +2,7 @@ from django_filters import rest_framework
 from django.shortcuts import render
 from rest_framework import generics, authentication, permissions
 from myapp import serializers
-from .models import User, Offer, Category, Profile, ClientShop
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice
 
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -14,7 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .utils.auth import NormalAuthentication, JWTAuthentication
-from .serializers import UserSerializer, OfferSerializer, CategorySerializer
+from .serializers import UserSerializer, OfferSerializer, CategorySerializer, AssesmentPriceSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -75,3 +75,9 @@ class ClientShopViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ClientShopSerializer
     # authentication_class = (authentication.TokenAuthentication,)
     # permission_classes = (permissions.IsAuthenticated, ownpermissions.ClientShopPermission)
+
+
+class AssesmentPriceViewSet(viewsets.ModelViewSet):
+    queryset = AssesmentPrice.objects.all()
+    serializer_class = serializers.AssesmentPriceSerializer
+
