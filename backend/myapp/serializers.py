@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework import serializers
-from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -87,3 +87,10 @@ class ClientMessageSerializer(serializers.ModelSerializer):
         model = ClientMessage
         fields = '__all__'
         read_only_fields = ('id', 'sender')
+
+
+class CarSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Car
+        fields = '__all__'

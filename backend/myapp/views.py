@@ -2,7 +2,7 @@ from django_filters import rest_framework
 from django.shortcuts import render
 from rest_framework import generics, authentication, permissions
 from myapp import serializers
-from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car
 
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -100,3 +100,8 @@ class InboxListView(generics.ListAPIView):
 
     def get_queryset(self):
         return self.queryset.filter(receiver=self.request.user)
+
+
+class CarViewSet(viewsets.ModelViewSet):
+    queryset = Car.objects.all()
+    serializer_class = serializers.CarSerializer
