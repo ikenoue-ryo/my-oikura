@@ -8,6 +8,9 @@ import SignupForm from '../views/SignupForm.vue'
 import LoginForm from '../views/LoginForm.vue'
 import Mypage from '../views/Mypage.vue'
 import OfferUser from '../views/OfferUser.vue'
+import ShopSearch from '../views/ShopSearch.vue'
+import ShopSearchPrefecture from '../views/ShopSearchPrefecture.vue'
+
 import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
 import ClientMypage from '../views/client/ClientMypage.vue'
@@ -31,6 +34,8 @@ const router = new VueRouter({
     { path: '/offer-form', component: OfferForm },
     { path: '/offer-form/:id', component: OfferFormDetail },
     { path: '/offer-form/:username', component: UserInfoDetail },
+    { path: '/client-shop/search', component: ShopSearch },
+    { path: '/client-shop/:prefecture', component: ShopSearchPrefecture },
 
     { path: '/client/signup', component: ClientSignupForm },
     { path: '/client/login', component: ClientLoginForm },

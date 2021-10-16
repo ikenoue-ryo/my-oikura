@@ -107,6 +107,9 @@ class ClientShop(models.Model):
     manager = models.CharField(max_length=20)
     tel = models.CharField(max_length=20)
     email = models.EmailField()
+    postal_code_regex = RegexValidator(regex=r'^[0-9]+$', message = ("Postal Code must be entered in the format: '1234567'. Up to 7 digits allowed."))
+    postal_code = models.CharField(validators=[postal_code_regex], max_length=7, verbose_name='郵便番号') 
+    prefectures = models.CharField(max_length=20)
     place = models.CharField(max_length=50)
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, related_name='client_shop',
