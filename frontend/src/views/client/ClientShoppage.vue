@@ -31,6 +31,11 @@
     <p>営業時間</p>
     <p>買取方法</p>
   <br><br><br>
+
+  <vue-star animate="animated rubberBand" color="#F05654">
+        <a slot="icon" class="fa fa-heart" @click="handleClick"></a>
+      </vue-star>
+
   </div>
 </template>
 
@@ -38,6 +43,9 @@
   import ClientHeader from '@/components/client/ClientHeader.vue'
   import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
   import api from '@/services/api'
+  import Vue from 'vue'
+  import VueStar from 'vue-star'
+  Vue.component('VueStar', VueStar)
 
   export default {
     name: 'Home',
@@ -52,8 +60,12 @@
     components: {
       ClientHeader,
       ClientGlobalMenu,
+      VueStar
     },
     methods: {
+      handleClick () {
+        //do something
+      }
     },
     mounted(){
       api({

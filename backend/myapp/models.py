@@ -121,3 +121,21 @@ class ClientShop(models.Model):
 
     def __str__(self):
         return f"ID: {self.id}　Name:{self.name}"
+
+
+class ClientMessage(models.Model):
+
+    message = models.CharField(max_length=500)
+    sender = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='sender',
+        on_delete=models.CASCADE
+    )
+    receiver = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='receiver',
+        on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.message
