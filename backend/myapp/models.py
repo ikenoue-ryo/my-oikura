@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.conf import settings
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 
 class UserManager(BaseUserManager):
@@ -187,3 +188,17 @@ class ShopReview(models.Model):
     def get_percent(self):
         percent = round(self.score / 5 * 100)
         return percent
+
+
+# 来店予約
+class VisitReservation(models.Model):
+    start = models.DateTimeField('開始時間')
+    name = models.CharField('予約者名', max_length=30)
+    tel = models.CharField('電話番号', max_length=30)
+    email = models.CharField('Email', max_length=30)
+    comment = models.CharField('コメント', max_length=500)
+    reservation_shop = models.ForeignKey('ClientShop', related_name='予約店舗', on_delete=models.PROTECT)
+
+    def __str__(self):
+        start = timezone.localtime(self.start).strftime('%Y/%m/%d %H:%M:%S')
+        return f'{self.name} {start} ~'

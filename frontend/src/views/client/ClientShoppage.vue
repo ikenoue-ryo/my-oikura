@@ -1,21 +1,8 @@
 <template>
   <div>
-    <ClientHeader />
-    <ClientGlobalMenu />
-    <h1>加盟店マイページ</h1>
-
-    <p v-if="isLoggedIn">ログインしています</p>
-    <p v-else>ログインしてください</p>
-      
-      サインアップは<router-link to="/signup">こちら</router-link>
-      
-      <template>
-        <p>Email: {{ mypage.email }}</p>
-        <p>ID:{{ mypage.id }}</p>
-      </template>
-      <!-- {{mypage.email}}
-
-      {{shop_Info}} -->
+    <Header />
+    <GlobalMenu />
+    <h1>店舗ページ</h1>
 
     <h2>店舗情報</h2>
     <p>ID: {{ shop_infos.id }}</p>
@@ -46,12 +33,14 @@
         <li>{{review.created_at}}</li>
       </ul>
     </div>
+    <VisitReservation />
   </div>
 </template>
 
 <script>
-  import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import Header from '@/components/Header.vue'
+  import GlobalMenu from '@/components/GlobalMenu.vue'
+  import VisitReservation from '@/components/VisitReservation.vue'
   import api from '@/services/api'
 
   export default {
@@ -67,8 +56,9 @@
       }
     },
     components: {
-      ClientHeader,
-      ClientGlobalMenu,
+      Header,
+      GlobalMenu,
+      VisitReservation,
     },
     methods: {
     },
