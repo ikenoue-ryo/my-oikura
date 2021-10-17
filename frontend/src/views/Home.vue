@@ -51,9 +51,11 @@
           </v-data-table>
         </v-card>
       </template>
-
     </v-container>
 
+    <vue-star animate="animated rubberBand" color="#F05654!">
+      <a slot="icon" class="fa fa-heart" @click="handleClick"></a>
+    </vue-star>
   </div>
 </template>
 
@@ -61,6 +63,9 @@
   import Header from '@/components/Header.vue'
   import GlobalMenu from '@/components/GlobalMenu.vue'
   import api from '../services/api'
+  import Vue from 'vue'
+  import VueStar from 'vue-star'
+  Vue.component('VueStar', VueStar)
 
   export default {
     name: 'Home',
@@ -90,6 +95,7 @@
     components: {
       Header,
       GlobalMenu,
+      VueStar
     },
     filters: {
       priceLocaleString: function (value) {
@@ -97,6 +103,9 @@
       }
     },
     methods: {
+      handleClick () {
+        //do something
+      }
       // chipColor(category) {
       //   if(category == '家電') {
       //     return 'yellow'
@@ -138,6 +147,9 @@
         assessed_amount:item.value.toLocaleString() + ' 円',
       })))
       .catch(error => console.log(error))
+
+      this.$refs.ThumbsUp.$data.active = true;
+      console.log(this.$refs.ThumbsUp.$data);
     },
   }
 </script>
@@ -147,4 +159,12 @@
     display: inline-block;
     margin: 10px
   }
+  #app .VueStar {
+      position: relative;
+    }
+    .VueStar__icon .fa {
+      font-size: 3em;
+      cursor: pointer;
+    }
+  
 </style>
