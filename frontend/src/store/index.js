@@ -6,6 +6,7 @@ import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex)
 
 const initialState = {
+  id: '',
   email: '',
   isLoggedIn: false
 }
@@ -15,15 +16,18 @@ const authModule = {
   namespaced: true,
   state: initialState,
   getters: {
+    id: state => state.id,
     email: state => state.email,
     isLoggedIn: state => state.isLoggedIn,
   },
   mutations: {
     set(state, payload) {
+      state.id = payload.user.id
       state.email = payload.user.email
       state.isLoggedIn = true
     },
     clear(state){
+      state.id = ''
       state.email = ''
       state.IsLoggedIn = false
     },

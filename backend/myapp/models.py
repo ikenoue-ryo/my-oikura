@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.conf import settings
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 
 class UserManager(BaseUserManager):
@@ -107,6 +108,9 @@ class ClientShop(models.Model):
     manager = models.CharField(max_length=20)
     tel = models.CharField(max_length=20)
     email = models.EmailField()
+    postal_code_regex = RegexValidator(regex=r'^[0-9]+$', message = ("Postal Code must be entered in the format: '1234567'. Up to 7 digits allowed."))
+    postal_code = models.CharField(validators=[postal_code_regex], max_length=7, verbose_name='郵便番号') 
+    prefectures = models.CharField(max_length=20)
     place = models.CharField(max_length=50)
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, related_name='client_shop',
@@ -121,3 +125,80 @@ class ClientShop(models.Model):
 
     def __str__(self):
         return f"ID: {self.id}　Name:{self.name}"
+
+
+class ClientMessage(models.Model):
+
+    message = models.CharField(max_length=500)
+    sender = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='sender',
+        on_delete=models.CASCADE
+    )
+    receiver = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='receiver',
+        on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.message
+
+
+# class Brand(models.Model):
+
+#     name = models.CharField(max_length=100)
+
+#     def __str__(self):
+#         return self.name
+
+
+class Car(models.Model):
+
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+SCORE_CHOICES = [
+    (1, '★'),
+    (2, '★★'),
+    (3, '★★★'),
+    (4, '★★★★'),
+    (5, '★★★★★'),
+]
+
+
+class ShopReview(models.Model):
+    client_shop = models.ForeignKey('ClientShop', on_delete=models.PROTECT)
+    comment = models.CharField(max_length=100)
+    score = models.PositiveSmallIntegerField(verbose_name='レビュースコア', choices=SCORE_CHOICES, default='3')
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='author',
+        on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.comment
+    
+    def get_percent(self):
+        percent = round(self.score / 5 * 100)
+        return percent
+
+
+# 来店予約
+class VisitReservation(models.Model):
+    start = models.DateTimeField('開始時間')
+    name = models.CharField('予約者名', max_length=30)
+    tel = models.CharField('電話番号', max_length=30)
+    email = models.CharField('Email', max_length=30)
+    comment = models.CharField('コメント', max_length=500)
+    reservation_shop = models.ForeignKey('ClientShop', related_name='予約店舗', on_delete=models.PROTECT)
+
+    def __str__(self):
+        start = timezone.localtime(self.start).strftime('%Y/%m/%d %H:%M:%S')
+        return f'{self.name} {start} ~'

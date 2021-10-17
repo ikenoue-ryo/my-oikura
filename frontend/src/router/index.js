@@ -8,11 +8,18 @@ import SignupForm from '../views/SignupForm.vue'
 import LoginForm from '../views/LoginForm.vue'
 import Mypage from '../views/Mypage.vue'
 import OfferUser from '../views/OfferUser.vue'
+import ShopSearch from '../views/ShopSearch.vue'
+import ShopSearchPrefecture from '../views/ShopSearchPrefecture.vue'
+import CarSearch from '../views/CarSearch.vue'
+
 import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
 import ClientMypage from '../views/client/ClientMypage.vue'
 import ClientAuction from '../views/client/ClientAuction.vue'
 import ClientShoppage from '../views/client/ClientShoppage.vue'
+import ClientContact from '../views/client/ClientContact.vue'
+import ClientContactUser from '../views/client/ClientContactUser.vue'
+import ClientVisitSchedule from '../views/client/ClientVisitSchedule.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -29,6 +36,9 @@ const router = new VueRouter({
     { path: '/offer-form', component: OfferForm },
     { path: '/offer-form/:id', component: OfferFormDetail },
     { path: '/offer-form/:username', component: UserInfoDetail },
+    { path: '/client-shop-search', component: ShopSearch },
+    { path: '/client-shop/:prefecture', component: ShopSearchPrefecture },
+    { path: '/car-search', component: CarSearch },
 
     { path: '/client/signup', component: ClientSignupForm },
     { path: '/client/login', component: ClientLoginForm },
@@ -36,6 +46,9 @@ const router = new VueRouter({
     // { path: '/client/:userid', component: ClientMypage },
     { path: '/client/shop', component: ClientMypage },
     { path: '/client/shop/:id', component: ClientShoppage },
+    { path: '/client/contact', component: ClientContact },
+    { path: '/client/contact/:username', component: ClientContactUser },
+    { path: '/client/visit-reservation', component: ClientVisitSchedule },
 
     // { path: '*', redirect: '/login' },
   ]
