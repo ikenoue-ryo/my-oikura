@@ -159,3 +159,31 @@ class Car(models.Model):
 
     def __str__(self):
         return self.name
+
+
+SCORE_CHOICES = [
+    (1, '★'),
+    (2, '★★'),
+    (3, '★★★'),
+    (4, '★★★★'),
+    (5, '★★★★★'),
+]
+
+
+class ShopReview(models.Model):
+    client_shop = models.ForeignKey('ClientShop', on_delete=models.PROTECT)
+    comment = models.CharField(max_length=100)
+    score = models.PositiveSmallIntegerField(verbose_name='レビュースコア', choices=SCORE_CHOICES, default='3')
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='author',
+        on_delete=models.CASCADE
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.comment
+    
+    def get_percent(self):
+        percent = round(self.score / 5 * 100)
+        return percent

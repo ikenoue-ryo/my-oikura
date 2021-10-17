@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext as _
-from myapp.models import User, Offer, Category, Profile, ClientShop, AssesmentPrice,ClientMessage, Car
+from myapp.models import User, Offer, Category, Profile, ClientShop, AssesmentPrice,ClientMessage, Car, ShopReview
 
 
 class UserAdmin(BaseUserAdmin):
@@ -66,3 +66,9 @@ class ClientMessageAdmin(admin.ModelAdmin):
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(ShopReview)
+class ShopReviewAdmin(admin.ModelAdmin):
+    pass
+
