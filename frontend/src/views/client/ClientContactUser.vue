@@ -15,7 +15,7 @@
       <hr>
     </div>
 
-    {{client_messages[0].message}}  {{client_messages[0].message}}<br>
+    {{client_messages[0].message}}<br>
   </div>
 </template>
 

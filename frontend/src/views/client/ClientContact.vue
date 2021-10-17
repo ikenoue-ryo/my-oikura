@@ -34,14 +34,14 @@
       ClientHeader,
       ClientGlobalMenu,
     },
-    methods: {
-    },
     mounted(){
       api({
         method: 'get',
         url: '/inbox/',
       })
-      .then(response => this.inbox = response.data.results)
+      .then(response => this.inbox = response.data.results.filter((v1, i1, a1) => {
+          return a1.findIndex(v => v1.sender.name === v.sender.name) === i1
+        }))
       .catch(error => console.log(error));
       
       // api({
