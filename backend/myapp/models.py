@@ -202,3 +202,19 @@ class VisitReservation(models.Model):
     def __str__(self):
         start = timezone.localtime(self.start).strftime('%Y/%m/%d %H:%M:%S')
         return f'{self.name} {start} ~'
+
+
+# 店舗PR
+class ClientPr(models.Model):
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='client_author',
+        on_delete=models.CASCADE
+    )
+    client_shop = models.ForeignKey('ClientShop', related_name='client_shop', on_delete=models.PROTECT)
+    text = models.CharField('ブログ', max_length=500)
+    img = models.ImageField(blank=True, null=True, upload_to='static')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __int__(self):
+        return self.text

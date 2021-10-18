@@ -20,6 +20,7 @@ import ClientShoppage from '../views/client/ClientShoppage.vue'
 import ClientContact from '../views/client/ClientContact.vue'
 import ClientContactUser from '../views/client/ClientContactUser.vue'
 import ClientVisitSchedule from '../views/client/ClientVisitSchedule.vue'
+import ClientPr from '../views/client/ClientPr.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -49,6 +50,7 @@ const router = new VueRouter({
     { path: '/client/contact', component: ClientContact },
     { path: '/client/contact/:username', component: ClientContactUser },
     { path: '/client/visit-reservation', component: ClientVisitSchedule },
+    { path: '/client/pr', component: ClientPr },
 
     // { path: '*', redirect: '/login' },
   ]

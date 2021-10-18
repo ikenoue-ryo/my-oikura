@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework import serializers
-from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation, ClientPr
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -108,4 +108,11 @@ class VisitReservationSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = VisitReservation
+        fields = '__all__'
+
+
+class ClientPrSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = ClientPr
         fields = '__all__'
