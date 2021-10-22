@@ -70,8 +70,7 @@
         
       <v-container class="my-10">
         <v-row class="ma-1">
-          <h2>おすすめ店舗を表示</h2>
-          <p class="ma-2">ただいまの査定件数：{{cars.length}}件</p>
+          <h2>周辺エリアを検索</h2>
         </v-row>
         <template v-if="!$vuetify.breakpoint.xs">
           <div>
@@ -79,34 +78,24 @@
           </div>
         </template>
         <template v-else>
-          <v-item-group class="d-flex overflow-x-auto">
-            <v-container class="pa-0">
-              <v-scroll-y-transition>
-                <v-col cols="8" class="pa-0">
-                  <v-list flat>
-                    <v-list-item-group
-                      color="primary"
-                    >
-                      <v-list-item
-                        v-for="item in cars" :key="item"
-                        class="pa-0"
-                      >
-                        <v-list-item-icon class="ma-2">
-                          <v-img :src="item.img" width="70" height="70" :class="`rounded-lg`"></v-img>
-                        </v-list-item-icon>
-                        <v-list-item-content>
-                          <v-list-item-title>{{item.assessed_store}}</v-list-item-title>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list-item-group>
-                  </v-list>
-                </v-col>
-              </v-scroll-y-transition>
-            </v-container>
-          </v-item-group>
+          <div class="tableshow_wrap">
+            <div class="tableshow">
+              <div class="div1 col-3" v-for="prefecture in prefectures" :key="prefecture">
+                  <router-link :to="`/client-shop/${prefecture.en}/`">
+                    <v-row align="center" v-ripple>
+                      <v-col>
+                        <v-img :src="prefecture.img" width="70" height="70" :class="`rounded-lg`"></v-img>
+                      </v-col>
+                      <v-col class="pa-0 font-weight-bold">
+                        {{prefecture.name}}
+                      </v-col>
+                    </v-row>
+                  </router-link>
+              </div>
+            </div>
+          </div>
         </template>
       </v-container>
-      
       
       <template v-if="!$vuetify.breakpoint.xs">
         <div>
@@ -123,7 +112,7 @@
             :class="`rounded-t-xl rounded-b-xl`"
           >
             <v-row justify="center" class="mb-0">
-              <v-card-subtitle class="pb-0 white--text font-weight-bold title">
+              <v-card-subtitle class="pt-10 pb-0 white--text font-weight-bold headline">
                 代理店募集中！
               </v-card-subtitle>
             </v-row>
@@ -236,6 +225,16 @@
         cars: [],
         offer_Items: [],
         assesment_price: [],
+        prefectures: [
+          {name: '東京', en: 'tokyo', img: require('../assets/tokyo.png')},
+          {name: '神奈川', en: 'kanagawa', img: require('../assets/kanagawa.png')},
+          {name: '埼玉', en: 'saitama', img: require('../assets/saitama.png')},
+          {name: '千葉', en: 'chiba', img: require('../assets/chiba.png')},
+          {name: '長野', en: 'nagano', img: require('../assets/chiba.png')},
+          {name: '新潟', en: 'niigata', img: require('../assets/saitama.png')},
+          {name: '山梨', en: 'yamanashi', img: require('../assets/kanagawa.png')},
+          {name: '静岡', en: 'shizuoka', img: require('../assets/tokyo.png')},
+        ]
       }
     },
     components: {
@@ -318,5 +317,20 @@
 
   .push {
     height: 55px;/*フッターと同じ高さに指定*/
+  }
+
+  .tableshow_wrap {
+    overflow-x: scroll;
+    width: 100%;
+  }
+
+  .tableshow {
+    width: 200vw;
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .div1 {
+    width: 12.5%;
   }
 </style>
