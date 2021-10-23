@@ -1,30 +1,118 @@
 <template>
   <div>
-    <Header />
-    <GlobalMenu />
-    <br>
-    <h2>{{shop_Info[0].prefectures}}の検索結果を表示中</h2>
+    <TopNavi />
+    <v-divider></v-divider>
 
-    <div v-for="shop in shop_Info" :key="shop.id">
-      <router-link :to="`/client/shop/${shop.id}`">
-        <ul>
-          <li><img :src="shop.img" alt="" width=200></li>
-          <li>{{shop.name}}</li>
-          <li>{{shop.manager}}</li>
-          <li>{{shop.tel}}</li>
-          <li>{{shop.place}}</li>
-        </ul>
-      </router-link>
-      <hr>
-    </div>
+    <v-img
+      class="white--text align-end google-map"
+      height="300px"
+      src="@/assets/googlemap.jpeg" width="100%"
+    ></v-img>
 
+    <v-card
+      :loading="loading"
+      class="mx-auto my-12 rounded-t-xl"
+    >
+      <v-container 
+        v-for="(shop,i) in shop_Info" :key="i"
+        class="py-10 px-6 pt-3 layer-top"
+      >
+        <v-row justify="center" class="ma-3">
+          <h2 class="title font-weight-bold">店舗一覧</h2>
+        </v-row>
+        <v-divider></v-divider>
+        <v-carousel :show-arrows="false" height="240" :class="`rounded-lg mt-8`">
+          <v-carousel-item
+            :src="shop.img"
+            v-ripple
+          ></v-carousel-item>
+        </v-carousel>
+        <v-row
+          align="center"
+          class="mt-3 ml-0"
+        >
+          <v-rating
+            :value="4.5"
+            color="amber"
+            dense
+            half-increments
+            readonly
+            size="14"
+          ></v-rating>
 
+          <div class="grey--text ms-4">
+            4.5 (413)
+          </div>
+        </v-row>
+        <v-card-title class="px-0 pb-0">{{shop.name}}</v-card-title>
+
+        <v-card-text class="px-0">
+          <div>{{shop.place}}</div>
+          <div>{{shop.tel}}</div>
+        </v-card-text>
+      </v-container>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    </v-card>
   </div>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import GlobalMenu from '@/components/GlobalMenu.vue'
+  import TopNavi from '@/components/TopNavi.vue'
   import api from '@/services/api'
 
   export default {
@@ -32,11 +120,24 @@
     data() {
       return {
         shop_Info: [],
+        items: [
+          {
+            src: 'https://pbs.twimg.com/media/FB47c-UXoAMPF7G.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          },
+        ],
       }
     },
     components: {
-      Header,
-      GlobalMenu,
+      TopNavi,
     },
     methods: {
     },
@@ -55,5 +156,17 @@
 </script>
 
 <style>
-/* this.$route.params['prefecture'] */
+  .google-map{
+    position: fixed;
+    /* z-index: -1; */
+  }
+
+  .v-carousel__controls {
+    height: 40px;
+  }
+
+  .layer-top {
+    z-index: 1;
+    margin-top: 240px;
+  }
 </style>

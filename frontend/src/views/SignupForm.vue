@@ -2,7 +2,7 @@
   <div>
   <v-container pa-5>
     <v-row justify="center" class="ma-3">
-    <h2 class="title font-weight-bold">新規登録</h2>
+      <h2 class="title font-weight-bold">新規登録</h2>
     </v-row>
     <v-divider></v-divider>
 
