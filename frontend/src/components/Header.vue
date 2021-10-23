@@ -16,9 +16,39 @@
           <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
           <v-toolbar-title class="pa-1"><a href="/" class="white--text">車査定</a></v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn icon>
+          
+          <v-btn 
+            icon
+            fab
+            @click="dialog = !dialog"
+          >
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
+          <v-dialog
+            v-model="dialog"
+            max-width="500px"
+          >
+            <v-card>
+              <v-card-text>
+                <v-text-field label="File name"></v-text-field>
+
+                <small class="grey--text">* This doesn't actually save.</small>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+
+                <v-btn
+                  text
+                  color="primary"
+                  @click="dialog = false"
+                >
+                  Submit
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+
           <div class="text-center">
             <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
@@ -100,6 +130,8 @@
     data() {
       return {
         mypage: '',
+
+        dialog: false,
         
         bars: [
           { class: '', dark: true },
