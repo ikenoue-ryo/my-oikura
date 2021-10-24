@@ -1,7 +1,6 @@
 <template>
   <div>
     <TopNavi />
-    あ
     <br>
     <br>
     <br>
@@ -41,6 +40,7 @@
                       v-for="(assesment_info, i) in assesment"
                       :key="i"
                       class="pa-0"
+                      :href="`/client/shop/${assesment_info.client_shop.id}/`"
                     >
                       <v-list-item-icon>
                         <v-img :src="assesment_info.client_shop.img" width="70" height="70" :class="`rounded-circle`"></v-img>

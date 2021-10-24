@@ -175,10 +175,7 @@ class ShopReview(models.Model):
     client_shop = models.ForeignKey('ClientShop', on_delete=models.PROTECT)
     comment = models.CharField(max_length=100)
     score = models.PositiveSmallIntegerField(verbose_name='レビュースコア', choices=SCORE_CHOICES, default='3')
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='author',
-        on_delete=models.CASCADE
-    )
+    profile = models.ForeignKey('Profile', related_name='profile', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

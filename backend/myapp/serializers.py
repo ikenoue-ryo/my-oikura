@@ -97,7 +97,7 @@ class CarSerializer(serializers.ModelSerializer):
 
 
 class ShopReviewSerializer(serializers.ModelSerializer):
-    author = UserSerializer()
+    profile = ProfileSerializer()
     
     class Meta:
         model = ShopReview

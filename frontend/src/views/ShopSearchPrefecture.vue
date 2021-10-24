@@ -155,7 +155,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .google-map{
     position: fixed;
     /* z-index: -1; */
