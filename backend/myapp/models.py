@@ -134,10 +134,8 @@ class ClientMessage(models.Model):
         settings.AUTH_USER_MODEL, related_name='sender',
         on_delete=models.CASCADE
     )
-    receiver = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='receiver',
-        on_delete=models.CASCADE
-    )
+    sender_profile = models.ForeignKey('Profile', related_name='sender_profile', on_delete=models.PROTECT)
+    receiver_profile = models.ForeignKey('Profile', related_name='receiver_profile', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

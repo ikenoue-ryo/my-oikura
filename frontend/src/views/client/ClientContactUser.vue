@@ -1,27 +1,23 @@
 <template>
   <div>
-    <ClientHeader />
-    <ClientGlobalMenu />
     <h1>ユーザーメッセージ</h1>
 
-    {{mail_user[0].sender.name}}さんから受信したメッセージ：{{inbox.length}}件
+    <!-- {{mail_user[0].sender.name}}さんから受信したメッセージ：{{inbox.length}}件 -->
 
-
+  {{client_messages}}
 
     <div v-for="inbox_message in mail_user" :key="inbox_message.id">
       <ul>
-        <li>{{inbox_message.message}} {{inbox_message.created_at}}</li>
+        <li>{{inbox_message.message}}</li>
       </ul>
       <hr>
     </div>
 
-    {{client_messages[0].message}}<br>
+    <!-- {{client_messages[0].message}}<br> -->
   </div>
 </template>
 
 <script>
-  import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
   import api from '@/services/api'
 
   export default {
@@ -33,24 +29,15 @@
       }
     },
     components: {
-      ClientHeader,
-      ClientGlobalMenu,
     },
     methods: {
     },
     mounted(){
       api({
         method: 'get',
-        url: '/inbox/',
+        url: '/message/'
       })
-      .then(response => this.inbox = response.data.results.filter(user_inbox => user_inbox.sender.name === this.$route.params.username))
-      .catch(error => console.log(error));
-      
-      api({
-        method: 'get',
-        url: '/api/v1/api/message/'
-      })
-      .then(response => this.client_messages = response.data.results.filter(messages => messages.receiver.name === this.$route.params.username))
+      .then(response => this.client_messages = response.data.results)
       .catch(error => console.log(error))
     },
     computed: {

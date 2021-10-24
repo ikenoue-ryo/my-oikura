@@ -86,11 +86,11 @@ class ClientMessageViewSet(viewsets.ModelViewSet):
     queryset = ClientMessage.objects.all()
     serializer_class = serializers.ClientMessageSerializer
 
-    def get_queryset(self):
-        return self.queryset.filter(sender=self.request.user)
+    # def get_queryset(self):
+    #     return self.queryset.filter(sender=self.request.user)
 
-    def perform_create(self, serializer):
-        serializer.save(sender=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(sender=self.request.user)
 
 
 class InboxListView(generics.ListAPIView):
@@ -98,8 +98,8 @@ class InboxListView(generics.ListAPIView):
     queryset = ClientMessage.objects.all()
     serializer_class = serializers.ClientMessageSerializer
 
-    def get_queryset(self):
-        return self.queryset.filter(receiver=self.request.user)
+    # def get_queryset(self):
+    #     return self.queryset.filter(receiver=self.request.user)
 
 
 class CarViewSet(viewsets.ModelViewSet):

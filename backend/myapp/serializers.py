@@ -80,8 +80,8 @@ class ClientShopSerializer(serializers.ModelSerializer):
 
 
 class ClientMessageSerializer(serializers.ModelSerializer):
-    sender = UserSerializer()
-    receiver = UserSerializer()
+    sender_profile = ProfileSerializer()
+    receiver_profile = ProfileSerializer()
 
     class Meta:
         model = ClientMessage

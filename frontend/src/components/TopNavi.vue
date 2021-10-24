@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar fixed flat text overlay-opacity	>
+  <v-app-bar fixed flat text overlay-opacity>
     <v-icon @click="$router.back()">mdi-arrow-left</v-icon>
   </v-app-bar>
 </template>

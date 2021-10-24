@@ -11,6 +11,7 @@ import OfferUser from '../views/OfferUser.vue'
 import ShopSearch from '../views/ShopSearch.vue'
 import ShopSearchPrefecture from '../views/ShopSearchPrefecture.vue'
 import CarSearch from '../views/CarSearch.vue'
+import MyInbox from '../views/MyInbox.vue'
 
 import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
@@ -40,6 +41,8 @@ const router = new VueRouter({
     { path: '/client-shop-search', component: ShopSearch },
     { path: '/client-shop/:prefecture', component: ShopSearchPrefecture },
     { path: '/car-search', component: CarSearch },
+    { path: '/inbox', component: MyInbox },
+
 
     { path: '/client/signup', component: ClientSignupForm },
     { path: '/client/login', component: ClientLoginForm },

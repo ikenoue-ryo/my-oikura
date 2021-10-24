@@ -4,9 +4,8 @@
     color="dark"
     fixed
   >
-    <v-btn>
-      <span>探す</span>
-
+    <v-btn href="/">
+      <span>トップ</span>
       <v-icon>mdi-history</v-icon>
     </v-btn>
 
@@ -47,9 +46,8 @@
       </v-card>
     </v-dialog>
 
-    <v-btn>
+    <v-btn href="/inbox">
       <span>受信トレイ</span>
-
       <v-icon>mdi-email-outline</v-icon>
     </v-btn>
 
