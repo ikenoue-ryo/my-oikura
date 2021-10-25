@@ -1,50 +1,50 @@
 <template>
   <div>
-    <template>
-      <v-card
-        max-width="450"
-        class="mx-auto"
-      >
-        <v-toolbar>
-          <TopNavi />
-          <v-toolbar-title class="ml-10">Inbox</v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-row class="ma-2">
-          <v-col>
-            <h2 class="title">{{mail_user.length}}件のメッセージがあります</h2>
-          </v-col>
-        </v-row>
+    <v-card
+      max-width="450"
+      class="mx-auto"
+    >
+      <v-toolbar>
+        <TopNavi />
+        <v-toolbar-title class="ml-10">Message</v-toolbar-title>
+        <v-spacer></v-spacer>
 
-        <v-list three-line>
-          <template v-for="(inbox_message, index) in mail_user">
-            <v-subheader
-              v-if="inbox_message.header"
-              :key="inbox_message.header"
-              v-text="inbox_message.header"
-            ></v-subheader>
-            <v-divider
-              v-else-if="inbox_message.divider"
-              :key="index"
-              :inset="inbox_message.inset"
-            ></v-divider>
-            <v-list-item
-              v-else
-              :key="inbox_message.title"
-              :href="`/inbox/${inbox_message.sender_profile.nickname}`"
-              v-ripple
-            >
-              <v-list-item-avatar>
-                <v-img :src="inbox_message.sender_profile.img"></v-img>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-list-item-title v-html="inbox_message.message"></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>
-    </template>
+        <v-btn icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </v-toolbar>
+
+      <v-list three-line>
+        <template v-for="(item, index) in inbox">
+          <v-subheader
+            v-if="item.header"
+            :key="item.header"
+            v-text="item.header"
+          ></v-subheader>
+
+          <v-divider
+            v-else-if="item.divider"
+            :key="index"
+            :inset="item.inset"
+          ></v-divider>
+
+          <v-list-item
+            v-else
+            :key="item.title"
+            v-ripple
+          >
+            <v-list-item-avatar>
+              <v-img :src="item.sender_profile.img"></v-img>
+            </v-list-item-avatar>
+
+            <v-list-item-content>
+              <v-list-item-title v-html="item.message"></v-list-item-title>
+              <!-- <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle> -->
+            </v-list-item-content>
+          </v-list-item>
+        </template>
+      </v-list>
+    </v-card>
 
     <BottomNavi />
 
@@ -108,17 +108,15 @@
         method: 'get',
         url: '/inbox/',
       })
-      .then(response => this.inbox = response.data.results.filter((v1, i1, a1) => {
-          return a1.findIndex(v => v1.sender_profile.nickname === v.sender_profile.nickname) === i1
-        }))
+      .then(response => this.inbox = response.data.results.filter(user => user.sender_profile.nickname === this.$route.params['username'] || user.receiver_profile.nickname === this.$route.params['username']))
       .catch(error => console.log(error));
-      
-      api({
-        method: 'get',
-        url: '/message/'
-      })
-      .then(response => this.client_messages = response.data.results)
-      .catch(error => console.log(error))
+
+      // api({
+      //   method: 'get',
+      //   url: '/message/'
+      // })
+      // .then(response => this.client_messages = response.data.results.filter(client => client.sender_profile.nickname === 'takuchan'))
+      // .catch(error => console.log(error))
     },
     computed: {
       username() {

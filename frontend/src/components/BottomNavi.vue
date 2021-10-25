@@ -11,8 +11,7 @@
 
     <v-btn>
       <span>お気に入り</span>
-
-      <v-icon>mdi-heart</v-icon>
+      <v-icon>mdi-heart-outline</v-icon>
     </v-btn>
 
     <v-btn
@@ -53,7 +52,7 @@
 
     <v-btn href="/mypage">
       <span>マイページ</span>
-      <v-icon>mdi-account</v-icon>
+      <v-icon>mdi-account-outline</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
