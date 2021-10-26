@@ -9,11 +9,11 @@
       <v-icon>mdi-history</v-icon>
     </v-btn>
 
-    <v-btn>
+    <v-btn href="/like">
       <span>お気に入り</span>
       <v-icon>mdi-heart-outline</v-icon>
     </v-btn>
-
+    
     <v-btn
       @click="dialog = !dialog">
       <span>査定</span>

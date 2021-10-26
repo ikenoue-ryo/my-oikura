@@ -43,6 +43,13 @@
           <div class="grey--text ms-4">
             4.5 (413)
           </div>
+          <!-- <v-row>
+            <v-col>
+          <vue-star animate="animated rubberBand" color="#F05654!important">
+              <span slot="icon" class="fa fa-heart" @click="handleClick"></span>
+            </vue-star></v-col>
+            </v-row> -->
+            
         </v-row>
         <v-card-title class="px-0 pb-0">{{shop.name}}</v-card-title>
 
@@ -108,12 +115,18 @@
 <br>
 <br>
     </v-card>
+
+    <BottomNavi />
   </div>
 </template>
 
 <script>
   import TopNavi from '@/components/TopNavi.vue'
+  import BottomNavi from '@/components/BottomNavi.vue'
   import api from '@/services/api'
+  // import Vue from 'vue'
+  // import VueStar from 'vue-star'
+  // Vue.component('VueStar', VueStar)
 
   export default {
     name: 'Mypage',
@@ -138,6 +151,8 @@
     },
     components: {
       TopNavi,
+      BottomNavi,
+      // VueStar
     },
     methods: {
     },
@@ -161,8 +176,18 @@
     /* z-index: -1; */
   }
 
+  #app .VueStar {
+    /* position: relative;
+    width: 50px;
+    height: 50px; */
+  }
+  .VueStar__icon .fa {
+    font-size: 2em;
+    cursor: pointer;
+  }
+
   .v-carousel__controls {
-    height: 40px;
+    /* height: 40px; */
   }
 
   .layer-top {

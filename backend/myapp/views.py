@@ -2,7 +2,7 @@ from django_filters import rest_framework
 from django.shortcuts import render
 from rest_framework import generics, authentication, permissions
 from myapp import serializers
-from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation, ClientPr
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation, ClientPr, Like
 
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -14,7 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .utils.auth import NormalAuthentication, JWTAuthentication
-from .serializers import UserSerializer, OfferSerializer, CategorySerializer, AssesmentPriceSerializer, ClientMessageSerializer, ShopReviewSerializer, VisitReservationSerializer, ClientPrSerializer
+from .serializers import UserSerializer, OfferSerializer, CategorySerializer, AssesmentPriceSerializer, ClientMessageSerializer, ShopReviewSerializer, VisitReservationSerializer, ClientPrSerializer, LikeSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -120,4 +120,10 @@ class VisitReservationViewSet(viewsets.ModelViewSet):
 class ClientPrViewSet(viewsets.ModelViewSet):
     queryset = ClientPr.objects.all()
     serializer_class = serializers.ClientPrSerializer
+
+
+class LikeViewSet(viewsets.ModelViewSet):
+    queryset = Like.objects.all()
+    serializer_class = serializers.LikeSerializer
+
 

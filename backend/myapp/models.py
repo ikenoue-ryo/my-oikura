@@ -185,6 +185,13 @@ class ShopReview(models.Model):
         return percent
 
 
+class Like(models.Model):
+    client_shop = models.ForeignKey('ClientShop', on_delete=models.PROTECT)
+    profile = models.ForeignKey('Profile', related_name='like_profile', on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 # 来店予約
 class VisitReservation(models.Model):
     start = models.DateTimeField('開始時間')
