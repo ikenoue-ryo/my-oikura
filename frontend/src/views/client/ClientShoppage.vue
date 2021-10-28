@@ -205,16 +205,76 @@
             </v-item-group>
           </template>
           <v-row justify="center" class="py-5 px-3">
-            <v-btn
-              type="submit"
-              color="pink darken-1"
-              x-large
-              block
-              outlined
-              class="white--text font-weight-bold body-1"
+            <v-dialog
+              v-model="dialog"
+              fullscreen
+              hide-overlay
+              transition="dialog-bottom-transition"
             >
-              {{shop_Review.length}}件のレビューをすべて表示
-            </v-btn>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  type="submit"
+                  color="pink darken-1"
+                  x-large
+                  block
+                  outlined
+                  class="white--text font-weight-bold body-1"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  {{shop_Review.length}}件のレビューをすべて表示
+                </v-btn>
+              </template>
+              <v-card>
+                <v-toolbar
+                  dark
+                  color="primary"
+                >
+                  <v-btn
+                    icon
+                    dark
+                    @click="dialog = false"
+                  >
+                    <v-icon>mdi-arrow-left</v-icon>
+                  </v-btn>
+                  <v-toolbar-title>{{shop_Review.length}}件のレビュー</v-toolbar-title>
+                </v-toolbar>
+                <v-list
+                  three-line
+                  subheader
+                >
+                  <v-subheader>Review</v-subheader>
+                  <v-container v-for="review in shop_Review" :key="review" class="pa-0">
+                    <v-list-item>
+                      <v-list-item-action>
+                        <v-list-item-avatar color="grey darken-3">
+                          <v-img
+                            class="elevation-6"
+                            :src="review.profile.img"
+                          ></v-img>
+                        </v-list-item-avatar>
+                      </v-list-item-action>
+                      <v-list-item-content>
+                        <v-list-item-title>
+                          {{review.profile.nickname}}
+                        </v-list-item-title>
+                        <v-rating
+                            v-model="review.score"
+                            background-color="orange lighten-3"
+                            color="orange"
+                            size="15"
+                            dense
+                            readonly
+                            pa-0
+                          >
+                          </v-rating>
+                        <v-list-item-subtitle>{{review.comment}}</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-container>
+                </v-list>
+              </v-card>
+            </v-dialog>
           </v-row>
         </v-col>
       </v-row>
@@ -250,6 +310,12 @@
         selectedEvent: {},
         selectedElement: null,
         selectedOpen: false,
+
+        // dialog
+        dialog: false,
+        notifications: false,
+        sound: true,
+        widgets: false,
       }
     },
     components: {

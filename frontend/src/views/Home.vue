@@ -86,7 +86,7 @@
                       <v-col>
                         <v-img :src="prefecture.img" width="70" height="70" :class="`rounded-lg`"></v-img>
                       </v-col>
-                      <v-col class="pa-0 font-weight-bold">
+                      <v-col class="pa-0 font-weight-bold grey--text text--darken-4">
                         {{prefecture.name}}
                       </v-col>
                     </v-row>

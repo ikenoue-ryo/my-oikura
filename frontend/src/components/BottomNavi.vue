@@ -1,15 +1,15 @@
 <template>
   <v-bottom-navigation
     :value="value"
-    color="dark"
+    color="pink darken-1"
     fixed
   >
-    <v-btn href="/">
+    <v-btn to="/">
       <span>トップ</span>
       <v-icon>mdi-history</v-icon>
     </v-btn>
 
-    <v-btn href="/like">
+    <v-btn to="/like">
       <span>お気に入り</span>
       <v-icon>mdi-heart-outline</v-icon>
     </v-btn>
@@ -45,12 +45,12 @@
       </v-card>
     </v-dialog>
 
-    <v-btn href="/inbox">
+    <v-btn to="/inbox">
       <span>受信トレイ</span>
       <v-icon>mdi-email-outline</v-icon>
     </v-btn>
 
-    <v-btn href="/mypage">
+    <v-btn to="/mypage">
       <span>マイページ</span>
       <v-icon>mdi-account-outline</v-icon>
     </v-btn>
@@ -61,8 +61,6 @@
   export default {
     data(){
       return {
-        value: 1,
-
         dialog: false,
       }
     }
