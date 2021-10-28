@@ -111,7 +111,7 @@
         method: 'get',
         url: '/api/v1/api/assesment_price/'
       })
-      .then(response => this.assesmentprice = response.data.results)
+      .then(response => this.assesment_price = response.data.results)
       .catch(error => console.log(error))
     },
   }

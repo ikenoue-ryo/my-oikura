@@ -2,11 +2,12 @@
   <div>
     <v-container>
       <img src="@/assets/main.png" width="100%">
-      <v-row justify="center" class="pa-10">
+      <v-row justify="center" class="my-10 ma-1">
           <v-btn
             depressed
             color="primary"
             x-large
+            block
             href="offer-form"
           >
             査定を依頼する

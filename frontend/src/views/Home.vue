@@ -145,8 +145,7 @@
       </template>
 
       <v-row class="ma-1">
-        <h2>査定結果</h2>
-        <p class="ma-2">ただいまの査定件数：{{cars.length}}件</p>
+        <h2>店舗を検索</h2>
       </v-row>
       <template v-if="!$vuetify.breakpoint.xs">
         PC
@@ -154,28 +153,29 @@
       <!-- sp -->
       <template v-else>
         <v-item-group class="d-flex overflow-x-auto">
-          <v-container v-for="item in cars" :key="item">
+          <v-container v-for="shop in shop_Info" :key="shop">
             <v-scroll-y-transition>
               <v-card
                 class="mx-auto"
-                max-width="200"
+                max-width="260"
                 v-ripple
               >
-                <a :href="`/offer-form/${item.offer.offer.id}/`">
+                <a :href="`/client/shop/${shop.id}/`">
                 <v-img
-                  :src="item.item_image"
+                  :src="shop.img"
                   height="200px"
+                  :class="`rounded-lg`"
                 ></v-img>
                 </a>
               </v-card>
             </v-scroll-y-transition>
             <v-card-subtitle class="pb-0">
-              {{item.item_name}} {{ item.grade }}
+              {{shop.place}} {{ shop.grade }}
             </v-card-subtitle>
 
             <v-card-text class="text--primary">
-              <div>走行距離： {{item.mileage}}</div>
-              <div>査定金額： {{item.assessed_amount}}</div>
+              <div>{{shop.tel}}</div>
+              <div>{{shop.email}}</div>
             </v-card-text>
           </v-container>
         </v-item-group>
@@ -206,6 +206,7 @@
     data(){
       return {
         offers: '',
+        shop_Info: [],
         headers: [
           {
             text: '',
@@ -296,8 +297,12 @@
       })))
       .catch(error => console.log(error))
 
-      this.$refs.ThumbsUp.$data.active = true;
-      console.log(this.$refs.ThumbsUp.$data);
+      api({
+        method: 'get',
+        url: '/api/v1/api/client',
+      })
+      .then(response => this.shop_Info = response.data.results)
+      .catch(error => console.log(error))
     },
   }
 </script>
