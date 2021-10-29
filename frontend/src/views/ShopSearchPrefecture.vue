@@ -22,10 +22,12 @@
         </v-row>
         <v-divider></v-divider>
         <v-carousel :show-arrows="false" height="240" :class="`rounded-lg mt-8`">
-          <v-carousel-item
-            :src="shop.img"
-            v-ripple
-          ></v-carousel-item>
+          <a :href="`/client/shop/${shop.id}/`">
+            <v-carousel-item
+              :src="shop.img"
+              v-ripple
+            ></v-carousel-item>
+          </a>
         </v-carousel>
         <v-row
           align="center"
