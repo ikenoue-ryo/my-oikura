@@ -43,6 +43,8 @@
       </v-data-table>
       </div>
     </v-container>
+    <div class="push"></div>
+    <ClientBottomNavi />
 
     {{offer_Items.results[0].profile.postal_code}}
   </div>
@@ -51,6 +53,7 @@
 <script>
   import ClientHeader from '@/components/client/ClientHeader.vue'
   import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
   export default {
     name: 'CliantAuction',
@@ -79,6 +82,7 @@
     components: {
       ClientHeader,
       ClientGlobalMenu,
+      ClientBottomNavi
     },
     methods: {
       chipColor(category) {

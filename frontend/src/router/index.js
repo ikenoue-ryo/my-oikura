@@ -19,7 +19,7 @@ import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
 import ClientMypage from '../views/client/ClientMypage.vue'
 import ClientAuction from '../views/client/ClientAuction.vue'
-import ClientShoppage from '../views/client/ClientShoppage.vue'
+import ClientShopPage from '../views/client/ClientShopPage.vue'
 import ClientContact from '../views/client/ClientContact.vue'
 import ClientContactUser from '../views/client/ClientContactUser.vue'
 import ClientVisitSchedule from '../views/client/ClientVisitSchedule.vue'
@@ -53,7 +53,7 @@ const router = new VueRouter({
     { path: '/client/auction', component: ClientAuction },
     // { path: '/client/:userid', component: ClientMypage },
     { path: '/client/shop', component: ClientMypage },
-    { path: '/client/shop/:id', component: ClientShoppage },
+    { path: '/client/shop/:id', component: ClientShopPage },
     { path: '/client/contact', component: ClientContact },
     { path: '/client/contact/:username', component: ClientContactUser },
     { path: '/client/visit-reservation', component: ClientVisitSchedule },

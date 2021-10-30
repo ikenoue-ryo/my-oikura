@@ -16,12 +16,15 @@
       </div>
     </v-container>
 
+    <div class="push"></div>
+    <ClientBottomNavi />
   </div>
 </template>
 
 <script>
   import ClientHeader from '@/components/client/ClientHeader.vue'
   import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
 
   export default {
@@ -34,6 +37,7 @@
     components: {
       ClientHeader,
       ClientGlobalMenu,
+      ClientBottomNavi
     },
     mounted() {
       api({

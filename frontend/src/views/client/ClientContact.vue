@@ -1,7 +1,6 @@
 <template>
   <div>
     <ClientHeader />
-    <ClientGlobalMenu />
     <h1>加盟店問い合わせページ</h1>
 
     受信したメッセージ：{{inbox.length}}件
@@ -14,12 +13,14 @@
       <hr>
     </div>
 
+    <div class="push"></div>
+    <ClientBottomNavi />
   </div>
 </template>
 
 <script>
   import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
 
   export default {
@@ -32,7 +33,7 @@
     },
     components: {
       ClientHeader,
-      ClientGlobalMenu,
+      ClientBottomNavi
     },
     mounted(){
       api({

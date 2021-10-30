@@ -1,22 +1,6 @@
 <template>
   <div>
     <ClientHeader />
-    <ClientGlobalMenu />
-    <h1>加盟店マイページ</h1>
-
-    <p v-if="isLoggedIn">ログインしています</p>
-    <p v-else>ログインしてください</p>
-      
-      サインアップは<router-link to="/signup">こちら</router-link>
-      
-      <template>
-        <p>Email: {{ mypage.email }}</p>
-        <p>ID:{{ mypage.id }}</p>
-      </template>
-      <!-- {{mypage.email}}
-
-      {{shop_Info}} -->
-
 
     <h2>店舗情報</h2>
     <p>ID: {{ shop_infos.id }}</p>
@@ -28,16 +12,16 @@
     <p>Email: {{ shop_infos.email }}</p>
     <p>所在地: {{ shop_infos.place }}</p>
     <p>作成日: {{ shop_infos.created_on }}</p>
-    <p>営業時間</p>
-    <p>買取方法</p>
 
     <!-- {{shop_infos}} -->
+    <div class="push"></div>
+    <ClientBottomNavi />
   </div>
 </template>
 
 <script>
   import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
 
   export default {
@@ -52,7 +36,7 @@
     },
     components: {
       ClientHeader,
-      ClientGlobalMenu,
+      ClientBottomNavi,
     },
     methods: {
     },

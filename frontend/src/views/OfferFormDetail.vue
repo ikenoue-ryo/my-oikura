@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-img 
-      :src="offer_Items.image" 
+    <v-img
+      :src="assesments.offer.image" 
       width="100%" 
       class="mx-auto ma-0"
     >
@@ -9,13 +9,26 @@
     </v-img>
 
     <v-container class="pa-8">
-      <v-row>
+      <v-row justify="center">
         <v-col>
-          <h2>{{ offer_Items.item_name }}</h2>
+          <v-btn
+            type="submit"
+            color="pink darken-1"
+            x-large
+            block
+            class="white--text font-weight-bold title"
+          >
+            <span class="body-2 align-end">査定額</span> {{ assesments.value | priceLocaleString }} 円
+          </v-btn>
         </v-col>
       </v-row>
       <v-row>
-        <v-col>{{ offer_Items.item_date }}年</v-col>
+        <v-col>
+          <h2>{{ assesments.offer.item_name }}</h2>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>{{ assesments.offer.item_date }}年</v-col>
       </v-row>
     </v-container>
 
@@ -32,20 +45,25 @@
     name: 'Home',
     data() {
       return {
-        offer_Items: []
+        assesments: []
       }
     },
     components: {
       BottomNavi,
+    },
+    filters: {
+      priceLocaleString: function (value) {
+          return value.toLocaleString()
+      }
     },
     methods: {
     },
     mounted(){
       api({
         method: 'get',
-        url: '/api/v1/api/offers/' + this.$route.params['id']
+        url: '/assesment_price'
       })
-      .then(response => this.offer_Items = response.data)
+      .then(response => this.assesments = response.data.results.find(assesments_info => assesments_info.offer.id == this.$route.params['id']))
       .catch(error => console.log(error))
     }
   }
