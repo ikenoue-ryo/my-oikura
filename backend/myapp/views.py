@@ -2,7 +2,7 @@ from django_filters import rest_framework
 from django.shortcuts import render
 from rest_framework import generics, authentication, permissions
 from myapp import serializers
-from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation, ClientPr, Like, Brand
 
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
@@ -14,7 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .utils.auth import NormalAuthentication, JWTAuthentication
-from .serializers import UserSerializer, OfferSerializer, CategorySerializer, AssesmentPriceSerializer, ClientMessageSerializer, ShopReviewSerializer, VisitReservationSerializer
+from .serializers import UserSerializer, OfferSerializer, CategorySerializer, AssesmentPriceSerializer, ClientMessageSerializer, ShopReviewSerializer, VisitReservationSerializer, ClientPrSerializer, LikeSerializer, BrandSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -86,11 +86,11 @@ class ClientMessageViewSet(viewsets.ModelViewSet):
     queryset = ClientMessage.objects.all()
     serializer_class = serializers.ClientMessageSerializer
 
-    def get_queryset(self):
-        return self.queryset.filter(sender=self.request.user)
+    # def get_queryset(self):
+    #     return self.queryset.filter(sender=self.request.user)
 
-    def perform_create(self, serializer):
-        serializer.save(sender=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(sender=self.request.user)
 
 
 class InboxListView(generics.ListAPIView):
@@ -98,8 +98,8 @@ class InboxListView(generics.ListAPIView):
     queryset = ClientMessage.objects.all()
     serializer_class = serializers.ClientMessageSerializer
 
-    def get_queryset(self):
-        return self.queryset.filter(receiver=self.request.user)
+    # def get_queryset(self):
+    #     return self.queryset.filter(receiver=self.request.user)
 
 
 class CarViewSet(viewsets.ModelViewSet):
@@ -115,3 +115,18 @@ class ShopReviewViewSet(viewsets.ModelViewSet):
 class VisitReservationViewSet(viewsets.ModelViewSet):
     queryset = VisitReservation.objects.all()
     serializer_class = serializers.VisitReservationSerializer
+
+
+class ClientPrViewSet(viewsets.ModelViewSet):
+    queryset = ClientPr.objects.all()
+    serializer_class = serializers.ClientPrSerializer
+
+
+class LikeViewSet(viewsets.ModelViewSet):
+    queryset = Like.objects.all()
+    serializer_class = serializers.LikeSerializer
+
+
+class BrandViewSet(viewsets.ModelViewSet):
+    queryset = Brand.objects.all()
+    serializer_class = serializers.BrandSerializer

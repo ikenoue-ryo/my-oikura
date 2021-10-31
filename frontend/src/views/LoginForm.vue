@@ -1,15 +1,17 @@
 <template>
   <div>
-    <Header />
-    <GlobalMenu />
+  <v-container pa-5>
+    <v-row justify="center" class="ma-3">
+    <h2 class="title font-weight-bold">ログイン</h2>
+    </v-row>
+    <v-divider></v-divider>
 
-  <h2>ログイン</h2>
-  <v-container>
     <validation-observer
       ref="observer"
     >
-      <form @submit.prevent="submitLogin">
+      <form @submit.prevent="submitLogin" class="py-10">
         <v-col cols="12" sm="" md="3" lg="6">
+          <h3 class="headline font-weight-bold mb-5">車査定へようこそ</h3>
           <validation-provider
             v-slot="{ errors }"
             name="email"
@@ -41,25 +43,34 @@
           </validation-provider>
         </v-col>
 
-        <v-btn
-          class="mr-4"
-          type="submit"
-        >
-          送信
-        </v-btn>
+        <v-row justify="center" class="ma-2 mt-5">
+            <v-btn
+              type="submit"
+              color="pink darken-1"
+              x-large
+              block
+              class="white--text font-weight-bold body-1"
+            >
+              続行する
+            </v-btn>
+        </v-row>
       </form>
     </validation-observer>
+    <v-divider></v-divider>
+
+    <v-row justify="center" class="ma-5">
+      新規登録は<router-link to="/signup">こちら</router-link>
+    </v-row>
+    
   </v-container>
 
-  サインアップは<router-link to="/signup">こちら</router-link>
-
-
+    <div class="push"></div>
+    <BottomNavi />
   </div>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import GlobalMenu from '@/components/GlobalMenu.vue'
+  import BottomNavi from '@/components/BottomNavi.vue'
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
 
@@ -100,8 +111,7 @@
       }
     },
     components: {
-      Header,
-      GlobalMenu,
+      BottomNavi,
       ValidationProvider,
       ValidationObserver,
     },
@@ -125,8 +135,7 @@
 </script>
 
 <style>
-  ul li {
-    display: inline-block;
-    margin: 10px
+  .push {
+    height: 55px;/*フッターと同じ高さに指定*/
   }
 </style>

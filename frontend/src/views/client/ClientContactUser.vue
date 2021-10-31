@@ -1,27 +1,42 @@
 <template>
   <div>
-    <ClientHeader />
-    <ClientGlobalMenu />
     <h1>ユーザーメッセージ</h1>
 
-    {{mail_user[0].sender.name}}さんから受信したメッセージ：{{inbox.length}}件
+    <!-- {{mail_user[0].sender.name}}さんから受信したメッセージ：{{inbox.length}}件 -->
+
+  {{inbox}}
+  <br>
+  <br>
+  <br>
+  <br>
+  {{client_messages}}
 
 
+  
 
-    <div v-for="inbox_message in mail_user" :key="inbox_message.id">
+    <div v-for="inbox_message in inbox" :key="inbox_message.id">
       <ul>
-        <li>{{inbox_message.message}} {{inbox_message.created_at}}</li>
+        <li>{{inbox_message.sender_profile.nickname}}</li>
+        <li>{{inbox_message.message}}</li>
+      </ul>
+      <hr>
+    </div>
+    あああ
+    いいい
+
+    <div v-for="client_message in mail_user" :key="client_message.id">
+      <ul>
+        <li>{{client_message.sender_profile.nickname}}</li>
+        <li>{{client_message.message}}</li>
       </ul>
       <hr>
     </div>
 
-    {{client_messages[0].message}}<br>
+    <!-- {{client_messages[0].message}}<br> -->
   </div>
 </template>
 
 <script>
-  import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
   import api from '@/services/api'
 
   export default {
@@ -33,8 +48,6 @@
       }
     },
     components: {
-      ClientHeader,
-      ClientGlobalMenu,
     },
     methods: {
     },
@@ -43,14 +56,16 @@
         method: 'get',
         url: '/inbox/',
       })
-      .then(response => this.inbox = response.data.results.filter(user_inbox => user_inbox.sender.name === this.$route.params.username))
+      .then(response => this.inbox = response.data.results.filter((v1, i1, a1) => {
+          return a1.findIndex(v => v1.sender_profile.nickname === v.sender_profile.nickname) === i1
+        }))
       .catch(error => console.log(error));
-      
+
       api({
         method: 'get',
-        url: '/api/v1/api/message/'
+        url: '/message/'
       })
-      .then(response => this.client_messages = response.data.results.filter(messages => messages.receiver.name === this.$route.params.username))
+      .then(response => this.client_messages = response.data.results.filter(client => client.sender_profile.nickname === 'takuchan'))
       .catch(error => console.log(error))
     },
     computed: {

@@ -2,7 +2,7 @@
 from django.urls import path, include
 from myapp import views
 from rest_framework.routers import DefaultRouter
-from .views import SignupViewSet, OfferViewSet, CategoryViewSet, ProfileViewSet, ClientShopViewSet, AssesmentPriceViewSet, ClientMessageViewSet, InboxListView, CarViewSet, ShopReviewViewSet, VisitReservationViewSet
+from .views import SignupViewSet, OfferViewSet, CategoryViewSet, ProfileViewSet, ClientShopViewSet, AssesmentPriceViewSet, ClientMessageViewSet, InboxListView, CarViewSet, ShopReviewViewSet, VisitReservationViewSet, ClientPrViewSet, LikeViewSet, BrandViewSet
 
 
 app_name='myapp'
@@ -18,6 +18,9 @@ router.register('message', ClientMessageViewSet)
 router.register('car', CarViewSet)
 router.register('shop_review', ShopReviewViewSet)
 router.register('visit_reservation', VisitReservationViewSet)
+router.register('client_pr', ClientPrViewSet)
+router.register('like', LikeViewSet)
+router.register('brand', BrandViewSet)
 
 urlpatterns = [
     path('create/', views.CreateUserView.as_view(), name='create'),
