@@ -134,10 +134,8 @@ class ClientMessage(models.Model):
         settings.AUTH_USER_MODEL, related_name='sender',
         on_delete=models.CASCADE
     )
-    receiver = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='receiver',
-        on_delete=models.CASCADE
-    )
+    sender_profile = models.ForeignKey('Profile', related_name='sender_profile', on_delete=models.PROTECT)
+    receiver_profile = models.ForeignKey('Profile', related_name='receiver_profile', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -145,18 +143,17 @@ class ClientMessage(models.Model):
         return self.message
 
 
-# class Brand(models.Model):
+class Brand(models.Model):
+    name = models.CharField(max_length=100)
 
-#     name = models.CharField(max_length=100)
-
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 
 class Car(models.Model):
-
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images', blank=True, null=True)
+    brand = models.ForeignKey('Brand', related_name='ブランド', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
@@ -175,10 +172,7 @@ class ShopReview(models.Model):
     client_shop = models.ForeignKey('ClientShop', on_delete=models.PROTECT)
     comment = models.CharField(max_length=100)
     score = models.PositiveSmallIntegerField(verbose_name='レビュースコア', choices=SCORE_CHOICES, default='3')
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='author',
-        on_delete=models.CASCADE
-    )
+    profile = models.ForeignKey('Profile', related_name='profile', on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -188,6 +182,13 @@ class ShopReview(models.Model):
     def get_percent(self):
         percent = round(self.score / 5 * 100)
         return percent
+
+
+class Like(models.Model):
+    client_shop = models.ForeignKey('ClientShop', on_delete=models.PROTECT)
+    profile = models.ForeignKey('Profile', related_name='like_profile', on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 # 来店予約
@@ -202,3 +203,19 @@ class VisitReservation(models.Model):
     def __str__(self):
         start = timezone.localtime(self.start).strftime('%Y/%m/%d %H:%M:%S')
         return f'{self.name} {start} ~'
+
+
+# 店舗PR
+class ClientPr(models.Model):
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name='client_author',
+        on_delete=models.CASCADE
+    )
+    client_shop = models.ForeignKey('ClientShop', related_name='client_shop', on_delete=models.PROTECT)
+    text = models.CharField('ブログ', max_length=500)
+    img = models.ImageField(blank=True, null=True, upload_to='static')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __int__(self):
+        return self.text

@@ -1,15 +1,17 @@
 <template>
   <div>
-    <Header />
-    <GlobalMenu />
+  <v-container pa-5>
+    <v-row justify="center" class="ma-3">
+      <h2 class="title font-weight-bold">新規登録</h2>
+    </v-row>
+    <v-divider></v-divider>
 
-  <h2>サインアップ</h2>
-  <v-container>
     <validation-observer
       ref="observer"
     >
-      <form @submit.prevent="submitSignup">
+      <form @submit.prevent="submitSignup" class="py-10">
         <v-col cols="12" sm="" md="3" lg="6">
+          <h3 class="headline font-weight-bold mb-5">車査定へようこそ</h3>
           <validation-provider
             v-slot="{ errors }"
             name="email"
@@ -18,7 +20,7 @@
             <v-text-field
               type="email"
               v-model="email"
-              :counter="20"
+              :counter="30"
               :error-messages="errors"
               label="email"
               required
@@ -29,11 +31,11 @@
           <validation-provider
             v-slot="{ errors }"
             name="password"
-            rules="required|max:20"
+            rules="required|max:30"
           >
             <v-text-field
               v-model="password"
-              :counter="20"
+              :counter="30"
               :error-messages="errors"
               label="password"
               required
@@ -44,11 +46,11 @@
           <validation-provider
             v-slot="{ errors }"
             name="name"
-            rules="required|max:20"
+            rules="required|max:30"
           >
             <v-text-field
               v-model="name"
-              :counter="20"
+              :counter="30"
               :error-messages="errors"
               label="name"
               required
@@ -56,25 +58,34 @@
           </validation-provider>
         </v-col>
 
-        <v-btn
-          class="mr-4"
-          type="submit"
-        >
-          送信
-        </v-btn>
+        <v-row justify="center" class="ma-2 mt-5">
+            <v-btn
+              type="submit"
+              color="pink darken-1"
+              x-large
+              block
+              class="white--text font-weight-bold body-1"
+            >
+              新規登録する
+            </v-btn>
+        </v-row>
       </form>
     </validation-observer>
+    <v-divider></v-divider>
+
+    <v-row justify="center" class="ma-5">
+      ログインは<router-link to="/login">こちら</router-link>
+    </v-row>
+    
   </v-container>
 
-  ログインは<router-link to="/login">こちら</router-link>
-
-
+    <div class="push"></div>
+    <BottomNavi />
   </div>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import GlobalMenu from '@/components/GlobalMenu.vue'
+  import BottomNavi from '@/components/BottomNavi.vue'
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
 
@@ -116,8 +127,7 @@
       }
     },
     components: {
-      Header,
-      GlobalMenu,
+      BottomNavi,
       ValidationProvider,
       ValidationObserver,
     },

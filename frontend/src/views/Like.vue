@@ -2,54 +2,45 @@
   <div>
     <TopNavi />
     <br>
-    <br>
-    <br>
-
     <v-container class="pa-8">
-      <v-row>
-        <v-col cols="8">
-          <h2>こんにちは、{{profiles.nickname}} です</h2>
-        </v-col>
-        <v-col cols="4">
-          <v-img :src="profiles.img" 
-            width="70px" 
-            height="70px" 
-            class="mx-auto ma-5 rounded-circle"
-          >
-          </v-img>
+      <v-row class="mb-2">
+        <v-col cols="12">
+          <h2 class="headline font-weight-bold">お気に入り</h2>
         </v-col>
       </v-row>
-      <v-divider></v-divider>
 
+      <v-divider></v-divider>
+<!-- {{like}} -->
       <v-row class="mt-5">
         <v-col>
-          <h3 class="my-3">査定結果 ({{assesment.length}}件)</h3>
-          <div v-if="assesment">
-            ご連絡頂きました査定依頼に、以下の店舗から査定結果が届いています。
+          <div v-if="like">
+            以下をお気に入りに登録しています。
+            <!-- {{like}} -->
             <template>
               <div
-                class="mt-3"
+                class="mt-3 row"
                 tile
               >
-                <v-list flat>
+                <v-list flat width="100%">
                   <v-list-item-group
                     v-model="selectedItem"
                     color="primary"
                   >
                     <v-list-item
-                      v-for="(assesment_info, i) in assesment"
+                      v-for="(favorite, i) in like"
                       :key="i"
                       class="pa-0"
-                      :href="`/client/shop/${assesment_info.client_shop.id}/`"
+                      :href="`/client/shop/${favorite.client_shop.id}/`"
                     >
                       <v-list-item-icon>
-                        <v-img :src="assesment_info.client_shop.img" width="70" height="70" :class="`rounded-circle`"></v-img>
+                        <v-img :src="favorite.client_shop.img" width="70" height="70" :class="`rounded-lg`"></v-img>
                       </v-list-item-icon>
                       <v-list-item-content>
-                        <v-list-item-title v-text="assesment_info.client_shop.name"></v-list-item-title>
-                        <v-list-item-subtitle>車種： {{assesment_info.offer.item_name}}</v-list-item-subtitle>
-                        <v-list-item-subtitle>Price：{{assesment_info.value|priceLocaleString}} 円</v-list-item-subtitle>
+                        <v-list-item-title class="font-weight-bold" v-text="favorite.client_shop.name"></v-list-item-title>
                       </v-list-item-content>
+                      <vue-star animate="animated flash" color="#F05654!important">
+                        <span slot="icon" class="fa fa-heart" @click.prevent></span>
+                      </vue-star>
                     </v-list-item>
                   </v-list-item-group>
                 </v-list>
@@ -57,11 +48,30 @@
             </template>
           </div>
           <div v-else>
-            まだ査定依頼を行っていません。
+            お気に入りに登録しているものがありません
           </div>
         </v-col>
       </v-row>
-      <v-divider></v-divider>
+      
+      <div class="push"></div>
+        <BottomNavi />
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
@@ -92,15 +102,18 @@
 
 <script>
   import TopNavi from '@/components/TopNavi.vue'
-  // import CreateProfile from '@/components/CreateProfile.vue'
   import BottomNavi from '@/components/BottomNavi.vue'
+  // import CreateProfile from '@/components/CreateProfile.vue'
+  import Vue from 'vue'
+  import VueStar from 'vue-star'
+  Vue.component('VueStar', VueStar)
   import api from '@/services/api'
 
   export default {
-    name: 'Mypage',
+    name: 'Like',
     data() {
       return {
-        mypage: '',
+        like: '',
         profiles: [],
         assesment: [],
         scrollY: 0,
@@ -110,6 +123,7 @@
     components: {
       TopNavi,
       // CreateProfile,
+      VueStar,
       BottomNavi,
     },
     filters: {
@@ -126,24 +140,10 @@
     mounted(){
       api({
         method: 'get',
-        url: '/api/v1/auth/users/me/',
+        url: '/like/',
       })
-      .then(response => this.mypage = response.data)
+      .then(response => this.like = response.data.results.filter(like_profile => like_profile.profile.user.email === this.email))
       .catch(error => console.log(error));
-
-      api({
-        method: 'get',
-        url: '/profile/'
-      })
-      .then(response => this.profiles = response.data.results.find(profile => profile.user.id === this.id))
-      .catch(error => console.log(error))
-
-      api({
-        method: 'get',
-        url: '/api/v1/api/assesment_price/'
-      })
-      .then(response => this.assesment = response.data.results.filter(assesment => assesment.offer.profile.user.email === this.email))
-      .catch(error => console.log(error))
 
       // スクロールイベントを取得
       window.addEventListener('scroll', this.onScroll)
@@ -179,11 +179,13 @@
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
-  will-change: opacity;
-  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0
-}
+  #app .VueStar {
+    /* position: relative;
+    width: 50px;
+    height: 50px; */
+  }
+  .VueStar__icon .fa {
+    font-size: 2em;
+    cursor: pointer;
+  }
 </style>

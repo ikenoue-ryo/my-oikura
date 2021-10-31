@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-app>
       <ClientHeader />
-      <ClientGlobalMenu />
       <v-container>
         <h2>来店スケジュール </h2>
         <v-sheet tile height="6vh" color="grey lighten-3" class="d-flex align-center">
@@ -26,8 +24,6 @@
           :event-color="getEventColor"
           :type="type"
           @click:event="showEvent"
-          @click:more="viewDay"
-          @click:date="viewDay"
           @change="updateRange"
         ></v-calendar>
           <v-menu
@@ -73,13 +69,15 @@
           </v-menu>
         </v-sheet>
       </v-container>
-    </v-app>
+
+    <div class="push"></div>
+    <ClientBottomNavi />
   </div>
 </template>
 
 <script>
   import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
   import moment from 'moment';
   
@@ -97,7 +95,7 @@
     },
     components: {
       ClientHeader,
-      ClientGlobalMenu,
+      ClientBottomNavi
     },
     methods: {
       setToday() {
@@ -118,9 +116,6 @@
         }
 
         nativeEvent.stopPropagation()
-      },
-      viewDay({ date }) {
-        alert(`date: ${date}`);
       },
     },
     mounted() {

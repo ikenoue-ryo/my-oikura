@@ -8,8 +8,8 @@
         <v-btn href="/client-shop/tokyo/">
           東京
         </v-btn>
-        <v-btn href="/client-shop/saitama/">
-          埼玉
+        <v-btn href="/client-shop/fukuoka/">
+          福岡
         </v-btn>
         <v-btn href="/client-shop/kanagawa/">
           神奈川

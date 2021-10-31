@@ -1,49 +1,76 @@
 <template>
   <div>
-    <Header />
-    <GlobalMenu />
+    <v-img
+      :src="assesments.offer.image" 
+      width="100%" 
+      class="mx-auto ma-0"
+    >
+      <v-icon @click="$router.back()" class="ma-4">mdi-arrow-left</v-icon>
+    </v-img>
 
-    <div class="text-right"><a href="/client/shop/">編集する</a></div>
+    <v-container class="pa-8">
+      <v-row justify="center">
+        <v-col>
+          <v-btn
+            type="submit"
+            color="pink darken-1"
+            x-large
+            block
+            class="white--text font-weight-bold title"
+          >
+            <span class="body-2 align-end">査定額</span> {{ assesments.value | priceLocaleString }} 円
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <h2>{{ assesments.offer.item_name }}</h2>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>{{ assesments.offer.item_date }}年</v-col>
+      </v-row>
+    </v-container>
 
-      <p>ID: {{offer_Items.id}}</p>
-      <p>製造日: {{offer_Items.item_date}}</p>
-      <p>カテゴリ: {{offer_Items.category.name}}</p>
-      <v-img :src="offer_Items.image" width="100" max-height="100"></v-img>
-      <p>作成日: {{offer_Items.created_at}}</p>
-      <p>更新日: {{offer_Items.updated_at}}</p>
-{{offer_Items}}
+    <div class="push"></div>
+    <BottomNavi />
   </div>
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import GlobalMenu from '@/components/GlobalMenu.vue'
-  import api from '../services/api'
+  import BottomNavi from '@/components/BottomNavi.vue'
+  import api from '@/services/api'
 
   export default {
     name: 'Home',
     data() {
       return {
-        offer_Items: []
+        assesments: []
       }
     },
     components: {
-      Header,
-      GlobalMenu,
+      BottomNavi,
+    },
+    filters: {
+      priceLocaleString: function (value) {
+          return value.toLocaleString()
+      }
     },
     methods: {
     },
     mounted(){
       api({
         method: 'get',
-        url: '/api/v1/api/offers/' + this.$route.params['id']
+        url: '/assesment_price'
       })
-      .then(response => this.offer_Items = response.data)
+      .then(response => this.assesments = response.data.results.find(assesments_info => assesments_info.offer.id == this.$route.params['id']))
       .catch(error => console.log(error))
     }
   }
 </script>
 
 <style>
-
+  .push {
+    height: 55px;/*フッターと同じ高さに指定*/
+  }
 </style>

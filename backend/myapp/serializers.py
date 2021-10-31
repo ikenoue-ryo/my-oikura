@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework import serializers
-from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation
+from .models import User, Offer, Category, Profile, ClientShop, AssesmentPrice, ClientMessage, Car, ShopReview, VisitReservation, ClientPr, Like, Brand
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -80,8 +80,8 @@ class ClientShopSerializer(serializers.ModelSerializer):
 
 
 class ClientMessageSerializer(serializers.ModelSerializer):
-    sender = UserSerializer()
-    receiver = UserSerializer()
+    sender_profile = ProfileSerializer()
+    receiver_profile = ProfileSerializer()
 
     class Meta:
         model = ClientMessage
@@ -89,7 +89,15 @@ class ClientMessageSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'sender')
 
 
+class BrandSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Brand
+        fields = '__all__'
+
+
 class CarSerializer(serializers.ModelSerializer):
+    brand = BrandSerializer()
 
     class Meta:
         model = Car
@@ -97,7 +105,7 @@ class CarSerializer(serializers.ModelSerializer):
 
 
 class ShopReviewSerializer(serializers.ModelSerializer):
-    author = UserSerializer()
+    profile = ProfileSerializer()
     
     class Meta:
         model = ShopReview
@@ -108,4 +116,20 @@ class VisitReservationSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = VisitReservation
+        fields = '__all__'
+
+
+class ClientPrSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = ClientPr
+        fields = '__all__'
+
+
+class LikeSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+    client_shop = ClientShopsSerializer()
+
+    class Meta:
+        model = Like
         fields = '__all__'

@@ -11,15 +11,20 @@ import OfferUser from '../views/OfferUser.vue'
 import ShopSearch from '../views/ShopSearch.vue'
 import ShopSearchPrefecture from '../views/ShopSearchPrefecture.vue'
 import CarSearch from '../views/CarSearch.vue'
+import MyInbox from '../views/MyInbox.vue'
+import MyInboxDetail from '../views/MyInboxDetail.vue'
+import Like from '../views/Like.vue'
+import ListCars from '../views/ListCars.vue'
 
 import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
 import ClientMypage from '../views/client/ClientMypage.vue'
 import ClientAuction from '../views/client/ClientAuction.vue'
-import ClientShoppage from '../views/client/ClientShoppage.vue'
+import ClientShopPage from '../views/client/ClientShopPage.vue'
 import ClientContact from '../views/client/ClientContact.vue'
 import ClientContactUser from '../views/client/ClientContactUser.vue'
 import ClientVisitSchedule from '../views/client/ClientVisitSchedule.vue'
+import ClientPr from '../views/client/ClientPr.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -39,16 +44,22 @@ const router = new VueRouter({
     { path: '/client-shop-search', component: ShopSearch },
     { path: '/client-shop/:prefecture', component: ShopSearchPrefecture },
     { path: '/car-search', component: CarSearch },
+    { path: '/inbox', component: MyInbox },
+    { path: '/inbox/:username', component: MyInboxDetail },
+    { path: '/like', component: Like },
+    { path: '/list-cars', component: ListCars },
+
 
     { path: '/client/signup', component: ClientSignupForm },
     { path: '/client/login', component: ClientLoginForm },
     { path: '/client/auction', component: ClientAuction },
     // { path: '/client/:userid', component: ClientMypage },
     { path: '/client/shop', component: ClientMypage },
-    { path: '/client/shop/:id', component: ClientShoppage },
+    { path: '/client/shop/:id', component: ClientShopPage },
     { path: '/client/contact', component: ClientContact },
     { path: '/client/contact/:username', component: ClientContactUser },
     { path: '/client/visit-reservation', component: ClientVisitSchedule },
+    { path: '/client/pr', component: ClientPr },
 
     // { path: '*', redirect: '/login' },
   ]

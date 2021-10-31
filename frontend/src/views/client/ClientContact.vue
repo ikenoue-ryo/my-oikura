@@ -1,7 +1,6 @@
 <template>
   <div>
     <ClientHeader />
-    <ClientGlobalMenu />
     <h1>加盟店問い合わせページ</h1>
 
     受信したメッセージ：{{inbox.length}}件
@@ -14,12 +13,14 @@
       <hr>
     </div>
 
+    <div class="push"></div>
+    <ClientBottomNavi />
   </div>
 </template>
 
 <script>
   import ClientHeader from '@/components/client/ClientHeader.vue'
-  import ClientGlobalMenu from '@/components/client/ClientGlobalMenu.vue'
+  import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
 
   export default {
@@ -32,16 +33,14 @@
     },
     components: {
       ClientHeader,
-      ClientGlobalMenu,
+      ClientBottomNavi
     },
     mounted(){
       api({
         method: 'get',
         url: '/inbox/',
       })
-      .then(response => this.inbox = response.data.results.filter((v1, i1, a1) => {
-          return a1.findIndex(v => v1.sender.name === v.sender.name) === i1
-        }))
+      .then(response => this.inbox = response.data.results)
       .catch(error => console.log(error));
       
       // api({
