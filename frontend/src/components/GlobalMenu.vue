@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <v-container>
-      <img src="@/assets/main.png" width="100%">
-      <v-row justify="center" class="my-10 ma-1">
-          <v-btn
-            depressed
-            color="pink darken-1"
-            x-large
-            block
-            href="offer-form"
-            class="white--text font-weight-bold body-1"
-          >
-            査定を依頼する
-          </v-btn>
-      </v-row>
-    </v-container>
-
+  <div class="mt-6">
+    <img src="@/assets/top.jpeg" width="100%">
+    <v-row justify="center" class="my-5 ma-5">
+        <v-btn
+          depressed
+          color="pink darken-1"
+          x-large
+          block
+          href="offer-form"
+          class="white--text font-weight-bold body-1"
+          elevation="5"
+          raised
+        >
+          査定を依頼する
+        </v-btn>
+    </v-row>
   </div>
 </template>
 

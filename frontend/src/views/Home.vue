@@ -135,7 +135,7 @@
 
             <v-img
               class="white--text align-end"
-              height="300px"
+              height="200px"
               src="@/assets/main_satei.jpeg" width="100%"
               :class="`rounded-b-xl`"
             >
