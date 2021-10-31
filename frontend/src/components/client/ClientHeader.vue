@@ -14,7 +14,7 @@
           :dark="bar.dark"
         >
           <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-          <v-toolbar-title class="pa-1"><a href="/" class="white--text">店舗ページ</a></v-toolbar-title>
+          <v-toolbar-title class="pa-1"><a href="/client/shop/" class="white--text">店舗ページ</a></v-toolbar-title>
           <v-spacer></v-spacer>
           
           <v-btn 
@@ -134,6 +134,7 @@
           { title: '来店予約', link: "/client/visit-reservation/", icon: "mdi-heart-outline" },
           { title: '店舗PR', link: "/client/pr/", icon: "mdi-pencil-outline" },
           { title: '問い合わせ', link: "/client/contact/", icon: "mdi-chat-processing-outline" },
+          { title: 'ユーザーページ', link: "/", icon: "mdi-arrow-left" },
         ],
         
         drawer: false,

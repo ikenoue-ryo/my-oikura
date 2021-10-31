@@ -1,17 +1,82 @@
 <template>
   <div>
-    <ClientHeader />
+    <v-img 
+      :src="shop_infos.img" 
+      width="100%" 
+      class="mx-auto ma-0"
+    >
+      <v-icon @click="$router.back()" class="pa-4" size="30">mdi-arrow-left</v-icon>
+    </v-img>
 
-    <h2>店舗情報</h2>
-    <p>ID: {{ shop_infos.id }}</p>
-    <p>店舗名: {{ shop_infos.name }}</p>
-    <p>店舗名カナ: {{ shop_infos.kana }}</p>
-    <p>店舗画像 <img :src="shop_infos.img" alt="" width=200></p>
-    <p>担当者: {{ shop_infos.manager }}</p>
-    <p>電話番号: {{ shop_infos.tel }}</p>
-    <p>Email: {{ shop_infos.email }}</p>
-    <p>所在地: {{ shop_infos.place }}</p>
-    <p>作成日: {{ shop_infos.created_on }}</p>
+    <template>
+      <v-col
+        sm="6"
+        offset-sm="3"
+      >
+        <v-list two-line>
+          <template>
+            <v-subheader>
+              店舗情報
+            </v-subheader>
+            <v-divider></v-divider>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-icon size="30">mdi-store-outline</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle>店舗名</v-list-item-subtitle>
+                <v-list-item-title>{{shop_infos.name}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-icon size="30">mdi-account</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle>担当者</v-list-item-subtitle>
+                <v-list-item-title>{{shop_infos.manager}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-icon size="30">mdi-cellphone</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle>電話番号</v-list-item-subtitle>
+                <v-list-item-title>{{shop_infos.tel}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-icon size="30">mdi-email-outline</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle>Email</v-list-item-subtitle>
+                <v-list-item-title>{{shop_infos.email}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-icon size="30">mdi-map-marker-outline</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle>所在地</v-list-item-subtitle>
+                <v-list-item-title>{{shop_infos.place}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-avatar>
+                <v-icon size="30">mdi-pencil</v-icon>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle>作成日</v-list-item-subtitle>
+                <v-list-item-title>{{shop_infos.created_on}}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+        </v-list>
+      </v-col>
+    </template>
 
     <!-- {{shop_infos}} -->
     <div class="push"></div>
@@ -20,7 +85,6 @@
 </template>
 
 <script>
-  import ClientHeader from '@/components/client/ClientHeader.vue'
   import ClientBottomNavi from '@/components/client/ClientBottomNavi.vue'
   import api from '@/services/api'
 
@@ -32,10 +96,18 @@
         client: '',
         shop_Info: [],
         profiles: [],
+
+        items: [
+          { header: '店舗情報' },
+          { avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', title: 'Brunch this weekend?', subtitle: `<span class="font-weight-bold">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?` },
+          { divider: true, inset: true },
+          { avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>', subtitle: `<span class="font-weight-bold">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.` },
+          { divider: true, inset: true },
+          { avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', title: 'Oui oui', subtitle: '<span class="font-weight-bold">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?' },
+        ],
       }
     },
     components: {
-      ClientHeader,
       ClientBottomNavi,
     },
     methods: {

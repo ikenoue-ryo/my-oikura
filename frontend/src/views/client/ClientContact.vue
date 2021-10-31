@@ -40,9 +40,7 @@
         method: 'get',
         url: '/inbox/',
       })
-      .then(response => this.inbox = response.data.results.filter((v1, i1, a1) => {
-          return a1.findIndex(v => v1.sender.name === v.sender.name) === i1
-        }))
+      .then(response => this.inbox = response.data.results)
       .catch(error => console.log(error));
       
       // api({

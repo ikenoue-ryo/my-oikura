@@ -5,7 +5,7 @@
     fixed
   >
     <v-btn to="/client/shop/">
-      <span>トップ</span>
+      <span>ショップ</span>
       <v-icon>mdi-history</v-icon>
     </v-btn>
 
