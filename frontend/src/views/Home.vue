@@ -49,7 +49,7 @@
                   max-width="280"
                   v-ripple
                 >
-                  <a :href="`/offer-form/`">
+                  <a :href="item.url">
                   <v-img
                     :src="item.img"
                     height="260px"
@@ -185,9 +185,6 @@
       </div>
     </v-container>
 
-    <!-- <vue-star animate="animated rubberBand" color="#F05654!">
-      <a slot="icon" class="fa fa-heart" @click="handleClick"></a>
-    </vue-star> -->
     <Footer />
     <div class="push"></div>
     <BottomNavi />
@@ -224,11 +221,11 @@
         // ],
         search: '',
         cars: [
-          {name: 'レクサス', en: 'lexus', grade: 'NX', img: require('../assets/lexus.png')},
-          {name: 'アルファード', en:'alphard', grade: 'G', img: require('../assets/alphard.png')},
-          {name: 'マツダ', en: 'mazda', grade: 'CX5', img: require('../assets/mazda.png')},
-          {name: 'プリウス', en: 'prius', grade: 'R', img: require('../assets/prius.png')},
-          {name: '一覧ページで見る', en: 'all', grade: '', img: require('../assets/all.jpeg')},
+          {name: 'レクサス', en: 'lexus', grade: 'NX', img: require('../assets/lexus.png'), url: '/'},
+          {name: 'アルファード', en:'alphard', grade: 'G', img: require('../assets/alphard.png'), url: '/'},
+          {name: 'マツダ', en: 'mazda', grade: 'CX5', img: require('../assets/mazda.png'), url: '/'},
+          {name: 'プリウス', en: 'prius', grade: 'R', img: require('../assets/prius.png'), url: '/'},
+          {name: '一覧ページで見る', en: 'all', grade: '', img: require('../assets/all.jpeg'), url: '/list-cars'},
         ],
         // offer_Items: [],
         // assesment_price: [],

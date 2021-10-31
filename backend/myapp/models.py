@@ -143,18 +143,17 @@ class ClientMessage(models.Model):
         return self.message
 
 
-# class Brand(models.Model):
+class Brand(models.Model):
+    name = models.CharField(max_length=100)
 
-#     name = models.CharField(max_length=100)
-
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 
 class Car(models.Model):
-
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images', blank=True, null=True)
+    brand = models.ForeignKey('Brand', related_name='ブランド', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
