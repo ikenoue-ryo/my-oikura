@@ -24,7 +24,7 @@
                 <v-list flat width="100%">
                   <v-list-item-group
                     v-model="selectedItem"
-                    color="primary"
+                    color="info"
                   >
                     <v-list-item
                       v-for="(favorite, i) in like"
@@ -180,9 +180,11 @@
 
 <style scoped>
   #app .VueStar {
-    /* position: relative;
+    position: relative;
+    right: 30px;
+    bottom: 20px;
     width: 50px;
-    height: 50px; */
+    height: 50px;
   }
   .VueStar__icon .fa {
     font-size: 2em;

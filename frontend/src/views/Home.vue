@@ -49,7 +49,7 @@
                   max-width="280"
                   v-ripple
                 >
-                  <a :href="item.url">
+                  <a :href="`/list-cars/${item.url}`">
                   <v-img
                     :src="item.img"
                     height="260px"
@@ -221,11 +221,11 @@
         // ],
         search: '',
         cars: [
-          {name: 'レクサス', en: 'lexus', grade: 'NX', img: require('../assets/lexus.png'), url: '/'},
-          {name: 'アルファード', en:'alphard', grade: 'G', img: require('../assets/alphard.png'), url: '/'},
-          {name: 'マツダ', en: 'mazda', grade: 'CX5', img: require('../assets/mazda.png'), url: '/'},
-          {name: 'プリウス', en: 'prius', grade: 'R', img: require('../assets/prius.png'), url: '/'},
-          {name: '一覧ページで見る', en: 'all', grade: '', img: require('../assets/all.jpeg'), url: '/list-cars'},
+          {name: 'レクサス', en: 'lexus', grade: 'NX', img: require('../assets/lexus.png'), url: 'レクサス'},
+          {name: 'アルファード', en:'alphard', grade: 'G', img: require('../assets/alphard.png'), url: 'アルファード'},
+          {name: 'CX-5', en: 'mazda', grade: 'V', img: require('../assets/mazda.png'), url: 'CX-5'},
+          {name: 'プリウス', en: 'prius', grade: 'R', img: require('../assets/prius.png'), url: 'プリウス'},
+          {name: '一覧ページで見る', en: 'all', grade: '', img: require('../assets/all.jpeg'), url: ''},
         ],
         // offer_Items: [],
         // assesment_price: [],

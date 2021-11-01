@@ -63,7 +63,7 @@
         method: 'get',
         url: '/assesment_price'
       })
-      .then(response => this.assesments = response.data.results.find(assesments_info => assesments_info.offer.id == this.$route.params['id']))
+      .then(response => this.assesments = response.data.results.find(assesments_info => assesments_info.id == this.$route.params['id']))
       .catch(error => console.log(error))
     }
   }

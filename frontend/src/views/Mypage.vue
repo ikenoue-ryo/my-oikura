@@ -34,7 +34,7 @@
                 <v-list flat>
                   <v-list-item-group
                     v-model="selectedItem"
-                    color="primary"
+                    color="black"
                   >
                     <v-list-item
                       v-for="(assesment_info, i) in assesment"

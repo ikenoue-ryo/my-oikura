@@ -15,6 +15,7 @@
             v-ripple
             class="rounded-lg pa-2"
           >
+          <a :href="`/list-cars/${car.name}`">
             <!-- <v-subheader>{{car.brand.name}}</v-subheader> -->
             <img
               :src="car.image"
@@ -23,6 +24,7 @@
               width="100%"
             >
             {{car.name}}
+            </a>
           </v-col>
         </v-row>
       </v-col>

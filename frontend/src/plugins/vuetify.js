@@ -13,8 +13,8 @@ export default new Vuetify({
         error: colors.red,
         warning: colors.yellow,
         info: colors.grey,
-        success: "#795548",
-        mycolor: "#e0e0e0",
+        black: colors.black,
+        default: "#e0e0e0",
       },
       dark: {
         primary: "#D81B60",
