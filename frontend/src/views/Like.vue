@@ -24,7 +24,7 @@
                 <v-list flat width="100%">
                   <v-list-item-group
                     v-model="selectedItem"
-                    color="info"
+                    color="black"
                   >
                     <v-list-item
                       v-for="(favorite, i) in like"

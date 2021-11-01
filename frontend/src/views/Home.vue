@@ -80,7 +80,7 @@
             <div class="tableshow">
               <div class="div1 col-3" v-for="prefecture in prefectures" :key="prefecture">
                   <router-link :to="`/client-shop/${prefecture.en}/`">
-                    <v-row align="center" v-ripple>
+                    <v-row align="center" v-ripple class="black--text">
                       <v-col>
                         <v-img :src="prefecture.img" width="70" height="70" :class="`rounded-lg`"></v-img>
                       </v-col>
@@ -112,6 +112,7 @@
                 :class="`rounded-t-xl rounded-b-xl`"
                 elevation="10"
                 raised
+                :href="`/client/shop`"
               >
                 <v-row justify="center" class="mb-0">
                   <v-card-subtitle class="pt-10 pb-0 white--text font-weight-bold headline">
@@ -130,7 +131,7 @@
                       text
                       class="pa-5"
                     >
-                      もっと詳しく
+                      店舗ページ閲覧
                     </v-btn>
                   </v-row>
                 </v-card-actions>

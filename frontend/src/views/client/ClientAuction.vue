@@ -17,6 +17,7 @@
           <v-carousel-item
             :src="offer_Item.image"
             v-ripple
+            class="black--text"
           ></v-carousel-item>
         </a>
       </v-carousel>
