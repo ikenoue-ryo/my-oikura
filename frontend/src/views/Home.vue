@@ -168,7 +168,7 @@
                   max-width="280"
                   v-ripple
                 >
-                  <a :href="`/offer-form/`">
+                  <a :href="item.url">
                   <v-img
                     :src="item.img"
                     height="260px"
@@ -241,9 +241,9 @@
           {name: '静岡', en: 'shizuoka', img: require('../assets/tokyo.png')},
         ],
         shops: [
-          {name: '査定金額に評判のお店', img: require('../assets/gulliver.png')},
-          {name: 'レビュー評価が良いお店', img: require('../assets/toyota.png')},
-          {name: '近くのお店', img: require('../assets/nnextage.png')},
+          {name: '査定金額に評判のお店', img: require('../assets/gulliver.png'), url: '/list-assesment-shop/'},
+          {name: 'レビュー評価が良いお店', img: require('../assets/toyota.png'), url: '/list-assesment-shop/'},
+          {name: '近くのお店', img: require('../assets/nnextage.png'), url: '/list-assesment-shop/'},
         ],
       }
     },

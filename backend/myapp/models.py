@@ -121,6 +121,7 @@ class ClientShop(models.Model):
         on_delete=models.CASCADE,
         blank=True, null=True
     )
+    like_count = models.IntegerField(default=0)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

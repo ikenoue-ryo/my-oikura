@@ -15,7 +15,8 @@ import MyInbox from '../views/MyInbox.vue'
 import MyInboxDetail from '../views/MyInboxDetail.vue'
 import Like from '../views/Like.vue'
 import ListCars from '../views/ListCars.vue'
-import ListCarsDetail from '../views/ListCarsDetail.vue'
+import ListCarsType from '../views/ListCarsType.vue'
+import ListAssesmentShop from '../views/ListAssesmentShop.vue'
 
 import ClientLoginForm from '../views/client/ClientLoginForm.vue'
 import ClientSignupForm from '../views/client/ClientSignupForm.vue'
@@ -49,8 +50,8 @@ const router = new VueRouter({
     { path: '/inbox/:username', component: MyInboxDetail },
     { path: '/like', component: Like },
     { path: '/list-cars', component: ListCars },
-    { path: '/list-cars/:carname', component: ListCarsDetail },
-
+    { path: '/list-cars/:carname', component: ListCarsType },
+    { path: '/list-assesment-shop/', component: ListAssesmentShop },
 
     { path: '/client/signup', component: ClientSignupForm },
     { path: '/client/login', component: ClientLoginForm },
