@@ -3,25 +3,32 @@ version: '3.7'
 services: 
   web:
     build: .
-    command: gunicorn restapi.wsgi:application --bind 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/usr/src/app/
       - ./restapi/staticfiles:/usr/src/app/staticfiles
-    expose:
-      - '8000'
+    ports:
+      - 8000:8000
+    environment:
+      # 1はdebugモード
+      - DEBUG=1
+      - SECRET_KEY=hoge
+      - DATABASE_ENGINE=django.db.backends.mysql
+      - DATABASE_DB=django_db
+      - DATABASE_USER=django
+      - DATABASE_PASSWORD=password
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
     depends_on: 
       - db
-    environment:
-      - DEBUG=1
-      - SECRET_KEY=django-insecure-thbtz_f370_2)+v0*aacf8hrn3rx&(43)o%x(unxyscbt!!n2-
+
   db:
     build: ./mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: django_docker
+      MYSQL_DATABASE: django_db
       MYSQL_USER: django
       MYSQL_PASSWORD: password
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
@@ -29,13 +36,14 @@ services:
       - ./mysql/init.d:/docker-entrypoint-initdb.d
     ports: 
       - 3306:3306
-  nginx:
-    build: ./nginx
-    ports:
-      - 1337:80
-    volumes:
-      - ./restapi/staticfiles:/usr/src/app/staticfiles
-    depends_on:
-      - web
+
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - 1337:80
+  #   volumes:
+  #     - ./restapi/staticfiles:/usr/src/app/staticfiles
+  #   depends_on:
+  #     - web
 volumes:
   mysql_data:

@@ -8,11 +8,25 @@
 - python manage.py runserver
 - python manage.py createsuperuser
 
-# コンテナで直接コマンド実行する場合
+<!-- # コンテナで直接コマンド実行する場合
 - docker-compose run web ./manage.py makemigrations
 - docker-compose run web ./manage.py migrate
 - docker-compose run web ./manage.py createsuperuser
-- docker-compose run web ./manage.py collectstatic --no-input
+- docker-compose run web ./manage.py collectstatic --no-input -->
+
+# 開発環境でDocker起動
+- docker-compse down -v
+- docker-compse up -d
+- アクセスURL: localhost:8000
+<!-- 自動実行
+- docker-compose exec web python manage.py migrate --noinput --settings=restapi.settings.local -->
+
+# 本番環境でDocker起動
+- docker-compose -f docker-compose.prod.yml down -v
+- docker-compose -f docker-compose.prod.yml up -d --build
+- docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput --settings=restapi.settings.production
+- docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --noinput --clear
+- アクセスURL: localhost:1337
 
 ## 初期データ投入
 - python manage.py dumpdata > fixtures/all.json

@@ -1,0 +1,38 @@
+version: '3.7'
+
+services: 
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    command: gunicorn restapi.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app/
+      - ./restapi/staticfiles:/usr/src/app/staticfiles
+    expose:
+      - 8000
+    env_file: .env
+    depends_on:
+      - db
+
+  db:
+    build: ./mysql
+    env_file: .env.db
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/init.d:/docker-entrypoint-initdb.d
+    ports: 
+      - 3306:3306
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    volumes:
+      - ./restapi/staticfiles:/usr/src/app/staticfiles
+    depends_on:
+      - web
+
+volumes:
+  mysql_data:
