@@ -80,6 +80,6 @@
   .assesment {
     position: absolute;
     right: 10px;
-    bottom: 27px;
+    bottom: 45px;
   }
 </style>

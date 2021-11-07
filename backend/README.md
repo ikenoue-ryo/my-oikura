@@ -14,14 +14,19 @@
 - docker-compose run web ./manage.py createsuperuser
 - docker-compose run web ./manage.py collectstatic --no-input -->
 
-# 開発環境でDocker起動
-- docker-compse down -v
-- docker-compse up -d
+# 開発環境でDocker起動（MySQL）
+- docker-compose down -v
+- docker-compose up -d
 - アクセスURL: localhost:8000
 <!-- 自動実行
 - docker-compose exec web python manage.py migrate --noinput --settings=restapi.settings.local -->
 
-# 本番環境でDocker起動
+# 開発環境（SQLite3）
+- pip env install
+- pip env shell
+- python manage.py runserver --settings=restapi.settings.test
+
+# 本番環境でDocker起動(MySQL)
 - docker-compose -f docker-compose.prod.yml down -v
 - docker-compose -f docker-compose.prod.yml up -d --build
 - docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput --settings=restapi.settings.production

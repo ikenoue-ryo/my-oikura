@@ -22,10 +22,10 @@
                     :href="`/client/shop/${client.id}/`"
                   >
                     <v-list-item-icon>
-                      <v-img :src="client.assesment_price.client_shop.img" width="100" height="auto" :class="`rounded-lg`"></v-img>
+                      <v-img :src="client.img" width="100" height="auto" :class="`rounded-lg`"></v-img>
                     </v-list-item-icon>
                     <v-list-item-content>
-                      <v-list-item-title>{{client.assesment_price.client_shop.name}}</v-list-item-title>
+                      <v-list-item-title>{{client.name}}</v-list-item-title>
                     </v-list-item-content>
                     <!-- <v-list-item-content class="assesment">
                       <div class="font-weight-bold">{{client.assesment_price.client_shop.like_count}}</div>
