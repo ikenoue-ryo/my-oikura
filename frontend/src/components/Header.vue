@@ -62,12 +62,17 @@
                 </v-btn>
               </template>
               <v-list>
-                <v-list-item
-                  v-for="(item, index) in items"
-                  :key="index"
-                  :to="item.link"
-                >
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <v-list-item v-if="!isLoggedIn" href="/login">
+                  <v-list-item-title>ログイン</v-list-item-title>
+                </v-list-item>
+                <v-list-item v-if="isLoggedIn" href="/mypage">
+                  <v-list-item-title>マイページ</v-list-item-title>
+                </v-list-item>
+                <v-list-item v-if="isLoggedIn" href="/client/shop">
+                  <v-list-item-title>店舗ページ</v-list-item-title>
+                </v-list-item>
+                <v-list-item v-if="isLoggedIn" href="/login" @click="clickLogout">
+                  <v-list-item-title>ログアウト</v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -136,12 +141,12 @@
         bars: [
           { class: '', dark: true },
         ],
-        items: [
-          { title: 'ログイン', link: "/login" },
-          { title: 'マイページ', link: "/mypage" },
-          { title: '店舗ページ', link: "/client/shop" },
-          { title: 'ログアウト', link: "/logout" },
-        ],
+        // items: [
+        //   { title: 'ログイン', link: "/login" },
+        //   { title: 'マイページ', link: "/mypage" },
+        //   { title: '店舗ページ', link: "/client/shop" },
+        //   { title: 'ログアウト', link: "/logout" },
+        // ],
         menus: [
           { title: '査定依頼', link: "/offer-form", icon: "mdi-auto-fix"},
           { title: '店舗を探す', link: "/client-shop-search", icon: "mdi-magnify" },
@@ -155,7 +160,7 @@
     methods: {
       clickLogout() {
         this.$store.dispatch('auth/logout')
-        this.$router.replace('/login')
+        this.$router.redirect({path: '/login'})
       }
     },
     mounted(){
@@ -166,6 +171,11 @@
       .then(response => this.mypage = response.data)
       .catch(error => console.log(error));
     },
+    computed: {
+      isLoggedIn(){
+        return this.$store.getters['auth/isLoggedIn']
+      },
+    }
   }
 </script>
 

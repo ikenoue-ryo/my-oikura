@@ -1,0 +1,2770 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2021-11-03T13:20:05.808Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "1",
+      "object_repr": "Ryo",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2021-11-03T13:20:21.146Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "2",
+      "object_repr": "",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2021-11-03T13:20:25.927Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "2",
+      "object_repr": "Takuya",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2021-11-03T13:20:39.537Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "3",
+      "object_repr": "",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2021-11-03T13:20:42.877Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "3",
+      "object_repr": "Kou",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2021-11-03T13:21:00.674Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "4",
+      "object_repr": "",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2021-11-03T13:21:04.297Z",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "4",
+      "object_repr": "Tahara",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2021-11-03T14:29:44.269Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "1",
+      "object_repr": "いけちゃん",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2021-11-03T14:30:03.931Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "2",
+      "object_repr": "たくちゃん",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2021-11-03T14:30:34.223Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "3",
+      "object_repr": "こう",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2021-11-03T14:30:54.337Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "4",
+      "object_repr": "たはら",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2021-11-03T14:36:52.524Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "ID: 1　Name:Ryoのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2021-11-03T14:37:37.103Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "2",
+      "object_repr": "ID: 2　Name:Kouのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2021-11-03T14:38:44.133Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "3",
+      "object_repr": "ID: 3　Name:たくちゃんのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2021-11-03T14:39:34.455Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "ID: 4　Name:田原のお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2021-11-03T14:44:27.480Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "1",
+      "object_repr": "フィット",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2021-11-03T14:44:31.502Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "1",
+      "object_repr": "フィット",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2021-11-03T14:45:56.881Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "2",
+      "object_repr": "レクサス",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2021-11-03T14:46:00.433Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "2",
+      "object_repr": "レクサス",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2021-11-03T14:46:34.299Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "3",
+      "object_repr": "N-BOX",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2021-11-03T14:46:38.016Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "3",
+      "object_repr": "N-BOX",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2021-11-03T14:47:22.818Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "4",
+      "object_repr": "アクア",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2021-11-03T14:47:26.334Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "4",
+      "object_repr": "アクア",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2021-11-03T14:48:05.280Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "5",
+      "object_repr": "MAZDA",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2021-11-03T14:48:09.606Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "5",
+      "object_repr": "マツダ CX-5",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2021-11-03T14:48:39.689Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "1",
+      "object_repr": "Like object (1)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2021-11-03T14:48:43.391Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "2",
+      "object_repr": "Like object (2)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2021-11-03T14:48:49.156Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "3",
+      "object_repr": "Like object (3)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2021-11-03T14:48:53.468Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "4",
+      "object_repr": "Like object (4)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2021-11-03T14:48:57.074Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "5",
+      "object_repr": "Like object (5)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2021-11-03T14:49:03.347Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "6",
+      "object_repr": "Like object (6)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2021-11-03T14:49:07.447Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "7",
+      "object_repr": "Like object (7)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2021-11-03T14:49:12.551Z",
+      "user": 1,
+      "content_type": 18,
+      "object_id": "8",
+      "object_repr": "Like object (8)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2021-11-03T15:04:48.364Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "1",
+      "object_repr": "めっちゃよかったです！",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2021-11-03T15:05:08.292Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "2",
+      "object_repr": "店長！ありがとな！",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2021-11-03T15:05:19.747Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "3",
+      "object_repr": "よかったです！",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2021-11-03T15:05:37.967Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "4",
+      "object_repr": "買取金額、最高だったよ",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+      "action_time": "2021-11-03T15:05:54.585Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "5",
+      "object_repr": "まぁまぁだね",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+      "action_time": "2021-11-03T15:06:06.075Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "6",
+      "object_repr": "微妙",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+      "action_time": "2021-11-03T15:06:17.176Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "7",
+      "object_repr": "よかったっす",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+      "action_time": "2021-11-03T15:06:32.500Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "8",
+      "object_repr": "金額が高かったです！ありがとう",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+      "action_time": "2021-11-03T15:06:48.638Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "9",
+      "object_repr": "もう少しです！",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+      "action_time": "2021-11-03T15:07:06.040Z",
+      "user": 1,
+      "content_type": 13,
+      "object_id": "10",
+      "object_repr": "ランドクルーザーびみょうでした",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+      "action_time": "2021-11-03T15:10:53.751Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "1",
+      "object_repr": "Ryo 2021/11/04 10:00:00 ~",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+      "action_time": "2021-11-03T15:11:27.430Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "2",
+      "object_repr": "たくちゃん 2021/11/06 12:00:00 ~",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+      "action_time": "2021-11-03T15:12:02.214Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "3",
+      "object_repr": "山本 2021/11/25 13:00:00 ~",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+      "action_time": "2021-11-03T15:12:40.171Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "4",
+      "object_repr": "たはらです！お願いします 2021/11/11 10:00:00 ~",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2021-11-03T15:16:26.577Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "1",
+      "object_repr": "ClientPr object (1)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+      "action_time": "2021-11-03T15:16:41.028Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "2",
+      "object_repr": "ClientPr object (2)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+      "action_time": "2021-11-03T15:17:04.665Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "3",
+      "object_repr": "ClientPr object (3)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+      "action_time": "2021-11-03T15:17:38.762Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "4",
+      "object_repr": "ClientPr object (4)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+      "action_time": "2021-11-03T15:18:10.244Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "1",
+      "object_repr": "こんにちは！よろしくねRyoさん",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+      "action_time": "2021-11-03T15:18:40.898Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "2",
+      "object_repr": "元気？田原です",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+      "action_time": "2021-11-03T15:19:32.189Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "3",
+      "object_repr": "ryoです。げんき？",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+      "action_time": "2021-11-03T15:19:42.585Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "4",
+      "object_repr": "Hello",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+      "action_time": "2021-11-03T15:19:58.817Z",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "5",
+      "object_repr": "ryoさん、元気ですか？？",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+      "action_time": "2021-11-03T15:20:39.177Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "1",
+      "object_repr": "HONDA",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+      "action_time": "2021-11-03T15:20:40.664Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "フィット",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+      "action_time": "2021-11-03T15:21:14.600Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "2",
+      "object_repr": "TOYOTA",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+      "action_time": "2021-11-03T15:21:16.169Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "レクサス",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+      "action_time": "2021-11-03T15:21:49.998Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "3",
+      "object_repr": "N-BOX",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+      "action_time": "2021-11-03T15:22:19.304Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "4",
+      "object_repr": "アルファード",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+      "action_time": "2021-11-03T15:22:40.737Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "3",
+      "object_repr": "MAZDA",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+      "action_time": "2021-11-03T15:22:42.279Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "5",
+      "object_repr": "CX-5",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+      "action_time": "2021-11-03T15:22:58.727Z",
+      "user": 1,
+      "content_type": 19,
+      "object_id": "4",
+      "object_repr": "others",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+      "action_time": "2021-11-03T15:23:01.450Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "6",
+      "object_repr": "ALL",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+      "action_time": "2021-11-03T15:23:15.364Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "フィット 990000円 ID: 1　Name:Ryoのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+      "action_time": "2021-11-03T15:23:24.045Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "レクサス 1000000円 ID: 2　Name:Kouのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+      "action_time": "2021-11-03T15:23:31.140Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "N-BOX 500000円 ID: 2　Name:Kouのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+      "action_time": "2021-11-03T15:23:41.841Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "マツダ CX-5 660000円 ID: 2　Name:Kouのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+      "action_time": "2021-11-03T15:23:51.832Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "5",
+      "object_repr": "アクア 1200000円 ID: 3　Name:たくちゃんのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+      "action_time": "2021-11-03T15:24:01.639Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "6",
+      "object_repr": "N-BOX 320000円 ID: 2　Name:Kouのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+      "action_time": "2021-11-03T15:24:12.160Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "7",
+      "object_repr": "アクア 800000円 ID: 1　Name:Ryoのお店",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+      "action_time": "2021-11-03T16:03:34.107Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "ID: 4　Name:田原のお店",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Img\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+      "action_time": "2021-11-03T16:03:53.934Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "ID: 4　Name:田原のお店",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Img\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+      "action_time": "2021-11-03T22:13:34.412Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "ID: 1　Name:Ryoのお店",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Prefectures\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+      "action_time": "2021-11-03T22:15:29.603Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "1",
+      "object_repr": "ID: 1　Name:Ryoのお店",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+      "action_time": "2021-11-03T22:19:39.921Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "3",
+      "object_repr": "ID: 3　Name:たくちゃんのお店",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Prefectures\", \"Place\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+      "action_time": "2021-11-03T22:19:53.334Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "2",
+      "object_repr": "ID: 2　Name:Kouのお店",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u90f5\\u4fbf\\u756a\\u53f7\", \"Prefectures\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+      "action_time": "2021-11-03T22:20:10.451Z",
+      "user": 1,
+      "content_type": 10,
+      "object_id": "4",
+      "object_repr": "ID: 4　Name:田原のお店",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Prefectures\"]}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 6,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 6,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 6,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 6,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add assesment price",
+      "content_type": 7,
+      "codename": "add_assesmentprice"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change assesment price",
+      "content_type": 7,
+      "codename": "change_assesmentprice"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete assesment price",
+      "content_type": 7,
+      "codename": "delete_assesmentprice"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view assesment price",
+      "content_type": 7,
+      "codename": "view_assesmentprice"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add car",
+      "content_type": 8,
+      "codename": "add_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change car",
+      "content_type": 8,
+      "codename": "change_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete car",
+      "content_type": 8,
+      "codename": "delete_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view car",
+      "content_type": 8,
+      "codename": "view_car"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add category",
+      "content_type": 9,
+      "codename": "add_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change category",
+      "content_type": 9,
+      "codename": "change_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete category",
+      "content_type": 9,
+      "codename": "delete_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view category",
+      "content_type": 9,
+      "codename": "view_category"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add client shop",
+      "content_type": 10,
+      "codename": "add_clientshop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change client shop",
+      "content_type": 10,
+      "codename": "change_clientshop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete client shop",
+      "content_type": 10,
+      "codename": "delete_clientshop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view client shop",
+      "content_type": 10,
+      "codename": "view_clientshop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add user info",
+      "content_type": 11,
+      "codename": "add_userinfo"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change user info",
+      "content_type": 11,
+      "codename": "change_userinfo"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete user info",
+      "content_type": 11,
+      "codename": "delete_userinfo"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view user info",
+      "content_type": 11,
+      "codename": "view_userinfo"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add visit reservation",
+      "content_type": 12,
+      "codename": "add_visitreservation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change visit reservation",
+      "content_type": 12,
+      "codename": "change_visitreservation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete visit reservation",
+      "content_type": 12,
+      "codename": "delete_visitreservation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view visit reservation",
+      "content_type": 12,
+      "codename": "view_visitreservation"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add shop review",
+      "content_type": 13,
+      "codename": "add_shopreview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change shop review",
+      "content_type": 13,
+      "codename": "change_shopreview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete shop review",
+      "content_type": 13,
+      "codename": "delete_shopreview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view shop review",
+      "content_type": 13,
+      "codename": "view_shopreview"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add profile",
+      "content_type": 14,
+      "codename": "add_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change profile",
+      "content_type": 14,
+      "codename": "change_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete profile",
+      "content_type": 14,
+      "codename": "delete_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view profile",
+      "content_type": 14,
+      "codename": "view_profile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add offer",
+      "content_type": 15,
+      "codename": "add_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change offer",
+      "content_type": 15,
+      "codename": "change_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete offer",
+      "content_type": 15,
+      "codename": "delete_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view offer",
+      "content_type": 15,
+      "codename": "view_offer"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add client pr",
+      "content_type": 16,
+      "codename": "add_clientpr"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change client pr",
+      "content_type": 16,
+      "codename": "change_clientpr"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete client pr",
+      "content_type": 16,
+      "codename": "delete_clientpr"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view client pr",
+      "content_type": 16,
+      "codename": "view_clientpr"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add client message",
+      "content_type": 17,
+      "codename": "add_clientmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change client message",
+      "content_type": 17,
+      "codename": "change_clientmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete client message",
+      "content_type": 17,
+      "codename": "delete_clientmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view client message",
+      "content_type": 17,
+      "codename": "view_clientmessage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+      "name": "Can add like",
+      "content_type": 18,
+      "codename": "add_like"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+      "name": "Can change like",
+      "content_type": 18,
+      "codename": "change_like"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+      "name": "Can delete like",
+      "content_type": 18,
+      "codename": "delete_like"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+      "name": "Can view like",
+      "content_type": 18,
+      "codename": "view_like"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+      "name": "Can add brand",
+      "content_type": 19,
+      "codename": "add_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+      "name": "Can change brand",
+      "content_type": 19,
+      "codename": "change_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+      "name": "Can delete brand",
+      "content_type": 19,
+      "codename": "delete_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+      "name": "Can view brand",
+      "content_type": 19,
+      "codename": "view_brand"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 20,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 20,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 20,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 20,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+      "name": "Can add token",
+      "content_type": 21,
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+      "name": "Can change token",
+      "content_type": 21,
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+      "name": "Can delete token",
+      "content_type": 21,
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+      "name": "Can view token",
+      "content_type": 21,
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "myapp",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "myapp",
+      "model": "assesmentprice"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "myapp",
+      "model": "car"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "myapp",
+      "model": "category"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "myapp",
+      "model": "clientshop"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "myapp",
+      "model": "userinfo"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "myapp",
+      "model": "visitreservation"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "myapp",
+      "model": "shopreview"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "myapp",
+      "model": "profile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "myapp",
+      "model": "offer"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "myapp",
+      "model": "clientpr"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "myapp",
+      "model": "clientmessage"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "myapp",
+      "model": "like"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "myapp",
+      "model": "brand"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "token"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "tokenproxy"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "b5e6jus699bpqumbrmkyih82e7b9pdz4",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hCg4IBL9z0DYZhBqoYmpV0Z765NutDtf-_9l4hpW2vcOi9xInERWpx-N0z5wW0HdE_tNss8t3WZUO6KPGiX40z8vB7u30FNvX7rzFgMOdDgC-QAAbRSAKBSZmeKs-asBkUMlkLgwZHxHpW1iBhcRhTvD9cJN7E:1miGBC:kp7_K7XMqXNEbYtR-G6ewCy1VhSMacCPVqx6cbNtAPw",
+      "expire_date": "2021-11-17T13:19:50.965Z"
+    }
+  },
+  {
+    "model": "myapp.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$zFidfUC2saQqi7ACrKTXUr$0UbyORVIdmTADBPWwfm/Divf92+g0+6IOyMnZGlBiqo=",
+      "last_login": "2021-11-03T13:19:50Z",
+      "is_superuser": true,
+      "email": "ryo@gmail.com",
+      "name": "Ryo",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "myapp.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$QrDZGjTGfdGuXImvRpEjxS$GjU2mGm1Q6SVtrTslU/Uiy1Shp/1oj3SJdiFHOcGrqA=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "takuya@gmail.com",
+      "name": "Takuya",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "myapp.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$rpIbVA38HG8zWjquDBrDMV$1uNA/XNKiDigFVhznBQdEKe2huoy3NZFQwcQPKgmLwM=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "kou@gmail.com",
+      "name": "Kou",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "myapp.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$DwI8on6DhaYd43CG9hFep3$S/6jLCvB38qQzHGTjvMu6D+/qIh87GBKzldYLiVjKIA=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "tahara@gmail.com",
+      "name": "Tahara",
+      "is_active": true,
+      "is_staff": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "myapp.profile",
+    "pk": 1,
+    "fields": {
+      "nickname": "いけちゃん",
+      "user": 1,
+      "created_on": "2021-11-03T14:29:44.262Z",
+      "img": "static/m1.jpeg",
+      "postal_code": "1300011"
+    }
+  },
+  {
+    "model": "myapp.profile",
+    "pk": 2,
+    "fields": {
+      "nickname": "たくちゃん",
+      "user": 2,
+      "created_on": "2021-11-03T14:30:03.924Z",
+      "img": "static/m2.jpeg",
+      "postal_code": "8120011"
+    }
+  },
+  {
+    "model": "myapp.profile",
+    "pk": 3,
+    "fields": {
+      "nickname": "こう",
+      "user": 3,
+      "created_on": "2021-11-03T14:30:34.216Z",
+      "img": "static/redman.png",
+      "postal_code": "1310012"
+    }
+  },
+  {
+    "model": "myapp.profile",
+    "pk": 4,
+    "fields": {
+      "nickname": "たはら",
+      "user": 4,
+      "created_on": "2021-11-03T14:30:54.331Z",
+      "img": "static/batman.png",
+      "postal_code": "1200011"
+    }
+  },
+  {
+    "model": "myapp.category",
+    "pk": 1,
+    "fields": {
+      "name": "フィット"
+    }
+  },
+  {
+    "model": "myapp.category",
+    "pk": 2,
+    "fields": {
+      "name": "レクサス"
+    }
+  },
+  {
+    "model": "myapp.category",
+    "pk": 3,
+    "fields": {
+      "name": "N-BOX"
+    }
+  },
+  {
+    "model": "myapp.category",
+    "pk": 4,
+    "fields": {
+      "name": "アクア"
+    }
+  },
+  {
+    "model": "myapp.category",
+    "pk": 5,
+    "fields": {
+      "name": "MAZDA"
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 1,
+    "fields": {
+      "value": 990000,
+      "offer": 1,
+      "client_shop": 1
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 2,
+    "fields": {
+      "value": 1000000,
+      "offer": 2,
+      "client_shop": 2
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 3,
+    "fields": {
+      "value": 500000,
+      "offer": 3,
+      "client_shop": 2
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 4,
+    "fields": {
+      "value": 660000,
+      "offer": 5,
+      "client_shop": 2
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 5,
+    "fields": {
+      "value": 1200000,
+      "offer": 4,
+      "client_shop": 3
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 6,
+    "fields": {
+      "value": 320000,
+      "offer": 3,
+      "client_shop": 2
+    }
+  },
+  {
+    "model": "myapp.assesmentprice",
+    "pk": 7,
+    "fields": {
+      "value": 800000,
+      "offer": 4,
+      "client_shop": 1
+    }
+  },
+  {
+    "model": "myapp.offer",
+    "pk": 1,
+    "fields": {
+      "item_name": "フィット",
+      "item_date": "2019",
+      "image": "images/fit_YcnefZd.png",
+      "grade": "S",
+      "model_year": 2019,
+      "mileage": 1000,
+      "created_at": "2021-11-03T14:44:31.500Z",
+      "updated_at": "2021-11-03T14:44:31.500Z",
+      "category": 1,
+      "profile": 1
+    }
+  },
+  {
+    "model": "myapp.offer",
+    "pk": 2,
+    "fields": {
+      "item_name": "レクサス",
+      "item_date": "2022",
+      "image": "images/lexus_m2VeoWj.png",
+      "grade": "G",
+      "model_year": 2022,
+      "mileage": 3000,
+      "created_at": "2021-11-03T14:46:00.431Z",
+      "updated_at": "2021-11-03T14:46:00.431Z",
+      "category": 2,
+      "profile": 2
+    }
+  },
+  {
+    "model": "myapp.offer",
+    "pk": 3,
+    "fields": {
+      "item_name": "N-BOX",
+      "item_date": "2011",
+      "image": "images/n-box_x6eIJCE.jpeg",
+      "grade": "GB",
+      "model_year": 2015,
+      "mileage": 11000,
+      "created_at": "2021-11-03T14:46:38.015Z",
+      "updated_at": "2021-11-03T14:46:38.015Z",
+      "category": 3,
+      "profile": 3
+    }
+  },
+  {
+    "model": "myapp.offer",
+    "pk": 4,
+    "fields": {
+      "item_name": "アクア",
+      "item_date": "2015",
+      "image": "",
+      "grade": "GB",
+      "model_year": 2000,
+      "mileage": 3000,
+      "created_at": "2021-11-03T14:47:26.333Z",
+      "updated_at": "2021-11-03T14:47:26.333Z",
+      "category": 4,
+      "profile": 4
+    }
+  },
+  {
+    "model": "myapp.offer",
+    "pk": 5,
+    "fields": {
+      "item_name": "マツダ CX-5",
+      "item_date": "2011",
+      "image": "",
+      "grade": "SSS",
+      "model_year": 2014,
+      "mileage": 3500,
+      "created_at": "2021-11-03T14:48:09.605Z",
+      "updated_at": "2021-11-03T14:48:09.605Z",
+      "category": 5,
+      "profile": 2
+    }
+  },
+  {
+    "model": "myapp.clientshop",
+    "pk": 1,
+    "fields": {
+      "name": "Ryoのお店",
+      "kana": "リョウノオミセ",
+      "img": "collectstatic/d1.jpeg",
+      "manager": "ryo社長",
+      "tel": "08091074765",
+      "email": "ryo@gmail.com",
+      "postal_code": "1300011",
+      "prefectures": "tokyo",
+      "place": "アルカキット錦糸町店",
+      "user": 1,
+      "assesment_price": null,
+      "like_count": 100,
+      "created_on": "2021-11-03T14:36:52.523Z"
+    }
+  },
+  {
+    "model": "myapp.clientshop",
+    "pk": 2,
+    "fields": {
+      "name": "Kouのお店",
+      "kana": "コウノオミセ",
+      "img": "collectstatic/d3.jpeg",
+      "manager": "山本",
+      "tel": "08065412457",
+      "email": "kou@gmail.com",
+      "postal_code": "1300001",
+      "prefectures": "tokyo",
+      "place": "東京都中央区",
+      "user": 3,
+      "assesment_price": null,
+      "like_count": 15,
+      "created_on": "2021-11-03T14:37:37.102Z"
+    }
+  },
+  {
+    "model": "myapp.clientshop",
+    "pk": 3,
+    "fields": {
+      "name": "たくちゃんのお店",
+      "kana": "タクチャンノオミセ",
+      "img": "collectstatic/d4.jpeg",
+      "manager": "たくちゃん",
+      "tel": "08012345678",
+      "email": "takuya@gmail.com",
+      "postal_code": "8120001",
+      "prefectures": "chiba",
+      "place": "船橋市",
+      "user": 2,
+      "assesment_price": null,
+      "like_count": 99,
+      "created_on": "2021-11-03T14:38:44.132Z"
+    }
+  },
+  {
+    "model": "myapp.clientshop",
+    "pk": 4,
+    "fields": {
+      "name": "田原のお店",
+      "kana": "タハラノオミセ",
+      "img": "collectstatic/toyotashop.jpeg",
+      "manager": "田原こうたろう",
+      "tel": "0120123456",
+      "email": "tahara@gmail.com",
+      "postal_code": "1121234",
+      "prefectures": "tokyo",
+      "place": "東京都葛飾区",
+      "user": 4,
+      "assesment_price": null,
+      "like_count": 999,
+      "created_on": "2021-11-03T14:39:34.454Z"
+    }
+  },
+  {
+    "model": "myapp.clientmessage",
+    "pk": 1,
+    "fields": {
+      "message": "こんにちは！よろしくねRyoさん",
+      "sender": 2,
+      "sender_profile": 2,
+      "receiver_profile": 1,
+      "created_at": "2021-11-03T15:18:10.243Z",
+      "updated_at": "2021-11-03T15:18:10.243Z"
+    }
+  },
+  {
+    "model": "myapp.clientmessage",
+    "pk": 2,
+    "fields": {
+      "message": "元気？田原です",
+      "sender": 4,
+      "sender_profile": 4,
+      "receiver_profile": 1,
+      "created_at": "2021-11-03T15:18:40.897Z",
+      "updated_at": "2021-11-03T15:18:40.897Z"
+    }
+  },
+  {
+    "model": "myapp.clientmessage",
+    "pk": 3,
+    "fields": {
+      "message": "ryoです。げんき？",
+      "sender": 3,
+      "sender_profile": 3,
+      "receiver_profile": 1,
+      "created_at": "2021-11-03T15:19:32.188Z",
+      "updated_at": "2021-11-03T15:19:32.188Z"
+    }
+  },
+  {
+    "model": "myapp.clientmessage",
+    "pk": 4,
+    "fields": {
+      "message": "Hello",
+      "sender": 4,
+      "sender_profile": 4,
+      "receiver_profile": 2,
+      "created_at": "2021-11-03T15:19:42.584Z",
+      "updated_at": "2021-11-03T15:19:42.584Z"
+    }
+  },
+  {
+    "model": "myapp.clientmessage",
+    "pk": 5,
+    "fields": {
+      "message": "ryoさん、元気ですか？？",
+      "sender": 3,
+      "sender_profile": 3,
+      "receiver_profile": 1,
+      "created_at": "2021-11-03T15:19:58.816Z",
+      "updated_at": "2021-11-03T15:19:58.816Z"
+    }
+  },
+  {
+    "model": "myapp.brand",
+    "pk": 1,
+    "fields": {
+      "name": "HONDA"
+    }
+  },
+  {
+    "model": "myapp.brand",
+    "pk": 2,
+    "fields": {
+      "name": "TOYOTA"
+    }
+  },
+  {
+    "model": "myapp.brand",
+    "pk": 3,
+    "fields": {
+      "name": "MAZDA"
+    }
+  },
+  {
+    "model": "myapp.brand",
+    "pk": 4,
+    "fields": {
+      "name": "others"
+    }
+  },
+  {
+    "model": "myapp.car",
+    "pk": 1,
+    "fields": {
+      "name": "フィット",
+      "image": "",
+      "brand": 1
+    }
+  },
+  {
+    "model": "myapp.car",
+    "pk": 2,
+    "fields": {
+      "name": "レクサス",
+      "image": "images/lexus_o6Flixy.png",
+      "brand": 2
+    }
+  },
+  {
+    "model": "myapp.car",
+    "pk": 3,
+    "fields": {
+      "name": "N-BOX",
+      "image": "images/タント.jpeg",
+      "brand": 1
+    }
+  },
+  {
+    "model": "myapp.car",
+    "pk": 4,
+    "fields": {
+      "name": "アルファード",
+      "image": "images/alphard.png",
+      "brand": 2
+    }
+  },
+  {
+    "model": "myapp.car",
+    "pk": 5,
+    "fields": {
+      "name": "CX-5",
+      "image": "images/mazda_eKWksGE.png",
+      "brand": 3
+    }
+  },
+  {
+    "model": "myapp.car",
+    "pk": 6,
+    "fields": {
+      "name": "ALL",
+      "image": "images/all.jpeg",
+      "brand": 4
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 1,
+    "fields": {
+      "client_shop": 1,
+      "comment": "めっちゃよかったです！",
+      "score": 5,
+      "profile": 3,
+      "created_at": "2021-11-03T15:04:48.363Z",
+      "updated_at": "2021-11-03T15:04:48.363Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 2,
+    "fields": {
+      "client_shop": 1,
+      "comment": "店長！ありがとな！",
+      "score": 4,
+      "profile": 2,
+      "created_at": "2021-11-03T15:05:08.291Z",
+      "updated_at": "2021-11-03T15:05:08.291Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 3,
+    "fields": {
+      "client_shop": 1,
+      "comment": "よかったです！",
+      "score": 4,
+      "profile": 3,
+      "created_at": "2021-11-03T15:05:19.746Z",
+      "updated_at": "2021-11-03T15:05:19.746Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 4,
+    "fields": {
+      "client_shop": 1,
+      "comment": "買取金額、最高だったよ",
+      "score": 5,
+      "profile": 4,
+      "created_at": "2021-11-03T15:05:37.967Z",
+      "updated_at": "2021-11-03T15:05:37.967Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 5,
+    "fields": {
+      "client_shop": 2,
+      "comment": "まぁまぁだね",
+      "score": 3,
+      "profile": 1,
+      "created_at": "2021-11-03T15:05:54.584Z",
+      "updated_at": "2021-11-03T15:05:54.584Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 6,
+    "fields": {
+      "client_shop": 2,
+      "comment": "微妙",
+      "score": 2,
+      "profile": 2,
+      "created_at": "2021-11-03T15:06:06.074Z",
+      "updated_at": "2021-11-03T15:06:06.074Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 7,
+    "fields": {
+      "client_shop": 3,
+      "comment": "よかったっす",
+      "score": 5,
+      "profile": 2,
+      "created_at": "2021-11-03T15:06:17.175Z",
+      "updated_at": "2021-11-03T15:06:17.175Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 8,
+    "fields": {
+      "client_shop": 3,
+      "comment": "金額が高かったです！ありがとう",
+      "score": 5,
+      "profile": 4,
+      "created_at": "2021-11-03T15:06:32.499Z",
+      "updated_at": "2021-11-03T15:06:32.499Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 9,
+    "fields": {
+      "client_shop": 4,
+      "comment": "もう少しです！",
+      "score": 3,
+      "profile": 1,
+      "created_at": "2021-11-03T15:06:48.637Z",
+      "updated_at": "2021-11-03T15:06:48.637Z"
+    }
+  },
+  {
+    "model": "myapp.shopreview",
+    "pk": 10,
+    "fields": {
+      "client_shop": 4,
+      "comment": "ランドクルーザーびみょうでした",
+      "score": 3,
+      "profile": 2,
+      "created_at": "2021-11-03T15:07:06.039Z",
+      "updated_at": "2021-11-03T15:07:06.039Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 1,
+    "fields": {
+      "client_shop": 1,
+      "profile": 2,
+      "created_at": "2021-11-03T14:48:39.689Z",
+      "updated_at": "2021-11-03T14:48:39.689Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 2,
+    "fields": {
+      "client_shop": 2,
+      "profile": 1,
+      "created_at": "2021-11-03T14:48:43.390Z",
+      "updated_at": "2021-11-03T14:48:43.390Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 3,
+    "fields": {
+      "client_shop": 3,
+      "profile": 3,
+      "created_at": "2021-11-03T14:48:49.156Z",
+      "updated_at": "2021-11-03T14:48:49.156Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 4,
+    "fields": {
+      "client_shop": 4,
+      "profile": 1,
+      "created_at": "2021-11-03T14:48:53.467Z",
+      "updated_at": "2021-11-03T14:48:53.467Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 5,
+    "fields": {
+      "client_shop": 2,
+      "profile": 4,
+      "created_at": "2021-11-03T14:48:57.073Z",
+      "updated_at": "2021-11-03T14:48:57.073Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 6,
+    "fields": {
+      "client_shop": 1,
+      "profile": 4,
+      "created_at": "2021-11-03T14:49:03.346Z",
+      "updated_at": "2021-11-03T14:49:03.346Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 7,
+    "fields": {
+      "client_shop": 2,
+      "profile": 2,
+      "created_at": "2021-11-03T14:49:07.446Z",
+      "updated_at": "2021-11-03T14:49:07.446Z"
+    }
+  },
+  {
+    "model": "myapp.like",
+    "pk": 8,
+    "fields": {
+      "client_shop": 3,
+      "profile": 1,
+      "created_at": "2021-11-03T14:49:12.550Z",
+      "updated_at": "2021-11-03T14:49:12.550Z"
+    }
+  },
+  {
+    "model": "myapp.visitreservation",
+    "pk": 1,
+    "fields": {
+      "start": "2021-11-04T01:00:00Z",
+      "name": "Ryo",
+      "tel": "08012345678",
+      "email": "ryo@gmail.com",
+      "comment": "ryoです。いろんな車みたいです",
+      "reservation_shop": 2
+    }
+  },
+  {
+    "model": "myapp.visitreservation",
+    "pk": 2,
+    "fields": {
+      "start": "2021-11-06T03:00:00Z",
+      "name": "たくちゃん",
+      "tel": "08012346548",
+      "email": "takuya@gmail.com",
+      "comment": "takuyaです！いつも行きます！めっちゃいい店舗です",
+      "reservation_shop": 1
+    }
+  },
+  {
+    "model": "myapp.visitreservation",
+    "pk": 3,
+    "fields": {
+      "start": "2021-11-25T04:00:00Z",
+      "name": "山本",
+      "tel": "07012365125",
+      "email": "kou@gmail.com",
+      "comment": "お願いします",
+      "reservation_shop": 4
+    }
+  },
+  {
+    "model": "myapp.visitreservation",
+    "pk": 4,
+    "fields": {
+      "start": "2021-11-11T01:00:00Z",
+      "name": "たはらです！お願いします",
+      "tel": "080654125412",
+      "email": "takuya@gmail.com",
+      "comment": "よろしくです",
+      "reservation_shop": 2
+    }
+  },
+  {
+    "model": "myapp.clientpr",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "client_shop": 1,
+      "text": "当店は非常にいい店舗です",
+      "img": "static/toyota2_kC0Q0Bd.jpeg",
+      "created_at": "2021-11-03T15:16:26.576Z",
+      "updated_at": "2021-11-03T15:16:26.576Z"
+    }
+  },
+  {
+    "model": "myapp.clientpr",
+    "pk": 2,
+    "fields": {
+      "author": 2,
+      "client_shop": 3,
+      "text": "こんにちは！たくやです！当店をよろしくお願いしますね！",
+      "img": "static/gu_3bxKsM5.jpeg",
+      "created_at": "2021-11-03T15:16:41.027Z",
+      "updated_at": "2021-11-03T15:16:41.027Z"
+    }
+  },
+  {
+    "model": "myapp.clientpr",
+    "pk": 3,
+    "fields": {
+      "author": 3,
+      "client_shop": 2,
+      "text": "こんにちは！Kouです！当店をよろしくお願いしますね！",
+      "img": "static/nnextage.jpeg",
+      "created_at": "2021-11-03T15:17:04.664Z",
+      "updated_at": "2021-11-03T15:17:04.664Z"
+    }
+  },
+  {
+    "model": "myapp.clientpr",
+    "pk": 4,
+    "fields": {
+      "author": 4,
+      "client_shop": 4,
+      "text": "田原です！車うります！",
+      "img": "static/toyotashop.jpeg",
+      "created_at": "2021-11-03T15:17:38.761Z",
+      "updated_at": "2021-11-03T15:17:38.761Z"
+    }
+  }
+]

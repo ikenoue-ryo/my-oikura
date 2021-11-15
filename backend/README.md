@@ -17,9 +17,11 @@
 # 開発環境でDocker起動（MySQL）
 - docker-compose down -v
 - docker-compose up -d
-- アクセスURL: localhost:8000
 <!-- 自動実行
 - docker-compose exec web python manage.py migrate --noinput --settings=restapi.settings.local -->
+- docker-compose exec web python manage.py createsuperuser
+- docker-compose exec web python manage.py loaddata fixtures/all.json
+- アクセスURL: localhost:8000
 
 # 開発環境（SQLite3）
 - pip env install
